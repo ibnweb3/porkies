@@ -63,6 +63,13 @@ section("1. page loads cleanly");
   await ok("browser-safety headers are sent with the page and the API", async () => {
     for (const path of ["", "api/status"]) { const h = (await page.request.get(BASE + path)).headers(); eq(h["x-content-type-options"], "nosniff", path); eq(h["x-frame-options"], "DENY", path); truthy(h["referrer-policy"], "referrer-policy " + path); truthy(/camera=\(\)/.test(h["permissions-policy"] || ""), "permissions-policy " + path); }
   });
+  await ok("the demo video link works and is a real MP4", async () => {
+    const href = await page.getAttribute("a.cta2", "href"); eq(await page.getAttribute("a.cta2", "target"), "_blank"); truthy(/noopener/.test(await page.getAttribute("a.cta2", "rel")), "noopener");
+    const r = await page.request.get(new URL(href, BASE).href, { headers: { range: "bytes=0-1023" }, timeout: 180000 }); truthy([200, 206].includes(r.status()), "video status " + r.status());
+    truthy(/video\/mp4/.test(r.headers()["content-type"] || ""), "content type " + r.headers()["content-type"]);
+    const total = Number((r.headers()["content-range"] || "").split("/")[1] || r.headers()["content-length"] || 0); truthy(total > 1e6, "video size " + total);
+    const head = (await r.body()).subarray(4, 8).toString("latin1"); eq(head, "ftyp", "not an MP4 container");
+  });
   await ok("template and unknown routes are not public", async () => { eq((await page.request.get(BASE + "template.html")).status(), 404); eq((await page.request.get(BASE + "_headers")).status(), 404); eq((await page.request.get(BASE + "src/live.ts")).status(), 404); eq((await page.request.get(BASE + "../.env")).status(), 404); eq((await page.request.get(BASE + "%2e%2e/.env")).status(), 404); });
   await ctx.close();
 }

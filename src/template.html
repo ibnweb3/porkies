@@ -180,6 +180,11 @@ details.claim .body h3{font-size:12px;letter-spacing:.08em;text-transform:upperc
 .final{border-radius:18px;padding:16px 18px;font-weight:600;font-size:16px;line-height:1.45}
 .final.ok{background:var(--tealbg);color:var(--teal)}.final.bad{background:var(--coralbg);color:var(--coral)}.final.warn{background:var(--amberbg);color:var(--amber)}
 .chip2{display:inline-block;padding:3px 12px;border-radius:999px;font-weight:700;font-size:13px;margin-right:8px}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.top .cta2{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 20px 0 16px;border-radius:999px;color:#f1f4f5;text-decoration:none;font-weight:600;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.3);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.cta2 svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.top .cta2:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(255,255,255,.7)}
+@media (hover:hover){.top .cta2:hover{background:rgba(255,255,255,.26)}}
 </style>
 </head>
 <body>
@@ -202,7 +207,7 @@ details.claim .body h3{font-size:12px;letter-spacing:.08em;text-transform:upperc
   <div>
     <h1>Can an AI spot a <em>misleading</em> property ad?</h1>
     <p class="lede">Property ads promise big returns and savings. The UK advertising watchdog has already ruled on many of them. We gave <span class="num" id="nItems">24</span> of those claims to an AI and checked: does it agree with the watchdog?</p>
-    <a class="cta" href="#try">Try it yourself</a>
+    <div class="ctas"><a class="cta" href="#try">Try it yourself</a><a class="cta2" href="demo.mp4" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5l12 7.5-12 7.5z"/></svg>Watch the 2-minute demo</a></div>
   </div>
   <div class="rig" aria-hidden="true" id="rig">
     <div class="swing" id="swing">
