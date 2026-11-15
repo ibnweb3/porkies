@@ -39,9 +39,9 @@ The hash-chain code in `src/lib/` is reused from the author's earlier project, B
 
 Porkies (UK slang for lies): can an AI spot a misleading property ad?
 
-We gave 24 real UK ad claims, ruled on by the ASA, to @openservai SERV Reasoning and had a @reppo panel check it.
+We gave 24 real UK ad claims, ruled on by the ASA, to @openservai SERV Reasoning, then had @reppo check it.
 
-SERV agreed with the regulator on 21 of 24. Honest results, try it live:
+SERV agreed with the regulator on 21 of 24. Try it live:
 https://porkies.ibnweb3lab.workers.dev
 
 #SERVHackathon
