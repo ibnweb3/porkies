@@ -9,3 +9,7 @@ out/dryrun.json
 out/try1*.json
 out/live1.*
 out/results.backup*
+
+# demo videos are added with `git add -f` once the final Porkies video is recorded
+docs/demo/*.mp4
+site/demo.mp4

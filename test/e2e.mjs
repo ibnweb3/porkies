@@ -29,7 +29,7 @@ const truthy = (v, m) => { if (!v) throw new Error(m || "falsy"); };
 const CHECK = { ok: true, calcs: [{ label: "Commission at 1.5%", expression: "303190*1.5%", value: 4547.85, display: "4,547.85" }], assessment: { verdict: "not_supported", confidence: 0.98, reasoning: "The evidence does not support the stated saving.", missing_or_unsupported: ["No sales data", "No basis shown"] }, reppoId: "abc123XYZ", reppoError: null, left: 1 };
 const REVIEW = { ok: true, status: "COMPLETED", score: 100, route: "ship", confidence: "high", reason: "Perfect consensus.", rubric_scores: { safety: 100, factual_accuracy: 100 } };
 
-async function open({ w = 1366, h = 768, scheme = "dark", reduced = false, api = {} } = {}) {
+async function open({ w = 1366, h = 768, scheme = "dark", reduced = false, api = {}, q = "" } = {}) {
   const ctx = await browser.newContext({ viewport: { width: w, height: h }, colorScheme: scheme, reducedMotion: reduced ? "reduce" : "no-preference", locale: "en-GB" });
   const page = await ctx.newPage(); const errors = [], requests = [];
   page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
@@ -42,7 +42,7 @@ async function open({ w = 1366, h = 768, scheme = "dark", reduced = false, api =
     if (u.pathname === "/api/review") { polls++; return route.fulfill({ json: polls < (api.pollsBefore ?? 2) ? { ok: true, status: "PROCESSING", score: null, route: null } : (api.review ?? REVIEW) }); }
     return route.abort();
   });
-  await page.goto(BASE, { waitUntil: "load" }); await page.waitForSelector("#list details"); await page.evaluate(() => document.fonts.ready);
+  await page.goto(BASE + q, { waitUntil: "load" }); await page.waitForSelector("#list details"); await page.evaluate(() => document.fonts.ready);
   return { ctx, page, errors, requests };
 }
 const lum = ([r, g, b]) => { const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b); };
@@ -97,8 +97,8 @@ section("3. navigation");
   const { ctx, page } = await open();
   for (const [label, id] of [["Try it", "try"], ["Results", "results"], ["Claims", "claims"], ["Verify", "verify"], ["Limits", "limits"]]) {
     await ok(`menu button "${label}" scrolls to its section and highlights`, async () => {
-      await page.evaluate(() => window.scrollTo(0, 0)); await page.waitForTimeout(300);
-      await page.click(`a.pill:has-text("${label}")`); await page.waitForTimeout(1500);
+      await page.evaluate(() => { document.documentElement.style.scrollBehavior = "auto"; window.scrollTo(0, 0); document.documentElement.style.scrollBehavior = ""; window.__st = 0; }); await page.waitForTimeout(200);
+      await page.click(`a.pill:has-text("${label}")`); await page.waitForFunction(() => { const y = scrollY; if (window.__ly === y) window.__st = (window.__st || 0) + 1; else { window.__st = 0; window.__ly = y; } return window.__st >= 5; }, null, { polling: 100, timeout: 20000 }); await page.waitForTimeout(150);
       const top = await page.evaluate((i) => Math.round(document.getElementById(i).getBoundingClientRect().top), id);
       truthy(top > -60 && top < 260, `section top at ${top}`);
       eq(await page.getAttribute(`a.pill[href="#${id}"]`, "aria-current"), "true", "highlight");
@@ -118,6 +118,79 @@ section("3. navigation");
     await fresh.page.focus("#reveal"); await fresh.page.keyboard.press("Space"); eq(await fresh.page.locator(".band .lab-hide:visible").count(), 24, "toggle by keyboard");
   });
   await fresh.ctx.close();
+}
+
+/* ================================================================ 3b. How it works: the conversation */
+section("3b. How it works (a conversation that plays out)");
+const results = read("out/results.json").filter((r) => r.pass1); const exr = results.find((r) => r.id === "pb-saving"), revr = results.find((r) => r.pass2);
+const threadText = (page) => page.$$eval("#thread > *", (n) => n.map((x) => x.textContent));
+const activeStep = (page) => page.evaluate(() => [...document.querySelectorAll("#steps .stepbtn")].findIndex((b) => b.classList.contains("on")));
+{
+  const { ctx, page } = await open({ q: "?howspeed=8" });
+  await ok("nothing plays until the section is on screen (no wasted motion off-screen)", async () => { await page.waitForTimeout(1500); eq(await page.locator("#thread > *").count(), 0, "thread before scrolling"); });
+  await ok("four step buttons, each with a title and a description", async () => {
+    eq(await page.locator("#steps .stepbtn").count(), 4); const t = await page.$$eval("#steps .stepbtn", (b) => b.map((x) => [x.querySelector("b").textContent, x.querySelector("span").textContent]));
+    eq(t.map((x) => x[0]).join("|"), "A calculator checks the sums|The AI gives its verdict|A second opinion checks the AI|A second look"); truthy(t.every((x) => x[1].length > 30), "descriptions");
+  });
+  await ok("it plays through all four steps in order, with typing dots before the replies", async () => {
+    await page.evaluate(() => { document.documentElement.style.scrollBehavior = "auto"; document.querySelector("#how").scrollIntoView({ block: "start" }); });
+    const seen = new Set(), steps = []; let sawTyping = false;
+    for (let i = 0; i < 160 && seen.size < 4; i++) { const s = await activeStep(page); if (s >= 0 && steps.at(-1) !== s) { steps.push(s); seen.add(s); } if (await page.locator("#thread .typing").count()) sawTyping = true; await page.waitForTimeout(100); }
+    eq(steps.join(","), "0,1,2,3", "steps highlighted in order"); truthy(sawTyping, "typing dots were shown");
+  });
+  await ok("the messages use the real claim and the real numbers from the run", async () => {
+    await page.waitForFunction(() => document.querySelectorAll("#thread .bub").length >= 6 || /saved in the log/.test(document.querySelector("#thread").textContent), null, { timeout: 30000 });
+    const text = (await threadText(page)).join(" | ");
+    truthy(text.includes(exr.claim.slice(0, 60)), "the claim"); truthy(text.includes("£4,548") && text.includes("£3,750") && text.includes("£3,390"), "calculator sums"); truthy(text.includes("Neither equals the advertised £4,158."), "calculator conclusion");
+    truthy(text.includes("Not backed up."), "AI verdict"); truthy(text.includes(`Score ${exr.pass1.reppo.score} out of 100.`), "panel score");
+    truthy(text.includes(`${revr.pass1.reppo.score} out of 100`) && text.includes(`${revr.pass2.reppo.score} out of 100`), "second look scores from the one real revision");
+  });
+  await ok("the conversation loops: it clears and starts again", async () => {
+    let max = 0, restarted = false; for (let i = 0; i < 200 && !restarted; i++) { const n = await page.locator("#thread > *").count(); if (n > max) max = n; else if (max >= 8 && n < max - 3) restarted = true; await page.waitForTimeout(100); }
+    truthy(restarted, "thread should reset after finishing (max " + max + ")");
+  });
+  await ok("pressing a step jumps there, shows the earlier steps at once, then carries on", async () => {
+    await page.click('#steps .stepbtn[data-step="2"]'); await page.waitForTimeout(250);
+    eq(await activeStep(page), 2, "jumped to step 3"); const early = await threadText(page); truthy(early.join(" ").includes("£4,548"), "earlier steps are already in the thread"); truthy(early.join(" ").includes("Not backed up."), "AI verdict already there");
+    eq(await page.getAttribute('#steps .stepbtn[data-step="2"]', "aria-current"), "step"); eq(await page.locator("#steps .stepbtn[aria-current]").count(), 1);
+    await page.waitForFunction(() => [...document.querySelectorAll("#steps .stepbtn")].findIndex((b) => b.classList.contains("on")) === 3, null, { timeout: 20000 });
+  });
+  await ok("Pause freezes the conversation, Play resumes it, and the button says which", async () => {
+    await page.click('#steps .stepbtn[data-step="0"]'); await page.waitForTimeout(400); await page.click("#howPause");
+    eq(await page.textContent("#howPause"), "Play"); eq(await page.getAttribute("#howPause", "aria-pressed"), "true"); const n = await page.locator("#thread > *").count(); await page.waitForTimeout(2000); eq(await page.locator("#thread > *").count(), n, "frozen while paused");
+    await page.click("#howPause"); eq(await page.textContent("#howPause"), "Pause"); await page.waitForTimeout(2500); truthy((await page.locator("#thread > *").count()) > n, "moves again after Play");
+  });
+  await ok("the thread never spills out of the phone, and stays pinned to the newest message", async () => {
+    const m = await page.evaluate(() => { const t = document.querySelector("#thread"); const p = document.querySelector(".phone"); return { over: t.scrollHeight > t.clientHeight, ph: p.getBoundingClientRect().height, lastVisible: (() => { const l = t.lastElementChild.getBoundingClientRect(), r = t.getBoundingClientRect(); return l.bottom <= r.bottom + 2; })() }; });
+    truthy(m.ph <= 440, "phone height " + m.ph); truthy(m.lastVisible, "newest message is visible");
+  });
+  await ctx.close();
+  const r = await open({ reduced: true });
+  await ok("reduced motion: the whole conversation is there at once, no typing dots, no pause button", async () => {
+    truthy((await r.page.locator("#thread > *").count()) >= 10, "all messages at once"); eq(await r.page.locator("#thread .typing").count(), 0); eq(await r.page.locator("#howPause").isVisible(), false); truthy(/Motion is off/.test(await r.page.textContent("#howNote")), "explains how to use it");
+    await r.page.click('#steps .stepbtn[data-step="3"]'); eq(await activeStep(r.page), 3); await r.page.click('#steps .stepbtn[data-step="1"]'); eq(await activeStep(r.page), 1);
+  });
+  await r.ctx.close();
+  const ph = await open({ w: 375, h: 812, q: "?howspeed=8" });
+  await ok("375px: the phone and the step list stack and fit the screen", async () => {
+    const [sw, cw] = await ph.page.evaluate(() => [document.documentElement.scrollWidth, document.documentElement.clientWidth]); truthy(sw <= cw, `${sw} > ${cw}`);
+    const rects = await ph.page.evaluate(() => [".phone", "#steps"].map((s) => { const r = document.querySelector(s).getBoundingClientRect(); return [r.left, r.right, r.top]; })); truthy(rects.every((r) => r[0] >= 0 && r[1] <= 376), "inside the screen"); truthy(rects[1][2] > rects[0][2], "steps sit below the phone");
+  });
+  await ph.ctx.close();
+}
+
+/* ================================================================ 3c. compact scale */
+section("3c. everything from Try it down is compact");
+{
+  const { ctx, page } = await open();
+  await ok("section headings, intro text, cards and tiles are the smaller size (the hero stays big)", async () => {
+    const m = await page.evaluate(() => { const fs = (s) => parseFloat(getComputedStyle(document.querySelector(s)).fontSize); return { h1: fs(".hero h1"), h2: fs(".panel h2"), lede: fs(".sec-lede"), cardV: fs("#cards .card .v"), claimTitle: fs(".cbody h3"), quote: fs(".cbody .quote"), limitStat: fs(".limit .stat"), limitP: fs(".limit p"), tile: document.querySelector("button.tile").offsetHeight, panelPad: parseFloat(getComputedStyle(document.querySelector(".panel")).paddingTop), formLabel: fs(".tryform label") }; });
+    truthy(m.h1 >= 40, "hero headline stays large: " + m.h1); truthy(m.h2 <= 27, "section heading " + m.h2); truthy(m.lede <= 15, "intro text " + m.lede); truthy(m.cardV <= 27, "result number " + m.cardV); truthy(m.claimTitle <= 17, "claim title " + m.claimTitle); truthy(m.quote <= 14, "claim quote " + m.quote);
+    truthy(m.limitStat <= 27, "limit number " + m.limitStat); truthy(m.limitP <= 14, "limit text " + m.limitP); truthy(m.tile >= 40 && m.tile <= 42, "tile " + m.tile); truthy(m.panelPad <= 30, "panel padding " + m.panelPad); truthy(m.formLabel <= 13, "form label " + m.formLabel);
+  });
+  await ok("tap targets are still 40px or taller after shrinking", async () => { const small = await page.evaluate(() => [...document.querySelectorAll("button, a.pill, a.cta, .ex, summary")].filter((e) => e.offsetHeight > 0 && e.offsetHeight < 40).map((e) => (e.textContent.trim().slice(0, 20) || e.className) + ":" + e.offsetHeight)); eq(small.length, 0, small.join(", ")); });
+  await ok("the page is much shorter than before the shrink (less scrolling)", async () => { const h = await page.evaluate(() => document.documentElement.scrollHeight); truthy(h < 9000, "page height " + h); });
+  await ctx.close();
 }
 
 /* ================================================================ 4. results and claims */
@@ -233,7 +306,7 @@ section("4c. animation (and its off switch)");
   });
   await ok("a case file opens and closes with a short slide and ends in the right state", async () => {
     const d = m.page.locator("#list details").nth(5); await d.scrollIntoViewIfNeeded(); await d.locator("summary").click(); truthy(await d.evaluate((e) => e.open), "open at once"); await m.page.waitForTimeout(400);
-    truthy((await d.locator(".body").boundingBox()).height > 100, "body has height"); await d.locator("summary").click(); await m.page.waitForTimeout(40); truthy(await d.evaluate((e) => e.open), "still open while sliding shut"); await m.page.waitForTimeout(450); truthy(!(await d.evaluate((e) => e.open)), "closed at the end");
+    truthy((await d.locator(".body").boundingBox()).height > 100, "body has height"); const mid = await d.evaluate((e) => { e.querySelector("summary").click(); return [e.open, e.querySelector(".body").getAnimations().length]; }); eq(mid[0], true, "still open at the instant of the click"); eq(mid[1], 1, "a closing animation is running"); await m.page.waitForTimeout(450); truthy(!(await d.evaluate((e) => e.open)), "closed at the end");
     await d.locator("summary").dblclick(); await m.page.waitForTimeout(700); eq(typeof (await d.evaluate((e) => e.open)), "boolean", "a double-click never leaves it half-open"); eq(await d.evaluate((e) => e.dataset.busy), undefined, "not stuck busy");
   });
   await ok("limit numbers count up to exactly the right value, and screen readers get the final number", async () => {
@@ -384,12 +457,13 @@ const angle = (page) => page.evaluate(() => { const m = getComputedStyle(documen
 /* ================================================================ 8. colours and contrast */
 section("8. text contrast (light and dark)");
 for (const scheme of ["light", "dark"]) {
-  const { ctx, page, errors } = await open({ scheme });
+  const { ctx, page, errors } = await open({ scheme, q: "?howspeed=8" });
   await page.evaluate(() => document.querySelectorAll("#list details").forEach((d) => (d.open = true)));
+  await page.evaluate(() => document.querySelector("#how").scrollIntoView()); await page.waitForSelector("#thread .bub.bot", { timeout: 30000 }); await page.waitForSelector("#thread .bub.you", { timeout: 30000 }); await page.waitForSelector("#thread .sysmsg", { timeout: 30000 });
   await ok(`${scheme}: body text, card text, bands and result numbers are readable (4.5:1 or better)`, async () => {
     const pairs = await page.evaluate(() => {
       const parse = (c) => c.match(/[\d.]+/g).slice(0, 4).map(Number); const solid = (el) => { while (el) { const c = getComputedStyle(el).backgroundColor, p = parse(c); if (p.length < 4 || p[3] > 0.95) return p.slice(0, 3); el = el.parentElement; } return [255, 255, 255]; };
-      const sel = [[".panel h2", "section heading"], ["#cards .card .k", "card label"], ["#cards .card .s", "card detail"], [".steps li span", "step text"], ["details.claim .cbody p", "claim text"], ["details.claim .cbody h3", "claim title"], ["details.claim .band.bad", "misleading band"], ["details.claim .band.ok", "fair band"], ["details.claim .agree.yes", "agree strip"], ["details.claim .agree.no", "disagree strip"], ["details.claim .node b", "pipeline label"], ["details.claim .body p", "opened text"], [".tryform label", "form label"], [".limit p", "limit text"], [".limit h3", "limit title"], [".limit .did", "what we did"], [".limit .stat", "limit number"], [".limit .meter", "limit meter label"], [".fchip", "filter chip"], [".glance .gk", "tile row label"], [".legend span", "legend"], [".sec-lede", "section intro"], [".seal", "log seal line"], ["#vout", "log result"], [".try .privacy", "privacy note"], ["#try .examples .ex", "example button"]];
+      const sel = [[".panel h2", "section heading"], ["#cards .card .k", "card label"], ["#cards .card .s", "card detail"], [".steps li span", "step text"], ["details.claim .cbody p", "claim text"], ["details.claim .cbody h3", "claim title"], ["details.claim .band.bad", "misleading band"], ["details.claim .band.ok", "fair band"], ["details.claim .agree.yes", "agree strip"], ["details.claim .agree.no", "disagree strip"], ["details.claim .node b", "pipeline label"], ["details.claim .body p", "opened text"], [".tryform label", "form label"], ["button.tile", "tile icon"], [".node .dot", "pipeline icon"], [".avatar", "phone avatar"], [".stepbtn b", "step title"], [".bub.bot", "reply bubble"], [".bub.you", "your bubble"], [".sysmsg", "step label in the thread"], [".ph-sub", "phone subtitle"], [".limit p", "limit text"], [".limit h3", "limit title"], [".limit .did", "what we did"], [".limit .stat", "limit number"], [".limit .meter", "limit meter label"], [".fchip", "filter chip"], [".glance .gk", "tile row label"], [".legend span", "legend"], [".sec-lede", "section intro"], [".seal", "log seal line"], ["#vout", "log result"], [".try .privacy", "privacy note"], ["#try .examples .ex", "example button"]];
       return sel.map(([s, n]) => { const e = document.querySelector(s); if (!e) return [n, null]; return [n, parse(getComputedStyle(e).color).slice(0, 3), solid(e), getComputedStyle(e).fontSize]; });
     });
     const bad = []; for (const [n, fg, bg] of pairs) { if (!fg) { bad.push(n + ": not found"); continue; } const r = ratio(fg, bg); if (r < 4.5) bad.push(`${n} ${r.toFixed(2)}`); }

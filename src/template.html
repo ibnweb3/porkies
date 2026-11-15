@@ -71,10 +71,6 @@ p{margin:0 0 12px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px}
 .card .k{color:var(--mute);font-size:14px}.card .v{font-size:clamp(26px,3vw,34px);font-weight:800;letter-spacing:-.03em;margin:4px 0}.card .s{font-size:14px;color:var(--mute)}
 .gl{color:var(--mute);font-size:14px}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;padding:0;list-style:none;margin:0;counter-reset:s}
-.steps li{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px 18px;counter-increment:s}
-.steps li::before{content:"0" counter(s);display:block;font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--accent);margin-bottom:8px}
-.steps b{display:block;font-size:18px;letter-spacing:-.01em}.steps span{color:var(--mute);font-size:14.5px}
 .bar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:0 0 16px}
 .toggle{display:inline-flex;gap:10px;align-items:center;cursor:pointer;min-height:44px;font-weight:600}
 .toggle input{width:20px;height:20px;accent-color:var(--accent)}
@@ -92,7 +88,7 @@ footer a{color:#fff}
 
 /* ---- v2: graphical menu, badge-style claim cards, calmer colour ---- */
 :root{--paper:#e6eaec;--card:#ffffff;--ink:#12181c;--mute:#4f5b63;--line:#d5dbde;--teal:#0b6252;--coral:#b02a1f;--indigo:#4054d6;--amber:#8a5300;--violet:#7048c9;--tealbg:#d9f2ec;--coralbg:#fbe0dd;--indigobg:#e0e5fb;--amberbg:#fbebcf}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#161b1f;--card:#1f262c;--ink:#eef1f2;--mute:#9fabb3;--line:#2d363d;--teal:#3dc7ab;--coral:#ff7a6e;--indigo:#8ea0ff;--amber:#f2b34a;--violet:#b595ff;--tealbg:#123a33;--coralbg:#43201d;--indigobg:#1f2748;--amberbg:#3c2d0f}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--on:#07201b;--paper:#161b1f;--card:#1f262c;--ink:#eef1f2;--mute:#9fabb3;--line:#2d363d;--teal:#3dc7ab;--coral:#ff7a6e;--indigo:#8ea0ff;--amber:#f2b34a;--violet:#b595ff;--tealbg:#123a33;--coralbg:#43201d;--indigobg:#1f2748;--amberbg:#3c2d0f}}
 .top nav{align-items:center;gap:12px 20px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:.01em}
 .brand svg{width:30px;height:30px;color:#f1f4f5}
@@ -111,7 +107,7 @@ h2 i{color:var(--teal)}
 .cards .card .v{color:var(--tone,var(--teal))}
 
 /* ---- Every claim: case files, glance tiles, filters ---- */
-:root{--lift:0 1px 0 rgba(0,0,0,.04),0 16px 30px -20px rgba(20,32,44,.45)}
+:root{--on:#fff;--lift:0 1px 0 rgba(0,0,0,.04),0 16px 30px -20px rgba(20,32,44,.45)}
 .sec-lede{color:var(--mute);max-width:64ch;margin:0 0 18px}
 .glance{background:var(--card);border-radius:22px;padding:18px 18px 14px;box-shadow:var(--lift);margin:0 0 16px}
 .glance-head{display:flex;justify-content:space-between;align-items:center;gap:6px 16px;flex-wrap:wrap;margin:0 0 10px}
@@ -121,7 +117,7 @@ h2 i{color:var(--teal)}
 .glance-row .gk{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mute)}
 @media (max-width:700px){.glance-row{grid-template-columns:1fr}}
 .tiles{display:flex;flex-wrap:wrap;gap:8px}
-button.tile{width:44px;height:44px;min-height:44px;padding:0;border-radius:13px;border:0;display:grid;place-items:center;color:#fff;background:var(--tone,#8b98a1);cursor:pointer;transition:transform .15s,opacity .15s,box-shadow .15s,background .15s}
+button.tile{width:44px;height:44px;min-height:44px;padding:0;border-radius:13px;border:0;display:grid;place-items:center;color:var(--on);background:var(--tone,#8b98a1);cursor:pointer;transition:transform .15s,opacity .15s,box-shadow .15s,background .15s}
 button.tile svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
 button.tile.t-ok{--tone:var(--teal)}button.tile.t-bad{--tone:var(--coral)}
 button.tile.dim{opacity:.22;transform:scale(.9)}
@@ -182,7 +178,7 @@ body.veiled .band{background:var(--chip);color:var(--mute)}body.veiled .band::be
 .js-anim details.claim:not(.in) .pipe::after{transform:scaleX(0)}
 .js-anim details.claim.in .pipe::after{transition:transform .75s cubic-bezier(.2,.7,.2,1) calc(var(--d,0ms) + 300ms)}
 .node{text-align:center;position:relative;font-size:12px;line-height:1.25;color:var(--mute)}
-.node .dot{width:36px;height:36px;border-radius:50%;margin:0 auto 7px;display:grid;place-items:center;color:#fff;background:var(--tone);box-shadow:0 0 0 4px var(--card);transition:transform .2s}
+.node .dot{width:36px;height:36px;border-radius:50%;margin:0 auto 7px;display:grid;place-items:center;color:var(--on);background:var(--tone);box-shadow:0 0 0 4px var(--card);transition:transform .2s}
 .js-anim details.claim:not(.in) .node .dot{transform:scale(.3);opacity:0}
 .js-anim details.claim.in:not(.done) .node .dot{transition:transform .45s cubic-bezier(.3,1.6,.5,1) calc(var(--d,0ms) + 200ms + var(--k,0)*130ms),opacity .3s ease calc(var(--d,0ms) + 200ms + var(--k,0)*130ms)}
 .node .dot svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
@@ -241,7 +237,7 @@ details.claim .body ul{margin:0;padding-left:20px}details.claim .body p{font-siz
 .formbar button[disabled]{opacity:.55;cursor:progress}
 .run{display:grid;gap:12px;margin-top:16px}
 .step{background:var(--card);border-radius:18px;padding:14px 16px 14px 64px;position:relative;box-shadow:0 1px 0 rgba(0,0,0,.04),0 12px 24px -18px rgba(20,32,44,.4)}
-.step .n{position:absolute;left:14px;top:14px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--tone,var(--mute));color:#fff;font-weight:800}
+.step .n{position:absolute;left:14px;top:14px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--tone,var(--mute));color:var(--on);font-weight:800}
 .step h3{margin:0 0 6px;font-size:16px;font-weight:700}
 .step p{font-size:15px;margin:0 0 8px}.step ul{margin:0;padding-left:18px;font-size:14.5px}.step li{margin:3px 0}
 .spin{display:inline-block;width:16px;height:16px;border:3px solid var(--line);border-top-color:var(--indigo);border-radius:50%;animation:sp .9s linear infinite;vertical-align:-3px;margin-right:8px}
@@ -256,6 +252,107 @@ details.claim .body ul{margin:0;padding-left:20px}details.claim .body p{font-siz
 @media (hover:hover){.top .cta2:hover{background:rgba(255,255,255,.26)}}
 .eyebrow{display:flex;gap:10px;align-items:baseline;margin:0 0 10px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(241,244,245,.75)}
 .eyebrow b{color:#f1f4f5;font-size:15px;letter-spacing:.14em}
+
+/* ---- How it works: a conversation that plays out, like a text thread ---- */
+.how{display:grid;grid-template-columns:minmax(280px,380px) 1fr;gap:22px;align-items:start}
+@media (max-width:820px){.how{grid-template-columns:1fr}}
+.phone{background:var(--card);border:1px solid var(--line);border-radius:26px;box-shadow:var(--lift);overflow:hidden;display:flex;flex-direction:column;height:430px}
+.ph-head{display:flex;gap:10px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--chip)}
+.avatar{width:32px;height:32px;border-radius:10px;background:var(--teal);color:var(--on);display:grid;place-items:center;font-weight:800;flex:none}
+.ph-name{margin:0;font-size:14.5px;font-weight:700}.ph-sub{margin:0;font-size:12px;color:var(--mute)}
+.live{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal);margin-right:6px;vertical-align:1px;animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.28}}
+.thread{flex:1;min-height:0;overflow:hidden;padding:14px 12px;display:flex;flex-direction:column;gap:8px;transition:opacity .45s ease}
+.bub{max-width:88%;padding:9px 12px;border-radius:15px;font-size:13.5px;line-height:1.45;overflow-wrap:anywhere;animation:rise .32s cubic-bezier(.2,.7,.3,1) both}
+.bub.you{align-self:flex-end;background:var(--teal);color:var(--on);border-bottom-right-radius:5px}
+.bub.bot{align-self:flex-start;background:var(--chip);border:1px solid var(--line);border-bottom-left-radius:5px}
+.bub .who{display:block;margin-bottom:3px;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--tone,var(--mute))}
+.sysmsg{align-self:center;font-size:11.5px;color:var(--mute);display:flex;gap:8px;align-items:center;text-align:center;animation:rise .3s ease both}
+.sysmsg::before,.sysmsg::after{content:"";height:1px;width:18px;background:var(--line);flex:none}
+.typing{align-self:flex-start;background:var(--chip);border:1px solid var(--line);border-radius:15px;border-bottom-left-radius:5px;padding:12px 14px;display:flex;gap:4px;animation:rise .2s ease both}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--mute);animation:blink 1.3s infinite}
+.typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+@keyframes rise{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@keyframes blink{0%,58%,100%{opacity:.25;transform:translateY(0)}30%{opacity:.95;transform:translateY(-3px)}}
+.how.paused .typing i,.how.paused .live{animation-play-state:paused}
+.steps{display:grid;gap:10px;padding:0;margin:0;list-style:none}
+button.stepbtn{display:grid;grid-template-columns:36px 1fr;gap:2px 12px;width:100%;min-height:0;text-align:left;padding:12px 14px;border-radius:16px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-weight:400;position:relative;overflow:hidden;transition:border-color .2s,box-shadow .2s,transform .2s}
+.stepbtn .sn{grid-row:1/3;width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:var(--chip);color:var(--tone);font:800 13px/1 ui-sans-serif,system-ui,sans-serif;font-style:normal;transition:background .2s,color .2s}
+.stepbtn b{display:block;font-size:14.5px;font-weight:700;letter-spacing:-.005em}
+.stepbtn span{font-size:13px;line-height:1.4;color:var(--mute)}
+.stepbtn u{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--tone);transform:scaleX(0);transform-origin:left;text-decoration:none}
+button.stepbtn.on{border-color:var(--tone);box-shadow:0 0 0 1px var(--tone),var(--lift)}
+.stepbtn.on .sn{background:var(--tone);color:var(--on)}
+.stepbtn.on u{animation:fill var(--dur,3s) linear forwards}
+.how.paused .stepbtn.on u{animation-play-state:paused}
+@keyframes fill{to{transform:scaleX(1)}}
+button.stepbtn:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus)}
+@media (hover:hover){button.stepbtn:hover{background:var(--card);color:var(--ink);border-color:var(--tone);transform:translateX(3px)}}
+.how-ctl{display:flex;gap:12px;align-items:center;margin-top:12px;flex-wrap:wrap}
+
+/* ---- compact scale: everything from Try it down is smaller than the hero ---- */
+.panel{padding:clamp(14px,2.6vw,28px);font-size:clamp(14px,1.05vw,15px)}
+.panel section{margin-top:clamp(26px,4vw,42px)}
+h2{font-size:clamp(19px,2.1vw,26px);margin:0 0 10px;letter-spacing:-.02em}
+h2 i{font-size:12px}
+p{margin:0 0 10px}
+.sec-lede{font-size:14.5px;margin:0 0 14px}
+.try .privacy{font-size:13px;padding:10px 12px;margin:0 0 12px}
+.examples{gap:6px;margin:0 0 12px}
+.ex{min-height:40px;padding:6px 14px;font-size:13px}
+.tryform{padding:14px;border-radius:18px}
+.tryform label{font-size:12.5px;margin:0 0 5px}
+.tryform textarea{padding:10px 12px;min-height:70px}
+.formbar{margin-top:12px}
+button,button.primary{min-height:42px;font-size:14px;padding:6px 16px}
+.run{margin-top:12px;gap:10px}
+.step{padding:11px 14px 11px 52px;border-radius:15px}
+.step .n{width:30px;height:30px;left:12px;top:11px;font-size:13px}
+.step h3{font-size:14.5px;margin:0 0 4px}
+.step p{font-size:13.5px}.step ul{font-size:13px}
+.final{padding:12px 14px;font-size:14px;border-radius:15px}
+.chip2{font-size:12px;padding:2px 10px}
+.cards{gap:10px}
+.cards .card{padding:14px 14px 12px;border-radius:16px}
+.cards .card .k{font-size:13px}.cards .card .v{font-size:clamp(21px,2.2vw,26px)}.cards .card .s{font-size:12.5px}
+.glance{padding:14px;border-radius:18px;margin:0 0 12px}
+.glance-head b{font-size:14.5px}
+.glance-row{grid-template-columns:150px 1fr;gap:6px 14px}
+.glance-row .gk{font-size:11px}
+.tiles{gap:6px}
+button.tile{width:40px;height:40px;min-height:40px;border-radius:11px}
+button.tile svg{width:17px;height:17px}
+.legend{font-size:12px;margin:10px 0 0}
+.toolbar{margin:0 0 12px;gap:8px 16px}
+.fgroup .fl{font-size:11px}
+button.fchip{min-height:40px;padding:5px 12px;font-size:13px}
+.grid{grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+details.claim{border-radius:18px}
+.band{padding:11px 14px 9px;font-size:11.5px;gap:8px}
+.cbody{padding:12px 14px 6px}
+.cbody .kind{font-size:11px}
+.cbody h3{font-size:16.5px;margin:6px 0 8px}
+.cbody .quote{font-size:13.5px;line-height:1.5;padding-left:20px}
+.cbody .quote::before{font-size:28px}
+.pipe{margin:16px 0 4px}
+.pipe::before,.pipe::after{top:14px}
+.node{font-size:11px}.node b{font-size:12px}
+.node .dot{width:30px;height:30px;margin-bottom:6px}.node .dot svg{width:16px;height:16px}
+.agree{margin:12px 0 4px;padding:8px 10px;font-size:12.5px}
+.more{padding:9px 14px;font-size:12.5px}
+details.claim .body{padding:4px 14px 14px}
+details.claim .body h3{font-size:11px;margin:12px 0 4px}
+details.claim .body p{font-size:14px}details.claim .body ul{font-size:13.5px}
+.seal{font-size:11.5px;margin-top:12px;padding:8px 10px}
+.out{padding:10px 14px;font-size:14px;min-height:44px}
+.limits-grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.limit{padding:14px 14px 12px 18px;border-radius:16px}
+.limit .ico{width:40px;height:40px}.limit .ico svg{width:20px;height:20px}
+.limit .stat{font-size:26px}.limit .stat .u{font-size:10.5px}
+.limit h3{font-size:16px;margin:10px 0 4px}
+.limit p{font-size:13.5px;margin:0 0 10px}
+.meter{margin:0 0 10px;font-size:10.5px}.meter i{width:28px;height:6px}
+.limit .did{font-size:13px;padding:8px 10px}
 </style>
 </head>
 <body>
@@ -309,9 +406,9 @@ details.claim .body ul{margin:0;padding-left:20px}details.claim .body p{font-siz
 <div class="note" id="t-off" hidden>Live checking is not switched on in this copy of the page. The 24 recorded cases below show the whole pipeline.</div>
 <form class="tryform" id="tryform" autocomplete="off">
   <label for="t-claim">The claim <span class="count" id="t-c1">0/1200</span></label>
-  <textarea id="t-claim" maxlength="1200" rows="3" required spellcheck="false" placeholder="e.g. Prices in this area will rise at least 5-10% in 18 months, a 50-100% return on your deposit"></textarea>
+  <textarea id="t-claim" maxlength="1200" rows="2" required spellcheck="false" placeholder="e.g. Prices in this area will rise at least 5-10% in 18 months, a 50-100% return on your deposit"></textarea>
   <label for="t-ev" style="margin-top:14px">The evidence behind it <span class="count" id="t-c2">0/2500</span></label>
-  <textarea id="t-ev" maxlength="2500" rows="5" required spellcheck="false" placeholder="Paste the numbers, sources and small print the advert gives, for example: the deposit, the price, the article it cites..."></textarea>
+  <textarea id="t-ev" maxlength="2500" rows="4" required spellcheck="false" placeholder="Paste the numbers, sources and small print the advert gives, for example: the deposit, the price, the article it cites..."></textarea>
   <div class="formbar"><button class="primary" id="t-go" type="submit">Check this claim</button><span class="gl" id="t-left"></span></div>
 </form>
 <div class="run" id="t-out" aria-live="polite"></div>
@@ -321,14 +418,23 @@ details.claim .body ul{margin:0;padding-left:20px}details.claim .body p{font-siz
 <div class="cards" id="cards"></div>
 <p class="gl" id="resnote" style="margin-top:12px"></p></section>
 
-<section aria-labelledby="h-how"><h2 id="h-how"><i>02</i>How it works</h2>
-<p>For each claim, four simple steps:</p>
-<ol class="steps">
-  <li><b>A calculator checks the sums</b><span>Every figure in the claim is recalculated by plain code, not by AI.</span></li>
-  <li><b>The AI gives its verdict</b><span>Is the claim backed up by the evidence? The AI (SERV Reasoning) says yes or no and explains why.</span></li>
-  <li><b>A second opinion checks the AI</b><span>An independent panel of reviewers (Reppo) scores the answer: approve, look again, or reject.</span></li>
-  <li><b>A second look</b><span>If the panel is not happy, its comments go back to the AI to think again.</span></li>
-</ol></section>
+<section id="how" aria-labelledby="h-how"><h2 id="h-how"><i>02</i>How it works</h2>
+<p class="sec-lede">Watch one real claim go through the four steps. Press a step to jump to it.</p>
+<div class="how" id="howBox">
+  <div class="phone" aria-hidden="true">
+    <div class="ph-head"><div class="avatar">P</div><div><p class="ph-name">Porkies</p><p class="ph-sub"><span class="live"></span><span id="phSub">checking a claim</span></p></div></div>
+    <div class="thread" id="thread"></div>
+  </div>
+  <div class="how-side">
+    <ol class="steps" id="steps">
+      <li style="--tone:var(--teal)"><button type="button" class="stepbtn" data-step="0"><i class="sn">01</i><b>A calculator checks the sums</b><span>Every figure in the claim is recalculated by plain code, not by AI.</span><u></u></button></li>
+      <li style="--tone:var(--violet)"><button type="button" class="stepbtn" data-step="1"><i class="sn">02</i><b>The AI gives its verdict</b><span>Is the claim backed up by the evidence? The AI (SERV Reasoning) says yes or no and explains why.</span><u></u></button></li>
+      <li style="--tone:var(--indigo)"><button type="button" class="stepbtn" data-step="2"><i class="sn">03</i><b>A second opinion checks the AI</b><span>An independent panel of reviewers (Reppo) scores the answer: approve, look again, or reject.</span><u></u></button></li>
+      <li style="--tone:var(--amber)"><button type="button" class="stepbtn" data-step="3"><i class="sn">04</i><b>A second look</b><span>If the panel is not happy, its comments go back to the AI to think again.</span><u></u></button></li>
+    </ol>
+    <div class="how-ctl"><button type="button" id="howPause" aria-pressed="false">Pause</button><span class="gl" id="howNote"></span></div>
+  </div>
+</div></section>
 
 <section id="claims" aria-labelledby="h-cl"><h2 id="h-cl"><i>03</i>Every claim</h2>
 <p class="sec-lede" id="claimsLede"></p>
@@ -425,13 +531,14 @@ function showNow(x){x.classList.add('in','done');if(io)io.unobserve(x)}
 
 /* smooth open and close for a case file (skipped when the visitor prefers reduced motion) */
 function toggleCard(d,want){
-  const body=d.querySelector('.body');if(d.dataset.busy)return;const opening=want===undefined?!d.open:want;
+  const body=d.querySelector('.body');const opening=want===undefined?!d.open:want;
   if(REDUCE||!body.animate){d.open=opening;return}
-  d.dataset.busy='1';
-  if(opening){d.open=true;const h=body.offsetHeight;body.animate([{height:'0px',opacity:0},{height:h+'px',opacity:1}],{duration:220,easing:'ease-out'}).onfinish=()=>{delete d.dataset.busy}}
-  else{const h=body.offsetHeight;body.animate([{height:h+'px',opacity:1},{height:'0px',opacity:0}],{duration:170,easing:'ease-in'}).onfinish=()=>{d.open=false;delete d.dataset.busy}}
+  if(d.dataset.busy){d.dataset.queued=d.dataset.target==='1'?'0':'1';return}          // clicked mid-slide: do it as soon as this one ends
+  d.dataset.busy='1';d.dataset.target=opening?'1':'0';
+  const done=()=>{delete d.dataset.busy;delete d.dataset.target;const q=d.dataset.queued;delete d.dataset.queued;if(q!==undefined&&(q==='1')!==d.open)toggleCard(d,q==='1')};
+  if(opening){d.open=true;const h=body.offsetHeight;body.animate([{height:'0px',opacity:0},{height:h+'px',opacity:1}],{duration:220,easing:'ease-out'}).onfinish=done}
+  else{const h=body.offsetHeight;body.animate([{height:h+'px',opacity:1},{height:'0px',opacity:0}],{duration:170,easing:'ease-in'}).onfinish=()=>{d.open=false;done()}}
 }
-
 function row(r,i){
   const d=el('details','claim');d.id='c-'+r.id;d.dataset.id=r.id;d.dataset.kind=r.group;
   const bad=r.label==='flawed',agree=r.pass1.assessment.verdict===ruling(r),rv=r.pass1.reppo;
@@ -545,7 +652,66 @@ const FI={v:'all'};const ichips=[];
 function applyI(animate){let shown=0;for(const c of lcards){const show=FI.v==='all'||c.dataset.imp===FI.v;const was=!c.hidden;c.hidden=!show;if(show)shown++;if(show&&!was&&animate&&!REDUCE&&c.classList.contains('in')){c.classList.remove('pop');void c.offsetWidth;c.classList.add('pop');setTimeout(()=>c.classList.remove('pop'),320)}}
   ichips.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===FI.v)));$('#icount').textContent=shown===lcards.length?`All ${shown} limits`:`${shown} of ${lcards.length} limits`}
 applyI(false);
-(function(){const links=[...document.querySelectorAll('.pill')];const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));const io=new IntersectionObserver(es=>{for(const e of es){if(e.isIntersecting){links.forEach(a=>a.removeAttribute('aria-current'));const a=map.get(e.target.id);if(a)a.setAttribute('aria-current','true')}}},{rootMargin:'-35% 0px -55% 0px'});for(const id of map.keys()){const s=document.getElementById(id);if(s)io.observe(s)}})();
+(function(){const links=[...document.querySelectorAll('.pill')];const ids=links.map(a=>a.getAttribute('href').slice(1));let raf=0;
+  function upd(){raf=0;const y=Math.min(innerHeight*.3,120);let cur=null;for(const id of ids){const s=document.getElementById(id);if(s&&s.getBoundingClientRect().top<=y)cur=id}
+    if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)cur=ids[ids.length-1];
+    links.forEach(a=>{if(a.getAttribute('href').slice(1)===cur)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')})}
+  addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});addEventListener('resize',upd);upd()})();
+
+/* ---- How it works: one real claim plays through the four steps as a text conversation ---- */
+(function how(){
+  const box=$('#howBox'),thread=$('#thread'),btns=[...document.querySelectorAll('#steps .stepbtn')],pauseBtn=$('#howPause'),sub=$('#phSub');
+  const ex=R.find(r=>r.id==='pb-saving')||R[0],rev=R.find(r=>r.pass2);
+  const sp=Math.min(10,Math.max(1,+new URLSearchParams(location.search).get('howspeed')||1)); // ?howspeed=5 plays faster (used by the tests)
+  const endSentence=(s)=>String(s).replace(/\s+$/,'').replace(/[.!?]?$/,'.');
+  const SCRIPT=[
+    {who:'sys',step:0,t:'A claim from a real advert',after:700},
+    {who:'you',step:0,t:ex.claim,after:1100},
+    {who:'bot',step:0,tag:'Calculator',think:1100,t:ex.checks.slice(0,2).join(' '),after:900},
+    {who:'bot',step:0,tag:'Calculator',think:800,t:ex.checks[2].split('. ')[0].replace(/\.?$/,'.'),after:1300},
+    {who:'sys',step:1,t:'The AI reads the claim and the evidence',after:700},
+    {who:'bot',step:1,tag:'The AI',think:1500,t:`${ex.pass1.assessment.verdict==='supported'?'Backed up.':'Not backed up.'} ${endSentence(ex.pass1.assessment.missing_or_unsupported[0]||'')}`.trim(),after:1400},
+    {who:'sys',step:2,t:'A second opinion checks the AI’s answer',after:700},
+    {who:'bot',step:2,tag:'The panel',think:1400,t:`${ROUTE[ex.pass1.reppo.route][0].toUpperCase()+ROUTE[ex.pass1.reppo.route].slice(1)}. Score ${ex.pass1.reppo.score} out of 100.`,after:1400},
+    ...(rev?[{who:'sys',step:3,t:'A second look, when the panel is not happy',after:700},
+    {who:'bot',step:3,tag:'The panel',think:1400,t:`On another claim the panel said “look again” (${rev.pass1.reppo.score} out of 100). Its comments went back to the AI, which answered again, and the panel then approved it (${rev.pass2.reppo.score} out of 100).`,after:1500}]:[{who:'sys',step:3,t:'If the panel is not happy, its comments go back to the AI',after:1500}]),
+    {who:'sys',step:3,t:'Every step is saved in the log',after:1800},
+  ];
+  const first=(k)=>SCRIPT.findIndex(s=>s.step===k);
+  const stepMs=(k)=>SCRIPT.filter(s=>s.step===k).reduce((a,s)=>a+(s.think||0)+(s.after||0),0)/sp;
+  const SUBS=['checking the sums','reading the evidence','getting a second opinion','taking a second look'];
+  let token=0,paused=false,seen=!ANIM; // seen: has the section been on screen yet (autoplay starts then)
+  const REDU=REDUCE;
+  function setStep(k){btns.forEach((b,i)=>{const on=i===k;b.classList.toggle('on',on);if(on){b.setAttribute('aria-current','step');b.style.setProperty('--dur',(stepMs(k)/1000).toFixed(2)+'s');const u=b.querySelector('u');u.style.animation='none';void u.offsetWidth;u.style.animation=''}else b.removeAttribute('aria-current')});sub.textContent=SUBS[k]||'done'}
+  function add(s,animate){
+    const d=el('div');
+    if(s.who==='sys'){d.className='sysmsg';d.textContent=s.t}
+    else{d.className='bub '+(s.who==='you'?'you':'bot');if(s.tag){const tg=el('span','who',s.tag);d.append(tg)}d.append(document.createTextNode(s.t));d.style.setProperty('--tone',btns[s.step].parentElement.style.getPropertyValue('--tone'))}
+    if(!animate)d.style.animation='none';
+    thread.append(d);thread.scrollTop=thread.scrollHeight;return d}
+  function typing(){const d=el('div','typing');d.innerHTML='<i></i><i></i><i></i>';thread.append(d);thread.scrollTop=thread.scrollHeight;return d}
+  const sleep=async(ms,tok)=>{let left=ms/sp;while(left>0&&tok===token){await new Promise(r=>setTimeout(r,60));if(!paused&&seen)left-=60}};
+  function clear(){thread.replaceChildren()}
+  async function play(from){
+    const tok=++token;clear();
+    for(let i=0;i<first(from);i++)add(SCRIPT[i],false);                       // earlier steps appear at once so the jump keeps its context
+    for(let i=first(from);i<SCRIPT.length&&tok===token;i++){
+      const s=SCRIPT[i];setStep(s.step);
+      if(s.who==='bot'){const d=typing();await sleep(s.think||1200,tok);d.remove();if(tok!==token)return}
+      add(s,true);await sleep(s.after==null?1300:s.after,tok);
+    }
+    if(tok!==token)return;
+    await sleep(3800,tok);if(tok!==token)return;
+    thread.style.opacity='0';await sleep(500,tok);if(tok!==token)return;thread.style.opacity='1';play(0);
+  }
+  function staticAll(k){clear();SCRIPT.forEach(s=>add(s,false));setStep(k);const target=thread.children[first(k)];if(target)thread.scrollTop=Math.max(0,target.offsetTop-12)}
+  btns.forEach((b,k)=>b.addEventListener('click',()=>{if(REDU)staticAll(k);else{paused=false;pauseBtn.setAttribute('aria-pressed','false');pauseBtn.textContent='Pause';box.classList.remove('paused');seen=true;play(k)}}));
+  if(REDU){pauseBtn.hidden=true;$('#howNote').textContent='Motion is off. Press a step to read that part of the conversation.';staticAll(0);return}
+  pauseBtn.addEventListener('click',()=>{paused=!paused;pauseBtn.setAttribute('aria-pressed',String(paused));pauseBtn.textContent=paused?'Play':'Pause';box.classList.toggle('paused',paused)});
+  setStep(0);
+  new IntersectionObserver(es=>{const v=es[0].isIntersecting;if(v&&!started){started=true;seen=true;play(0)}else if(started)seen=v},{threshold:.25}).observe(box);
+  let started=false;
+})();
 
 /* ---- chain verifier ---- */
 function canon(v){if(v===null)return'null';switch(typeof v){case'boolean':return v?'true':'false';case'string':return JSON.stringify(v);case'number':if(!Number.isFinite(v))throw new Error('number');return JSON.stringify(v);case'object':{if(Array.isArray(v))return'['+v.map(canon).join(',')+']';const k=Object.keys(v).sort();return'{'+k.map(x=>{if(v[x]===undefined)throw new Error('undefined');return JSON.stringify(x)+':'+canon(v[x])}).join(',')+'}'}default:throw new Error('type')}}
