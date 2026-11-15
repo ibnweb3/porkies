@@ -4,6 +4,10 @@
   "type": "module",
   "scripts": {
     "run": "node src/run.ts",
-    "site": "node src/stats.ts > out/stats.log && node src/seal.ts && node src/build-site.ts"
+    "site": "node src/stats.ts > out/stats.log && node src/seal.ts && node src/build-site.ts",
+    "dev": "node src/dev-server.ts",
+    "test": "node --test test/unit.mjs && node test/e2e.mjs",
+    "test:unit": "node --test test/unit.mjs",
+    "test:e2e": "node test/e2e.mjs"
   }
 }

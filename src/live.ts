@@ -25,6 +25,7 @@ const fail = (error: string, status = 400) => json({ ok: false, error }, status)
 
 /* ---------- safe arithmetic: the AI proposes sums, THIS code does them ---------- */
 export function safeEval(src: string): number | null {
+  if (/\d\s+[\d.]/.test(src) || /[\d.]\s+\d/.test(src)) return null; // "1 2" is two numbers, not twelve
   const s = src.replace(/,/g, "").replace(/[£$€]/g, "").replace(/×/g, "*").replace(/÷/g, "/").replace(/\s+/g, "");
   if (!s || s.length > 120 || !/^[0-9.+\-*/^()%]+$/.test(s)) return null;
   let i = 0;
@@ -104,8 +105,18 @@ async function bump(env: Env, key: string, ttl: number): Promise<number> {
 async function read(env: Env, key: string): Promise<number> {
   return env.LIMITS ? Number((await env.LIMITS.get(key)) ?? 0) : (mem.get(key) ?? 0);
 }
-const ipOf = (req: Request) => req.headers.get("cf-connecting-ip") ?? (req.headers.get("x-forwarded-for") ?? "").split(",")[0]!.trim() ?? "local";
+const ipOf = (req: Request) => req.headers.get("cf-connecting-ip") || (req.headers.get("x-forwarded-for") ?? "").split(",")[0]!.trim() || "unknown";
 const looksPersonal = (s: string) => /[\w.+-]+@[\w-]+\.[\w.]+/.test(s) || /(\+?\d[\d\s().-]{9,}\d)/.test(s.replace(/[£$€]\s?\d[\d,]*(\.\d+)?/g, ""));
+
+/** Adds basic browser-safety headers to any response (the site and the API). */
+export function secure(res: Response): Response {
+  const h = new Headers(res.headers);
+  h.set("x-content-type-options", "nosniff");
+  h.set("referrer-policy", "strict-origin-when-cross-origin");
+  h.set("x-frame-options", "DENY");
+  h.set("permissions-policy", "camera=(), microphone=(), geolocation=()");
+  return new Response(res.body, { status: res.status, statusText: res.statusText, headers: h });
+}
 
 /* ---------- the API ---------- */
 export async function handle(req: Request, env: Env): Promise<Response> {
@@ -132,6 +143,7 @@ export async function handle(req: Request, env: Env): Promise<Response> {
 
   if (url.pathname === "/api/check" && req.method === "POST") {
     if (!live) return fail("Live checking is not switched on in this copy of the page.", 503);
+    if (Number(req.headers.get("content-length") ?? 0) > 20000) return fail(`Too long: keep the claim under ${MAX_CLAIM} and the evidence under ${MAX_EVIDENCE} characters.`, 413);
     let body: { claim?: unknown; evidence?: unknown };
     try { body = (await req.json()) as typeof body; } catch { return fail("Send the claim and the evidence as JSON."); }
     const claim = String(body.claim ?? "").trim(), evidence = String(body.evidence ?? "").trim();

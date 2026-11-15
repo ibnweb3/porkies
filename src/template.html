@@ -21,7 +21,6 @@ a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
 .panel{background:var(--paper);border-radius:clamp(22px,4vw,36px);padding:clamp(18px,4vw,44px);box-shadow:0 30px 80px rgba(0,0,0,.28)}
 /* top: headline and badge sit directly on the city scene */
 .top{color:#f1f4f5;height:calc(100vh - 24px);min-height:560px;display:flex;flex-direction:column;padding:clamp(6px,1.5vw,18px) clamp(2px,1.5vw,16px) 16px}
-.top .menu{color:rgba(241,244,245,.7)}
 .top .tag{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#f1f4f5}
 .top .lede{color:rgba(241,244,245,.85)}
 .top .hero h1 em{color:#a9d3e6}
@@ -31,7 +30,6 @@ a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
 .panel{margin-top:8px}
 /* top bar */
 nav{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
-nav .menu{font-size:13px;letter-spacing:.12em;color:var(--mute);margin:0 0 4px}
 nav ul{list-style:none;margin:0;padding:0;display:flex;gap:6px 18px;flex-wrap:wrap}
 nav a{display:inline-block;padding:6px 0;font-weight:600;font-size:clamp(15px,1.6vw,18px);text-decoration:none;text-transform:uppercase;letter-spacing:.02em}
 nav a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,.link:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus);border-radius:8px}
@@ -108,7 +106,7 @@ footer{position:relative;color:#d8e2e8;font-size:14px;padding:22px 8px 0;max-wid
 footer a{color:#fff}
 
 /* ---- v2: graphical menu, badge-style claim cards, calmer colour ---- */
-:root{--paper:#e6eaec;--card:#ffffff;--ink:#12181c;--mute:#4f5b63;--line:#d5dbde;--teal:#12806c;--coral:#d4453a;--indigo:#4054d6;--amber:#b8700a;--violet:#7048c9;--tealbg:#d9f2ec;--coralbg:#fbe0dd;--indigobg:#e0e5fb;--amberbg:#fbebcf}
+:root{--paper:#e6eaec;--card:#ffffff;--ink:#12181c;--mute:#4f5b63;--line:#d5dbde;--teal:#0b6252;--coral:#b02a1f;--indigo:#4054d6;--amber:#8a5300;--violet:#7048c9;--tealbg:#d9f2ec;--coralbg:#fbe0dd;--indigobg:#e0e5fb;--amberbg:#fbebcf}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#161b1f;--card:#1f262c;--ink:#eef1f2;--mute:#9fabb3;--line:#2d363d;--teal:#3dc7ab;--coral:#ff7a6e;--indigo:#8ea0ff;--amber:#f2b34a;--violet:#b595ff;--tealbg:#123a33;--coralbg:#43201d;--indigobg:#1f2748;--amberbg:#3c2d0f}}
 .top nav{align-items:center;gap:12px 20px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:.01em}
@@ -363,7 +361,7 @@ async function verify(entries,head){let prev='0'.repeat(64);for(let i=0;i<entrie
 $('#head').textContent=D.chain.head;
 const out=$('#vout');
 $('#verify-btn').addEventListener('click',async()=>{out.textContent='Checking…';const r=await verify(D.chain.entries,D.chain.head);out.textContent=r.ok?`The log is intact: all ${r.n} entries check out.`:`The log has been changed: entry ${r.at} fails (${r.why}).`});
-$('#tamper').addEventListener('click',async()=>{const c=JSON.parse(JSON.stringify(D.chain.entries));const k=c.findIndex(e=>e.type==='reppo_review');const before=c[k].data.score;c[k].data.score=before===null?1:Math.min(100,before+1);const r=await verify(c,D.chain.head);out.textContent=r.ok?'Unexpectedly valid.':`In a copy of the log, we changed one panel score from ${before} to ${c[k].data.score}. The check now fails at entry ${r.at}: ${r.why}.`});
+$('#tamper').addEventListener('click',async()=>{const c=JSON.parse(JSON.stringify(D.chain.entries));const k=c.findIndex(e=>e.type==='reppo_review');const before=c[k].data.score;c[k].data.score=before===null?1:(before>=100?99:before+1);const r=await verify(c,D.chain.head);out.textContent=r.ok?'Unexpectedly valid.':`In a copy of the log, we changed one panel score from ${before} to ${c[k].data.score}. The check now fails at entry ${r.at}: ${r.why}.`});
 
 
 /* ---- Try it: send a claim to the live checker (keys stay on the server) ---- */

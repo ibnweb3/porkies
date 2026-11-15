@@ -4,7 +4,7 @@ import { readFileSync, existsSync, statSync } from "node:fs";
 import { extname, join, normalize, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadEnv } from "./env.ts";
-import { handle, type Env } from "./live.ts";
+import { handle, secure, type Env } from "./live.ts";
 
 loadEnv();
 const root = fileURLToPath(new URL("../site", import.meta.url));
@@ -26,7 +26,7 @@ createServer(async (req, res) => {
       const headers = new Headers();
       for (const [k, v] of Object.entries(req.headers)) if (typeof v === "string") headers.set(k, v);
       headers.set("x-forwarded-for", req.socket.remoteAddress ?? "local");
-      const r = await handle(new Request(url, { method: req.method, headers, body: ["GET", "HEAD"].includes(req.method ?? "GET") ? undefined : Buffer.concat(chunks) }), env);
+      const r = secure(await handle(new Request(url, { method: req.method, headers, body: ["GET", "HEAD"].includes(req.method ?? "GET") ? undefined : Buffer.concat(chunks) }), env));
       res.writeHead(r.status, Object.fromEntries(r.headers));
       res.end(Buffer.from(await r.arrayBuffer()));
       return;
@@ -35,7 +35,7 @@ createServer(async (req, res) => {
     if (!file.startsWith(root + sep) && file !== root) { res.writeHead(403).end("Forbidden"); return; }
     if (existsSync(file) && statSync(file).isDirectory()) file = join(file, "index.html");
     if (!existsSync(file)) { res.writeHead(404).end("Not found"); return; }
-    res.writeHead(200, { "content-type": types[extname(file)] ?? "application/octet-stream", "cache-control": "no-cache" });
+    res.writeHead(200, { "content-type": types[extname(file)] ?? "application/octet-stream", "cache-control": "no-cache", "x-content-type-options": "nosniff", "referrer-policy": "strict-origin-when-cross-origin", "x-frame-options": "DENY", "permissions-policy": "camera=(), microphone=(), geolocation=()" });
     res.end(readFileSync(file));
   } catch (e) {
     res.writeHead(500).end("Server error: " + (e as Error).message);
