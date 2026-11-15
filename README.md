@@ -83,6 +83,16 @@ npm run site                    # score, seal the log, rebuild the page
 
 Deploying to Cloudflare, usage limits and secrets: see [DEPLOY.md](DEPLOY.md).
 
+## Tests
+
+```bash
+npm run test:unit      # 22 backend and data checks (no network, no credits)
+npm run test:e2e       # 60 browser checks on a local copy (needs playwright-core and a Chromium; set CHROME_PATH)
+E2E_BASE=https://claim-audit.ibnweb3lab.workers.dev/ npm run test:e2e   # the same 60 checks against the deployed site
+```
+
+The unit tests cover the safe calculator (including injection attempts), the usage limits, the privacy filter, the SERV prompt guard path, failure paths for SERV and Reppo, that the regulator's verdict never leaks into the wording shown to the AI, that the stats match the raw results, and that the sealed log verifies and breaks when edited. The browser tests drive every button and state at four screen sizes, check keyboard use, light and dark contrast (4.5:1), XSS safety, the badge's drag and hover physics, and that all 24 claim cards render. The API is always replaced by canned replies in the browser tests, so they cost nothing.
+
 ## What was built during the hackathon, and what was reused
 
 Everything here was built for this hackathon **except** `src/lib/` (`chain.ts`, `canonical.ts`, `crypto.ts`): the hash-chain code, reused unchanged apart from import paths from the author's earlier project **Backstop** (MIT), which was built before this hackathon for a different one.

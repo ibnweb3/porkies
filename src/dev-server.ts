@@ -34,7 +34,7 @@ createServer(async (req, res) => {
     let file = normalize(join(root, decodeURIComponent(url.pathname)));
     if (!file.startsWith(root + sep) && file !== root) { res.writeHead(403).end("Forbidden"); return; }
     if (existsSync(file) && statSync(file).isDirectory()) file = join(file, "index.html");
-    if (!existsSync(file)) { res.writeHead(404).end("Not found"); return; }
+    if (!existsSync(file) || file.endsWith(sep + "_headers")) { res.writeHead(404).end("Not found"); return; } // _headers is Cloudflare config, not content
     res.writeHead(200, { "content-type": types[extname(file)] ?? "application/octet-stream", "cache-control": "no-cache", "x-content-type-options": "nosniff", "referrer-policy": "strict-origin-when-cross-origin", "x-frame-options": "DENY", "permissions-policy": "camera=(), microphone=(), geolocation=()" });
     res.end(readFileSync(file));
   } catch (e) {

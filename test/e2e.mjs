@@ -63,7 +63,7 @@ section("1. page loads cleanly");
   await ok("browser-safety headers are sent with the page and the API", async () => {
     for (const path of ["", "api/status"]) { const h = (await page.request.get(BASE + path)).headers(); eq(h["x-content-type-options"], "nosniff", path); eq(h["x-frame-options"], "DENY", path); truthy(h["referrer-policy"], "referrer-policy " + path); truthy(/camera=\(\)/.test(h["permissions-policy"] || ""), "permissions-policy " + path); }
   });
-  await ok("template and unknown routes are not public", async () => { eq((await page.request.get(BASE + "template.html")).status(), 404); eq((await page.request.get(BASE + "src/live.ts")).status(), 404); eq((await page.request.get(BASE + "../.env")).status(), 404); eq((await page.request.get(BASE + "%2e%2e/.env")).status(), 404); });
+  await ok("template and unknown routes are not public", async () => { eq((await page.request.get(BASE + "template.html")).status(), 404); eq((await page.request.get(BASE + "_headers")).status(), 404); eq((await page.request.get(BASE + "src/live.ts")).status(), 404); eq((await page.request.get(BASE + "../.env")).status(), 404); eq((await page.request.get(BASE + "%2e%2e/.env")).status(), 404); });
   await ctx.close();
 }
 
