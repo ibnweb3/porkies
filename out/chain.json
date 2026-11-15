@@ -1,11 +1,11 @@
 {
  "stream": "asa-run",
- "head": "3b2c2e6e775ecdc96843674294902d0ec1dcf4a6945902c6829e46495f7b57a8",
+ "head": "62a8bf707fe88abdd0d6a58135836b4d8ac1c9d9819731e326bc6f93243458ca",
  "entries": [
   {
    "stream": "asa-run",
    "n": 1,
-   "ts": 1794770618470,
+   "ts": 1794770925673,
    "type": "run_started",
    "actor": "code",
    "data": {
@@ -14,12 +14,12 @@
     "note": "ASA labels are never shown to SERV or Reppo"
    },
    "prev": "0000000000000000000000000000000000000000000000000000000000000000",
-   "hash": "c3b9a5b7fb3ce4a270e71d9b4d65109990594665a1ff7bf6e08d938f47e8ce64"
+   "hash": "67e59bddb79671ac144aa181f14b17716427bae3f3914e8be49bac1471ab2373"
   },
   {
    "stream": "asa-run",
    "n": 2,
-   "ts": 1794770618471,
+   "ts": 1794770925674,
    "type": "item",
    "actor": "code",
    "data": {
@@ -32,13 +32,13 @@
      "3-bed: advertised £1,750-£2,500/week vs achieved £2,095-£2,308/week: the advertised range overlaps the achieved range but its top end is £192 above the achieved high."
     ]
    },
-   "prev": "c3b9a5b7fb3ce4a270e71d9b4d65109990594665a1ff7bf6e08d938f47e8ce64",
-   "hash": "ccf34e86924439b19d1a8ce08899f680d01e600f09a51c470ef2b5d4ffbd1344"
+   "prev": "67e59bddb79671ac144aa181f14b17716427bae3f3914e8be49bac1471ab2373",
+   "hash": "ba720cc2e30281f9840355cffa0c5d21c11da5c15818638d6a9ef611417878f2"
   },
   {
    "stream": "asa-run",
    "n": 3,
-   "ts": 1794770618472,
+   "ts": 1794770925675,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -54,13 +54,13 @@
      "Claimed figures are framed as investor expectations without adequate qualification"
     ]
    },
-   "prev": "ccf34e86924439b19d1a8ce08899f680d01e600f09a51c470ef2b5d4ffbd1344",
-   "hash": "b79f64e9658fb700dc58aee5dc4997c0d33ae7f20d02fd3ec499ea6c1d3385f0"
+   "prev": "ba720cc2e30281f9840355cffa0c5d21c11da5c15818638d6a9ef611417878f2",
+   "hash": "8780bc502957c83191d0b857468123410f835628735c34c6a8dd269339422682"
   },
   {
    "stream": "asa-run",
    "n": 4,
-   "ts": 1794770618473,
+   "ts": 1794770925676,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -78,13 +78,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "b79f64e9658fb700dc58aee5dc4997c0d33ae7f20d02fd3ec499ea6c1d3385f0",
-   "hash": "924f09aea9af3463cf05b0f4212660c665ad3c2e4bb6c6c377ca116c0d38bc6f"
+   "prev": "8780bc502957c83191d0b857468123410f835628735c34c6a8dd269339422682",
+   "hash": "9c99ec334cf2bf9ecc00a44e4946cf07bae0133688e6186dac016632607109eb"
   },
   {
    "stream": "asa-run",
    "n": 5,
-   "ts": 1794770618474,
+   "ts": 1794770925677,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -92,13 +92,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/cbre-ltd-a18-439184.html"
    },
-   "prev": "924f09aea9af3463cf05b0f4212660c665ad3c2e4bb6c6c377ca116c0d38bc6f",
-   "hash": "cc9e78963408e3a408adef3ac37c0c80af566a39a44d16ae2957f08726c530f8"
+   "prev": "9c99ec334cf2bf9ecc00a44e4946cf07bae0133688e6186dac016632607109eb",
+   "hash": "6773ecd77dfe22925d6c04053e34ad6089f2c8e426dc27687e72b2bcde623aaf"
   },
   {
    "stream": "asa-run",
    "n": 6,
-   "ts": 1794770618475,
+   "ts": 1794770925678,
    "type": "item",
    "actor": "code",
    "data": {
@@ -112,13 +112,13 @@
      "27,560 kWh vs Ofgem high 21,100: the assumed comparison home uses 31% more energy than Ofgem's typical figure."
     ]
    },
-   "prev": "cc9e78963408e3a408adef3ac37c0c80af566a39a44d16ae2957f08726c530f8",
-   "hash": "1b7987c22d97a2bc8c752d9f9b9b3256f0a6a544b01bfdfca1ff8b8eab3dba21"
+   "prev": "6773ecd77dfe22925d6c04053e34ad6089f2c8e426dc27687e72b2bcde623aaf",
+   "hash": "90c11d66d63c6f436331880df351f8699983fd2e33d58f0aec93ab883ca34098"
   },
   {
    "stream": "asa-run",
    "n": 7,
-   "ts": 1794770618476,
+   "ts": 1794770925679,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -133,13 +133,13 @@
      "The house energy assumptions are higher than typical Ofgem figures, so the saving may not be representative"
     ]
    },
-   "prev": "1b7987c22d97a2bc8c752d9f9b9b3256f0a6a544b01bfdfca1ff8b8eab3dba21",
-   "hash": "cbaaa7f87f7d422e347ced7d21d5c7e00c341e5291f3f085ccec2d567892e770"
+   "prev": "90c11d66d63c6f436331880df351f8699983fd2e33d58f0aec93ab883ca34098",
+   "hash": "94364797d8bbc2d10ae56f5816df7d33f2a9e3470f393534578b77e76b099028"
   },
   {
    "stream": "asa-run",
    "n": 8,
-   "ts": 1794770618477,
+   "ts": 1794770925680,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -157,13 +157,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "cbaaa7f87f7d422e347ced7d21d5c7e00c341e5291f3f085ccec2d567892e770",
-   "hash": "b559a35809caf4c0130030ade27b2fae081acb9399e8903c5a639c0080cc5ec1"
+   "prev": "94364797d8bbc2d10ae56f5816df7d33f2a9e3470f393534578b77e76b099028",
+   "hash": "293098b5713ff496eb5dd6a47463bcbc8221ae95b636a1c526a772d6a8c16c42"
   },
   {
    "stream": "asa-run",
    "n": 9,
-   "ts": 1794770618478,
+   "ts": 1794770925681,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -171,13 +171,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/churchill-retirement-living-ltd-a23-1192106-churchill-retirement-living-ltd.html"
    },
-   "prev": "b559a35809caf4c0130030ade27b2fae081acb9399e8903c5a639c0080cc5ec1",
-   "hash": "2490e558409121fea2d82f2f7c8e0f07d303ef00f132863c8daca5d050e1320e"
+   "prev": "293098b5713ff496eb5dd6a47463bcbc8221ae95b636a1c526a772d6a8c16c42",
+   "hash": "5aaadf7e19e79e2e8b092d4f98cd29268edd03d688e701351320430ab17779e6"
   },
   {
    "stream": "asa-run",
    "n": 10,
-   "ts": 1794770618479,
+   "ts": 1794770925682,
    "type": "item",
    "actor": "code",
    "data": {
@@ -191,13 +191,13 @@
      "27,560 kWh vs Ofgem high 21,100: the assumed comparison home uses 31% more energy than Ofgem's typical figure."
     ]
    },
-   "prev": "2490e558409121fea2d82f2f7c8e0f07d303ef00f132863c8daca5d050e1320e",
-   "hash": "8163ea77a3fbbe904ce5282548379566201ad813de996fd4e67887b2813d6511"
+   "prev": "5aaadf7e19e79e2e8b092d4f98cd29268edd03d688e701351320430ab17779e6",
+   "hash": "cadbe29dee6b8ee708f9878ee23b9167b4446b662b76b4e4842664bfbab58691"
   },
   {
    "stream": "asa-run",
    "n": 11,
-   "ts": 1794770618480,
+   "ts": 1794770925683,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -212,13 +212,13 @@
      "Apartments compared were about 25% lower than the development average"
     ]
    },
-   "prev": "8163ea77a3fbbe904ce5282548379566201ad813de996fd4e67887b2813d6511",
-   "hash": "807cbb85ac83157eb57e141cce56448c6a3f147035459b1e24cc272cdf027b8b"
+   "prev": "cadbe29dee6b8ee708f9878ee23b9167b4446b662b76b4e4842664bfbab58691",
+   "hash": "9489b2f6438546a2702cff1887c4e4250d7c20a0e0eab9ec0b3c756c1ed8dba7"
   },
   {
    "stream": "asa-run",
    "n": 12,
-   "ts": 1794770618481,
+   "ts": 1794770925684,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -236,13 +236,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "807cbb85ac83157eb57e141cce56448c6a3f147035459b1e24cc272cdf027b8b",
-   "hash": "ba9baa2aec910878be2b66501748d0add96cca833d6ff64f11b74c65db12f71b"
+   "prev": "9489b2f6438546a2702cff1887c4e4250d7c20a0e0eab9ec0b3c756c1ed8dba7",
+   "hash": "0de8b5d33c0822cf3bb71e52ea37c8af3b675903eed2c320c6951c10320771bf"
   },
   {
    "stream": "asa-run",
    "n": 13,
-   "ts": 1794770618482,
+   "ts": 1794770925685,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -250,13 +250,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/churchill-retirement-living-ltd-a23-1192106-churchill-retirement-living-ltd.html"
    },
-   "prev": "ba9baa2aec910878be2b66501748d0add96cca833d6ff64f11b74c65db12f71b",
-   "hash": "33bc576240fa719d6ac275c39cd5d6b207a3779f118bf1a9545e9f0aba347e7c"
+   "prev": "0de8b5d33c0822cf3bb71e52ea37c8af3b675903eed2c320c6951c10320771bf",
+   "hash": "c4c583099b77d2ce29486c0c5c4e4e447603c994305e8d37ac350b85a431cae7"
   },
   {
    "stream": "asa-run",
    "n": 14,
-   "ts": 1794770618483,
+   "ts": 1794770925686,
    "type": "item",
    "actor": "code",
    "data": {
@@ -267,13 +267,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "33bc576240fa719d6ac275c39cd5d6b207a3779f118bf1a9545e9f0aba347e7c",
-   "hash": "803c71a4cd10d76b557587b82f205b696417d4930c2c86b59dc2b7b394447f3b"
+   "prev": "c4c583099b77d2ce29486c0c5c4e4e447603c994305e8d37ac350b85a431cae7",
+   "hash": "6f0ec3496e36624638298bdb7c270135fe76f46f64ac0c489e15eefcec7334e4"
   },
   {
    "stream": "asa-run",
    "n": 15,
-   "ts": 1794770618484,
+   "ts": 1794770925687,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -288,13 +288,13 @@
      "'Much higher price' is overstated on the basis provided"
     ]
    },
-   "prev": "803c71a4cd10d76b557587b82f205b696417d4930c2c86b59dc2b7b394447f3b",
-   "hash": "e282e52789bf69db096680e197a6edf98ede75997396d9be6a2c882f97c3f424"
+   "prev": "6f0ec3496e36624638298bdb7c270135fe76f46f64ac0c489e15eefcec7334e4",
+   "hash": "f4dd1c18d331a67a96be82e01008e927bdf00a8f103d11b7827c4c2ce5389aa5"
   },
   {
    "stream": "asa-run",
    "n": 16,
-   "ts": 1794770618485,
+   "ts": 1794770925688,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -312,13 +312,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "e282e52789bf69db096680e197a6edf98ede75997396d9be6a2c882f97c3f424",
-   "hash": "f176c65152d48076cbf55f09cc1273ce804519ea8b2792354287e40ac44b6011"
+   "prev": "f4dd1c18d331a67a96be82e01008e927bdf00a8f103d11b7827c4c2ce5389aa5",
+   "hash": "7dd2247ce408b2f57ea87625749228e03bd77dca1a8aa395d9e3219d7c42e340"
   },
   {
    "stream": "asa-run",
    "n": 17,
-   "ts": 1794770618486,
+   "ts": 1794770925689,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -326,13 +326,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/connect-uk-sales-ltd-a24-1256131-connect-uk-sales-ltd.html"
    },
-   "prev": "f176c65152d48076cbf55f09cc1273ce804519ea8b2792354287e40ac44b6011",
-   "hash": "b05353ed621fe8b11cb4ef0220982354cb1b6a34c70c28ba6214e659ed1eaa6b"
+   "prev": "7dd2247ce408b2f57ea87625749228e03bd77dca1a8aa395d9e3219d7c42e340",
+   "hash": "5a61d503569daf5549376ba40440a55a0594b7fef18bf28c8bfcbc18dfc22254"
   },
   {
    "stream": "asa-run",
    "n": 18,
-   "ts": 1794770618487,
+   "ts": 1794770925690,
    "type": "item",
    "actor": "code",
    "data": {
@@ -343,13 +343,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "b05353ed621fe8b11cb4ef0220982354cb1b6a34c70c28ba6214e659ed1eaa6b",
-   "hash": "a6cf0c2dd20df1ec6f45544bab29118c5fe139ab669e6d001a5bbedc0c521b08"
+   "prev": "5a61d503569daf5549376ba40440a55a0594b7fef18bf28c8bfcbc18dfc22254",
+   "hash": "51e898f483bb38d8d593bf742798b042ba0cdd6699e257d0864120d50ffcc4f7"
   },
   {
    "stream": "asa-run",
    "n": 19,
-   "ts": 1794770618488,
+   "ts": 1794770925691,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -362,13 +362,13 @@
      "Absence of 'value can go down as well as up' cannot be confirmed from the evidence"
     ]
    },
-   "prev": "a6cf0c2dd20df1ec6f45544bab29118c5fe139ab669e6d001a5bbedc0c521b08",
-   "hash": "8f7520b903d297172f2d50de14fe78ae4da67eb7e991da06af313b33973efe9a"
+   "prev": "51e898f483bb38d8d593bf742798b042ba0cdd6699e257d0864120d50ffcc4f7",
+   "hash": "dbeae72e053aa6c5e0b28eb767bfcfe51045c4047f5a3c144c8c857e0ba5e836"
   },
   {
    "stream": "asa-run",
    "n": 20,
-   "ts": 1794770618489,
+   "ts": 1794770925692,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -386,13 +386,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "8f7520b903d297172f2d50de14fe78ae4da67eb7e991da06af313b33973efe9a",
-   "hash": "48719764bbb2a681c90adea2ce6e583e83a8ab9852fdda7d182df3c09f96c908"
+   "prev": "dbeae72e053aa6c5e0b28eb767bfcfe51045c4047f5a3c144c8c857e0ba5e836",
+   "hash": "fc65564f4dc9f49931dff876bda68ffd385748c56d0a14e2bd5316e83d2cf56f"
   },
   {
    "stream": "asa-run",
    "n": 21,
-   "ts": 1794770618490,
+   "ts": 1794770925693,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -400,13 +400,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/connect-uk-sales-ltd-a24-1256131-connect-uk-sales-ltd.html"
    },
-   "prev": "48719764bbb2a681c90adea2ce6e583e83a8ab9852fdda7d182df3c09f96c908",
-   "hash": "57ae3e9522d7788e9dd7fb0ebbe6f2535b4229517ff00a8c78b0fccc26d62a0d"
+   "prev": "fc65564f4dc9f49931dff876bda68ffd385748c56d0a14e2bd5316e83d2cf56f",
+   "hash": "c3cd77dda8f81b0f8b6689ad0055a9e44d0f7628e78d9621c0518130f4e584d6"
   },
   {
    "stream": "asa-run",
    "n": 22,
-   "ts": 1794770618491,
+   "ts": 1794770925694,
    "type": "item",
    "actor": "code",
    "data": {
@@ -419,13 +419,13 @@
      "Neither case sits inside the stated 10-30% range: case 1 is far above it and case 2 (+30.7%) is just above it. The sample is 2 cases, one from 2021."
     ]
    },
-   "prev": "57ae3e9522d7788e9dd7fb0ebbe6f2535b4229517ff00a8c78b0fccc26d62a0d",
-   "hash": "03435dfb3c4a171611a0e0dd9ff168721616232867252d6aca056d339e827808"
+   "prev": "c3cd77dda8f81b0f8b6689ad0055a9e44d0f7628e78d9621c0518130f4e584d6",
+   "hash": "170a87d6bffef5d5448102c3c6b0751daee462a60e797daf5a7452587862b90c"
   },
   {
    "stream": "asa-run",
    "n": 23,
-   "ts": 1794770618492,
+   "ts": 1794770925695,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -440,13 +440,13 @@
      "Only two case studies are provided, which is too limited to substantiate the range as a general claim"
     ]
    },
-   "prev": "03435dfb3c4a171611a0e0dd9ff168721616232867252d6aca056d339e827808",
-   "hash": "2d5b924f505a14d847d0971965a25657c02cc4d88c47e2e3011df6a0cc9b7291"
+   "prev": "170a87d6bffef5d5448102c3c6b0751daee462a60e797daf5a7452587862b90c",
+   "hash": "874ba18feee80b8de9475b42ee6ffed6aed351f900c0ca30b2ae5a25ae03ffd9"
   },
   {
    "stream": "asa-run",
    "n": 24,
-   "ts": 1794770618493,
+   "ts": 1794770925696,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -464,13 +464,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "2d5b924f505a14d847d0971965a25657c02cc4d88c47e2e3011df6a0cc9b7291",
-   "hash": "f6ecfc71a11b10844d056ad039ee78004a57876a7f957dee991b08ea7c16340d"
+   "prev": "874ba18feee80b8de9475b42ee6ffed6aed351f900c0ca30b2ae5a25ae03ffd9",
+   "hash": "ede556ef9383de02a45f5c7aa572d0af809df5313b8e1bb1b03b0711ba9710c5"
   },
   {
    "stream": "asa-run",
    "n": 25,
-   "ts": 1794770618494,
+   "ts": 1794770925697,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -478,13 +478,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/connect-uk-sales-ltd-a24-1256131-connect-uk-sales-ltd.html"
    },
-   "prev": "f6ecfc71a11b10844d056ad039ee78004a57876a7f957dee991b08ea7c16340d",
-   "hash": "40483dfb32b814c6f881f88bf2b057cd67ad4594b125e8487671f745f4578dcf"
+   "prev": "ede556ef9383de02a45f5c7aa572d0af809df5313b8e1bb1b03b0711ba9710c5",
+   "hash": "d981bae02399e3a5152390b7fa342dd08a1dcacfd9b04e96db4b45eae4c13783"
   },
   {
    "stream": "asa-run",
    "n": 26,
-   "ts": 1794770618495,
+   "ts": 1794770925698,
    "type": "item",
    "actor": "code",
    "data": {
@@ -495,13 +495,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "40483dfb32b814c6f881f88bf2b057cd67ad4594b125e8487671f745f4578dcf",
-   "hash": "10db62cd70bfcc32dc4be1356e013fd78a0d1aaf8159cb6bd3a0e56a47a8ef01"
+   "prev": "d981bae02399e3a5152390b7fa342dd08a1dcacfd9b04e96db4b45eae4c13783",
+   "hash": "ffee4a2f0ef3b034c352d13eaed27a6f291f8ca9e1848691696cd990763ee811"
   },
   {
    "stream": "asa-run",
    "n": 27,
-   "ts": 1794770618496,
+   "ts": 1794770925699,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -515,13 +515,13 @@
      "The general mailing nature does not establish the specific content claimed"
     ]
    },
-   "prev": "10db62cd70bfcc32dc4be1356e013fd78a0d1aaf8159cb6bd3a0e56a47a8ef01",
-   "hash": "0785fd434e8705742c47285b72d7317cda5d7690e4bc21b7153684e3735500e2"
+   "prev": "ffee4a2f0ef3b034c352d13eaed27a6f291f8ca9e1848691696cd990763ee811",
+   "hash": "1361a76d86197149650c18ca8eada5151ac6b2f3a7bfc149a2f7a69e557846fb"
   },
   {
    "stream": "asa-run",
    "n": 28,
-   "ts": 1794770618497,
+   "ts": 1794770925700,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -539,13 +539,13 @@
      "instruction_adherence": 94
     }
    },
-   "prev": "0785fd434e8705742c47285b72d7317cda5d7690e4bc21b7153684e3735500e2",
-   "hash": "405f87f91d627be4ad5257f82d94bc891721dd21db1de6ec8120e4161fede0d0"
+   "prev": "1361a76d86197149650c18ca8eada5151ac6b2f3a7bfc149a2f7a69e557846fb",
+   "hash": "2cb3a5bea800b90728b00a3ca7f834042d0b96d337d18c8e7437b024bda280a1"
   },
   {
    "stream": "asa-run",
    "n": 29,
-   "ts": 1794770618498,
+   "ts": 1794770925701,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -553,13 +553,13 @@
     "label": "sound",
     "source": "https://www.asa.org.uk/rulings/hilton-king-locke-a12-189204.html"
    },
-   "prev": "405f87f91d627be4ad5257f82d94bc891721dd21db1de6ec8120e4161fede0d0",
-   "hash": "288c8057f9ce89c61faf610e7d2352c4c24b4b5d9175ce49c4f75d9e0deb078b"
+   "prev": "2cb3a5bea800b90728b00a3ca7f834042d0b96d337d18c8e7437b024bda280a1",
+   "hash": "7a3c4e69316b423dfb459e0ee54c55ae88be1510417ca8d5d3425c267add1611"
   },
   {
    "stream": "asa-run",
    "n": 30,
-   "ts": 1794770618499,
+   "ts": 1794770925702,
    "type": "item",
    "actor": "code",
    "data": {
@@ -571,13 +571,13 @@
      "The comparison is final sale price against another agent's initial valuation, not against that agent's own sale price; 13 sales is a small sample."
     ]
    },
-   "prev": "288c8057f9ce89c61faf610e7d2352c4c24b4b5d9175ce49c4f75d9e0deb078b",
-   "hash": "0746815443ddd91fe8acf62213d0425319739fa9e6c8e8d94825a14b2295e6a7"
+   "prev": "7a3c4e69316b423dfb459e0ee54c55ae88be1510417ca8d5d3425c267add1611",
+   "hash": "3fdaba4b9dce52ee7640c08addcc51d31550aa34d063a290bae1ae1707d80b02"
   },
   {
    "stream": "asa-run",
    "n": 31,
-   "ts": 1794770618500,
+   "ts": 1794770925703,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -592,13 +592,13 @@
      "Need clearer qualification that 'up to 10%' is based on a limited number of cases"
     ]
    },
-   "prev": "0746815443ddd91fe8acf62213d0425319739fa9e6c8e8d94825a14b2295e6a7",
-   "hash": "7aea5f253c4b7858a3856c34250f9bc51a2d8fb57ac9058d7e0bf4cd1b7faa37"
+   "prev": "3fdaba4b9dce52ee7640c08addcc51d31550aa34d063a290bae1ae1707d80b02",
+   "hash": "3293d8765b0f1cfaa451b48e343d8fe5a160024b49d53f71b8d7b235811e39dc"
   },
   {
    "stream": "asa-run",
    "n": 32,
-   "ts": 1794770618501,
+   "ts": 1794770925704,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -616,13 +616,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "7aea5f253c4b7858a3856c34250f9bc51a2d8fb57ac9058d7e0bf4cd1b7faa37",
-   "hash": "b4825821165288f1b529c1164b5931f7f5fe0219c3a7d769d3412278ab6b98be"
+   "prev": "3293d8765b0f1cfaa451b48e343d8fe5a160024b49d53f71b8d7b235811e39dc",
+   "hash": "252b82135b7275cdd6b8977a87f82a8d8286ed8170a3c354c858eb25815907d2"
   },
   {
    "stream": "asa-run",
    "n": 33,
-   "ts": 1794770618502,
+   "ts": 1794770925705,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -630,13 +630,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/hilton-king-locke-a12-189204.html"
    },
-   "prev": "b4825821165288f1b529c1164b5931f7f5fe0219c3a7d769d3412278ab6b98be",
-   "hash": "991b9d6be05bb614d5f53dcc99f180da83f3496d8697df238ab27a59fdaaffba"
+   "prev": "252b82135b7275cdd6b8977a87f82a8d8286ed8170a3c354c858eb25815907d2",
+   "hash": "6a62fdf50c5d88894e1df93bcc1d6d2ed570cb80db3e26d50fad23991912fcf1"
   },
   {
    "stream": "asa-run",
    "n": 34,
-   "ts": 1794770618503,
+   "ts": 1794770925706,
    "type": "item",
    "actor": "code",
    "data": {
@@ -647,13 +647,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "991b9d6be05bb614d5f53dcc99f180da83f3496d8697df238ab27a59fdaaffba",
-   "hash": "8c6c68eacf86a6915aed12af39822a2ffbcb3e3b0df339ecf2b976d7d0e8ce83"
+   "prev": "6a62fdf50c5d88894e1df93bcc1d6d2ed570cb80db3e26d50fad23991912fcf1",
+   "hash": "0b8a144cb5b075db290994e6a093de4143280b6cdc485e5e158bf37095033054"
   },
   {
    "stream": "asa-run",
    "n": 35,
-   "ts": 1794770618504,
+   "ts": 1794770925707,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -667,13 +667,13 @@
      "evidence shows nearby estate agents open on Sundays"
     ]
    },
-   "prev": "8c6c68eacf86a6915aed12af39822a2ffbcb3e3b0df339ecf2b976d7d0e8ce83",
-   "hash": "4ad0b39d930fcd92888807c64391faaec88f547b626daf57fc64f8c37d8767de"
+   "prev": "0b8a144cb5b075db290994e6a093de4143280b6cdc485e5e158bf37095033054",
+   "hash": "8c1810b5366a76973efcd007a5bf87c7d68ed345904480b03954f329e862c0ea"
   },
   {
    "stream": "asa-run",
    "n": 36,
-   "ts": 1794770618505,
+   "ts": 1794770925708,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -691,13 +691,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "4ad0b39d930fcd92888807c64391faaec88f547b626daf57fc64f8c37d8767de",
-   "hash": "de765e0764b4e5aaaa89fc6b20c0a7202fc3e2af4865f568e7226a61952b326e"
+   "prev": "8c1810b5366a76973efcd007a5bf87c7d68ed345904480b03954f329e862c0ea",
+   "hash": "1b77176dba6af06a453814ccec2c8682f0d71f45c25c9f901b2a7db2a99d1471"
   },
   {
    "stream": "asa-run",
    "n": 37,
-   "ts": 1794770618506,
+   "ts": 1794770925709,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -705,13 +705,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/hilton-king-locke-a12-189204.html"
    },
-   "prev": "de765e0764b4e5aaaa89fc6b20c0a7202fc3e2af4865f568e7226a61952b326e",
-   "hash": "b4629e56ee3866c7c5a8f96bc208ea1b1152070888202ce7fd9bd114aceb368b"
+   "prev": "1b77176dba6af06a453814ccec2c8682f0d71f45c25c9f901b2a7db2a99d1471",
+   "hash": "3cb0ce1460f911e2ac6641d4a9c86ca0487ce5d4703cefc14b8b1058b0aba92b"
   },
   {
    "stream": "asa-run",
    "n": 38,
-   "ts": 1794770618507,
+   "ts": 1794770925710,
    "type": "item",
    "actor": "code",
    "data": {
@@ -722,13 +722,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "b4629e56ee3866c7c5a8f96bc208ea1b1152070888202ce7fd9bd114aceb368b",
-   "hash": "48de49ff78d66a888b5dc4866c45f475c66777a55e6864905fba0c219dac9512"
+   "prev": "3cb0ce1460f911e2ac6641d4a9c86ca0487ce5d4703cefc14b8b1058b0aba92b",
+   "hash": "ccc55a04f890198719f83fd9616814026252487c5f467ec18029dffc593ea73d"
   },
   {
    "stream": "asa-run",
    "n": 39,
-   "ts": 1794770618508,
+   "ts": 1794770925711,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -743,13 +743,13 @@
      "No evidence that six-figure profits are generally achievable rather than exceptional"
     ]
    },
-   "prev": "48de49ff78d66a888b5dc4866c45f475c66777a55e6864905fba0c219dac9512",
-   "hash": "02b0d84d3f2dac0a97b2c960201fb2321b4559d1a4f108827a3235dc2fcaf0bd"
+   "prev": "ccc55a04f890198719f83fd9616814026252487c5f467ec18029dffc593ea73d",
+   "hash": "b9dc8d75fe0c22e5b3f8299777c8af2c2649a93f1224d4866138fc76474c2b67"
   },
   {
    "stream": "asa-run",
    "n": 40,
-   "ts": 1794770618509,
+   "ts": 1794770925712,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -767,13 +767,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "02b0d84d3f2dac0a97b2c960201fb2321b4559d1a4f108827a3235dc2fcaf0bd",
-   "hash": "bf7b263f1a5e1f23286222f07870590a856c3d5b5ba4bc757febc846871553ba"
+   "prev": "b9dc8d75fe0c22e5b3f8299777c8af2c2649a93f1224d4866138fc76474c2b67",
+   "hash": "91667c0be47cd3dcca8be5af407aa0c0d474bea9356da5a24f0c4663254cda3d"
   },
   {
    "stream": "asa-run",
    "n": 41,
-   "ts": 1794770618510,
+   "ts": 1794770925713,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -781,13 +781,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/land-profits-edu-ltd-a24-1256132-land-profits-edu-ltd.html"
    },
-   "prev": "bf7b263f1a5e1f23286222f07870590a856c3d5b5ba4bc757febc846871553ba",
-   "hash": "63defe9ea8f73b2ac1ad9f8558786234fd6366134c723080ac4b6e7a2b2f4507"
+   "prev": "91667c0be47cd3dcca8be5af407aa0c0d474bea9356da5a24f0c4663254cda3d",
+   "hash": "bf29e427bfd0290728b0696a3a3f9adb97c9006bf8872201c74d3316e0ad26d3"
   },
   {
    "stream": "asa-run",
    "n": 42,
-   "ts": 1794770618511,
+   "ts": 1794770925714,
    "type": "item",
    "actor": "code",
    "data": {
@@ -798,13 +798,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "63defe9ea8f73b2ac1ad9f8558786234fd6366134c723080ac4b6e7a2b2f4507",
-   "hash": "fb2e16bee6fec7ed8357cac78d95fe5bcd615edd6ceac505d3e2f5d994ac1cfe"
+   "prev": "bf29e427bfd0290728b0696a3a3f9adb97c9006bf8872201c74d3316e0ad26d3",
+   "hash": "142e67c5e3a3fde41e410230dd9c186e664d6da6c83f9c3745fa508e12066a47"
   },
   {
    "stream": "asa-run",
    "n": 43,
-   "ts": 1794770618512,
+   "ts": 1794770925715,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -819,13 +819,13 @@
      "No evidence supporting the distinction between the web page disclaimer and the paid social ads"
     ]
    },
-   "prev": "fb2e16bee6fec7ed8357cac78d95fe5bcd615edd6ceac505d3e2f5d994ac1cfe",
-   "hash": "34c79dfc9c3d9c8a020ed356cd1d57b63e7add866d8771f0302c7c69bf8d18ba"
+   "prev": "142e67c5e3a3fde41e410230dd9c186e664d6da6c83f9c3745fa508e12066a47",
+   "hash": "0e1f639b108e422b8efd1e83b4899af5541e765ac727d96a956cb4b0d97f5c81"
   },
   {
    "stream": "asa-run",
    "n": 44,
-   "ts": 1794770618513,
+   "ts": 1794770925716,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -843,13 +843,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "34c79dfc9c3d9c8a020ed356cd1d57b63e7add866d8771f0302c7c69bf8d18ba",
-   "hash": "eaedda72a632be3568380fa73fcfd910566e832ba03ba177579af54f5dfcde68"
+   "prev": "0e1f639b108e422b8efd1e83b4899af5541e765ac727d96a956cb4b0d97f5c81",
+   "hash": "8bd325932637ceaa8bbecd876c48c5c53bb1013ecae5caf9a212578b193e7446"
   },
   {
    "stream": "asa-run",
    "n": 45,
-   "ts": 1794770618514,
+   "ts": 1794770925717,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -857,13 +857,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/land-profits-edu-ltd-a24-1256132-land-profits-edu-ltd.html"
    },
-   "prev": "eaedda72a632be3568380fa73fcfd910566e832ba03ba177579af54f5dfcde68",
-   "hash": "2fc3559b561b064f06f4776b3f69fb25867ab5f0e42dbf1750cc766ab47504ed"
+   "prev": "8bd325932637ceaa8bbecd876c48c5c53bb1013ecae5caf9a212578b193e7446",
+   "hash": "c4d4be9b5b1ec17735b941a0d7379a0811b85a129f050f9d114fd359906de0da"
   },
   {
    "stream": "asa-run",
    "n": 46,
-   "ts": 1794770618515,
+   "ts": 1794770925718,
    "type": "item",
    "actor": "code",
    "data": {
@@ -874,13 +874,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "2fc3559b561b064f06f4776b3f69fb25867ab5f0e42dbf1750cc766ab47504ed",
-   "hash": "3b788e9ccbd5da28979d9ba151464f1510dd0e883cb552095e0a24dbfde0337b"
+   "prev": "c4d4be9b5b1ec17735b941a0d7379a0811b85a129f050f9d114fd359906de0da",
+   "hash": "209b3a298f26d4656c55ea70590f5ff9f15f02d0a29afa8a38da14a14dc395f7"
   },
   {
    "stream": "asa-run",
    "n": 47,
-   "ts": 1794770618516,
+   "ts": 1794770925719,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -897,13 +897,13 @@
      "'Guaranteed return' presented without key conditions"
     ]
    },
-   "prev": "3b788e9ccbd5da28979d9ba151464f1510dd0e883cb552095e0a24dbfde0337b",
-   "hash": "4f3f37400d1dd73ab6c06b37cafb47293dda89075a31f9255c500bcbd7821fbf"
+   "prev": "209b3a298f26d4656c55ea70590f5ff9f15f02d0a29afa8a38da14a14dc395f7",
+   "hash": "b57a204022769702034c8da159a7ea58f04cdeb1f35db389fbf059cad1e6596f"
   },
   {
    "stream": "asa-run",
    "n": 48,
-   "ts": 1794770618517,
+   "ts": 1794770925720,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -921,13 +921,13 @@
      "instruction_adherence": 75
     }
    },
-   "prev": "4f3f37400d1dd73ab6c06b37cafb47293dda89075a31f9255c500bcbd7821fbf",
-   "hash": "5ccb35ebdeca9ced7c630b804e953741745fd51b2515c625211920c2b6a877ba"
+   "prev": "b57a204022769702034c8da159a7ea58f04cdeb1f35db389fbf059cad1e6596f",
+   "hash": "233a84e79e311f1663e2ca8d645b092a5c7136f89a1a1f0d96c19923e2e9f2d0"
   },
   {
    "stream": "asa-run",
    "n": 49,
-   "ts": 1794770618518,
+   "ts": 1794770925721,
    "type": "serv_revision",
    "actor": "serv",
    "data": {
@@ -944,13 +944,13 @@
      "Guarantee presented without key conditions"
     ]
    },
-   "prev": "5ccb35ebdeca9ced7c630b804e953741745fd51b2515c625211920c2b6a877ba",
-   "hash": "da204772b39babab87836fb3eb32e5a5fc2db0e98b171b0ca4220898c806e83f"
+   "prev": "233a84e79e311f1663e2ca8d645b092a5c7136f89a1a1f0d96c19923e2e9f2d0",
+   "hash": "28bd0dd1b71d06bd9df6ef3755d2a21b2e9b80058ec41c71fed714cf2ad001c3"
   },
   {
    "stream": "asa-run",
    "n": 50,
-   "ts": 1794770618519,
+   "ts": 1794770925722,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -968,13 +968,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "da204772b39babab87836fb3eb32e5a5fc2db0e98b171b0ca4220898c806e83f",
-   "hash": "f818b69fb25cecbe36a44ec5e10f64ff7737ba33bec39dfc5da166394e21d20f"
+   "prev": "28bd0dd1b71d06bd9df6ef3755d2a21b2e9b80058ec41c71fed714cf2ad001c3",
+   "hash": "dcc4dbdfbadc14b8b0096077dccab1c59e2cf06b063fedee3e8b8d928863dcad"
   },
   {
    "stream": "asa-run",
    "n": 51,
-   "ts": 1794770618520,
+   "ts": 1794770925723,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -982,13 +982,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/luxury-lodge-estates-company-ltd-a24-1256125-luxury-lodge-estates-company-ltd.html"
    },
-   "prev": "f818b69fb25cecbe36a44ec5e10f64ff7737ba33bec39dfc5da166394e21d20f",
-   "hash": "589fbb75613eaefd445b250fca9a8b670648d288a010b9eb3bfd0679eaa33bbe"
+   "prev": "dcc4dbdfbadc14b8b0096077dccab1c59e2cf06b063fedee3e8b8d928863dcad",
+   "hash": "d6579243e7efa871c631b45cdb614fdd8f2511485112dbe33fe20810c5b3d0ff"
   },
   {
    "stream": "asa-run",
    "n": 52,
-   "ts": 1794770618521,
+   "ts": 1794770925724,
    "type": "item",
    "actor": "code",
    "data": {
@@ -999,13 +999,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "589fbb75613eaefd445b250fca9a8b670648d288a010b9eb3bfd0679eaa33bbe",
-   "hash": "9ff3df7e0bd7b8a249b5ed9c7700f537c617830e3a4051efa8511958b84ad14a"
+   "prev": "d6579243e7efa871c631b45cdb614fdd8f2511485112dbe33fe20810c5b3d0ff",
+   "hash": "20541c9d61f1901ea67780afb6018f82855ef30f6cafe8e15283635b434c74c2"
   },
   {
    "stream": "asa-run",
    "n": 53,
-   "ts": 1794770618522,
+   "ts": 1794770925725,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -1020,13 +1020,13 @@
      "No evidence the ad omitted any statement about past performance"
     ]
    },
-   "prev": "9ff3df7e0bd7b8a249b5ed9c7700f537c617830e3a4051efa8511958b84ad14a",
-   "hash": "9f46a5e74c4d7c84cf2b81ef90e3b362caa45197b8f7f982a852ca6c91fb0a0c"
+   "prev": "20541c9d61f1901ea67780afb6018f82855ef30f6cafe8e15283635b434c74c2",
+   "hash": "8ee1defa0ddca7f6786d8d16acbeacd0b1234f308fc1df4b9dac94a48c4bd021"
   },
   {
    "stream": "asa-run",
    "n": 54,
-   "ts": 1794770618523,
+   "ts": 1794770925726,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -1044,13 +1044,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "9f46a5e74c4d7c84cf2b81ef90e3b362caa45197b8f7f982a852ca6c91fb0a0c",
-   "hash": "b3d83f16d5ad4bddc9c61e0f4598d7936c75e8694af1ed3d385977095fe9ee78"
+   "prev": "8ee1defa0ddca7f6786d8d16acbeacd0b1234f308fc1df4b9dac94a48c4bd021",
+   "hash": "3d9d528f7a03d38a5e14ecb188d9040b399d81ba339b8dddfbbd1fb75b83fc2a"
   },
   {
    "stream": "asa-run",
    "n": 55,
-   "ts": 1794770618524,
+   "ts": 1794770925727,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -1058,13 +1058,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/luxury-lodge-estates-company-ltd-a24-1256125-luxury-lodge-estates-company-ltd.html"
    },
-   "prev": "b3d83f16d5ad4bddc9c61e0f4598d7936c75e8694af1ed3d385977095fe9ee78",
-   "hash": "06a3a143c8d13a21941e3797a1eeb615ec86f6a383690287d2d2229e95059cba"
+   "prev": "3d9d528f7a03d38a5e14ecb188d9040b399d81ba339b8dddfbbd1fb75b83fc2a",
+   "hash": "4d1cb7a5aadb178348777f7c5cef07ead4885d587ca693472382b8d28920fdfe"
   },
   {
    "stream": "asa-run",
    "n": 56,
-   "ts": 1794770618525,
+   "ts": 1794770925728,
    "type": "item",
    "actor": "code",
    "data": {
@@ -1079,13 +1079,13 @@
      "The sums do not test whether the price rise will happen; they only show what the percentages imply."
     ]
    },
-   "prev": "06a3a143c8d13a21941e3797a1eeb615ec86f6a383690287d2d2229e95059cba",
-   "hash": "4ec25be2ecd8d01204540522982496e88f889229a7f8a6131c630b1d7fbf836f"
+   "prev": "4d1cb7a5aadb178348777f7c5cef07ead4885d587ca693472382b8d28920fdfe",
+   "hash": "a177f991ae65751599fe74387b01c5478e04a9c5ad71ae79c0c09be2ca597f8f"
   },
   {
    "stream": "asa-run",
    "n": 57,
-   "ts": 1794770618526,
+   "ts": 1794770925729,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -1100,13 +1100,13 @@
      "The 50-100% return calculation is arithmetically consistent but does not support the underlying market forecast"
     ]
    },
-   "prev": "4ec25be2ecd8d01204540522982496e88f889229a7f8a6131c630b1d7fbf836f",
-   "hash": "8ed8d57e10a477df2be1ced234bb52da5683a8b7fad6ebce10003586091bf1de"
+   "prev": "a177f991ae65751599fe74387b01c5478e04a9c5ad71ae79c0c09be2ca597f8f",
+   "hash": "825c4a5664af9fc8bdc49db692f82833bd754191eba58e92ee710f723c088d1d"
   },
   {
    "stream": "asa-run",
    "n": 58,
-   "ts": 1794770618527,
+   "ts": 1794770925730,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -1124,13 +1124,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "8ed8d57e10a477df2be1ced234bb52da5683a8b7fad6ebce10003586091bf1de",
-   "hash": "f37bae2fece01c84d965973adfc3d7f514d338a254fdf5c59aea77bf9aef28ef"
+   "prev": "825c4a5664af9fc8bdc49db692f82833bd754191eba58e92ee710f723c088d1d",
+   "hash": "a436b8c81ecdf55e8ff0a93c5480ad6f88054514586d6488a18053fa8a220796"
   },
   {
    "stream": "asa-run",
    "n": 59,
-   "ts": 1794770618528,
+   "ts": 1794770925731,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -1138,13 +1138,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/newbuild-sales-ltd-a15-315511.html"
    },
-   "prev": "f37bae2fece01c84d965973adfc3d7f514d338a254fdf5c59aea77bf9aef28ef",
-   "hash": "147108e96e638301d8f9c14884a0553578d3e8687d6f7391a5d2bcf71322f127"
+   "prev": "a436b8c81ecdf55e8ff0a93c5480ad6f88054514586d6488a18053fa8a220796",
+   "hash": "8a5e16d6b62b7c8abbc7ccfe28a8577ac379a8878251e91ec33e80142621c1f2"
   },
   {
    "stream": "asa-run",
    "n": 60,
-   "ts": 1794770618529,
+   "ts": 1794770925732,
    "type": "item",
    "actor": "code",
    "data": {
@@ -1155,13 +1155,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "147108e96e638301d8f9c14884a0553578d3e8687d6f7391a5d2bcf71322f127",
-   "hash": "f1e9ee08aea306c0b08bdb4a954a073da5a30459bd89448753434e23c3a58756"
+   "prev": "8a5e16d6b62b7c8abbc7ccfe28a8577ac379a8878251e91ec33e80142621c1f2",
+   "hash": "829a1dd4a621aa4c0ed7386397dc6ae4a702b70ac0864dd41799e6a4da5f40b5"
   },
   {
    "stream": "asa-run",
    "n": 61,
-   "ts": 1794770618530,
+   "ts": 1794770925733,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -1176,13 +1176,13 @@
      "No evidence about whether the email included or omitted a past-performance disclaimer"
     ]
    },
-   "prev": "f1e9ee08aea306c0b08bdb4a954a073da5a30459bd89448753434e23c3a58756",
-   "hash": "de2495e8e6454ceaf5b9651016ec5d2630545b1264ac319dbbd3a19379467e93"
+   "prev": "829a1dd4a621aa4c0ed7386397dc6ae4a702b70ac0864dd41799e6a4da5f40b5",
+   "hash": "1409dd68cbe1ce6adee22512c873a1d9c14c55203b137199d9f8c5ef754d8706"
   },
   {
    "stream": "asa-run",
    "n": 62,
-   "ts": 1794770618531,
+   "ts": 1794770925734,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -1200,13 +1200,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "de2495e8e6454ceaf5b9651016ec5d2630545b1264ac319dbbd3a19379467e93",
-   "hash": "bca71360a9a98c0fc53208e0e67ae4f71e10837c7650e6bb891919e7e284ab42"
+   "prev": "1409dd68cbe1ce6adee22512c873a1d9c14c55203b137199d9f8c5ef754d8706",
+   "hash": "52610dd5cdbab0cc979fe935cefcd42732d26de16b278b6c6bb411ae2110cc40"
   },
   {
    "stream": "asa-run",
    "n": 63,
-   "ts": 1794770618532,
+   "ts": 1794770925735,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -1214,13 +1214,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/newbuild-sales-ltd-a15-315511.html"
    },
-   "prev": "bca71360a9a98c0fc53208e0e67ae4f71e10837c7650e6bb891919e7e284ab42",
-   "hash": "47b3ebc58382e13f672a8d9096d40c69dc37e2a7dbdc2910ab9b90fcde0689b3"
+   "prev": "52610dd5cdbab0cc979fe935cefcd42732d26de16b278b6c6bb411ae2110cc40",
+   "hash": "6789e0069d52b02bc42d17207d567f00771dfb1b504a82c0451814280bae25a0"
   },
   {
    "stream": "asa-run",
    "n": 64,
-   "ts": 1794770618533,
+   "ts": 1794770925736,
    "type": "item",
    "actor": "code",
    "data": {
@@ -1233,13 +1233,13 @@
      "Neither equals the advertised £4,158. The disclosed inputs would need an average sale price of about £330,400 (with the £798 fee) or £354,400 (with £1,158) to give £4,158. That average sale price is not shown."
     ]
    },
-   "prev": "47b3ebc58382e13f672a8d9096d40c69dc37e2a7dbdc2910ab9b90fcde0689b3",
-   "hash": "bbfbe08c6eb5e0a56c0c5750568f09acacd2d1125a9051fc1b4afce117ece77f"
+   "prev": "6789e0069d52b02bc42d17207d567f00771dfb1b504a82c0451814280bae25a0",
+   "hash": "1d413e202b486840a171a9df65c0b45db0e6af2404b5f81b9b52a9b1670e9beb"
   },
   {
    "stream": "asa-run",
    "n": 65,
-   "ts": 1794770618534,
+   "ts": 1794770925737,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -1253,13 +1253,13 @@
      "Commission rate source is indirect and not linked to the agent’s own sales data"
     ]
    },
-   "prev": "bbfbe08c6eb5e0a56c0c5750568f09acacd2d1125a9051fc1b4afce117ece77f",
-   "hash": "43111112e4e201bcdd4c8d79ab325d635a9f28924018c286ccf0ba25aff3d5c4"
+   "prev": "1d413e202b486840a171a9df65c0b45db0e6af2404b5f81b9b52a9b1670e9beb",
+   "hash": "fa5f1833d87af909744cdb0df5bc1d09097e85661434e44d3440f99b2e5ee103"
   },
   {
    "stream": "asa-run",
    "n": 66,
-   "ts": 1794770618535,
+   "ts": 1794770925738,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -1277,13 +1277,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "43111112e4e201bcdd4c8d79ab325d635a9f28924018c286ccf0ba25aff3d5c4",
-   "hash": "3db6cc9190be5e8e0d7116e863dce35074d9d2c49de835df6afee94d4c0091f0"
+   "prev": "fa5f1833d87af909744cdb0df5bc1d09097e85661434e44d3440f99b2e5ee103",
+   "hash": "8303f7f01b2c0507a1b589eb99445a5358bb873c35163e4220dea24983d04071"
   },
   {
    "stream": "asa-run",
    "n": 67,
-   "ts": 1794770618536,
+   "ts": 1794770925739,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -1291,13 +1291,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/new-broom-ltd-a16-331595.html"
    },
-   "prev": "3db6cc9190be5e8e0d7116e863dce35074d9d2c49de835df6afee94d4c0091f0",
-   "hash": "6a1bcea4ae6bd3126ca521722c1abcc647641aad989478ca3cc3b6e5d46882ef"
+   "prev": "8303f7f01b2c0507a1b589eb99445a5358bb873c35163e4220dea24983d04071",
+   "hash": "abe43ab7f9bbfd1ecb0377a548e95e1420efe1546bb537fd69bcd170311e0e4b"
   },
   {
    "stream": "asa-run",
    "n": 68,
-   "ts": 1794770618537,
+   "ts": 1794770925740,
    "type": "item",
    "actor": "code",
    "data": {
@@ -1310,13 +1310,13 @@
      "At 1.80% commission on £300,000 the commission is £5,400; saving versus the fixed fees is £4,602 (outside London) or £4,242 (London)."
     ]
    },
-   "prev": "6a1bcea4ae6bd3126ca521722c1abcc647641aad989478ca3cc3b6e5d46882ef",
-   "hash": "142c230ea8347e086b8961898cfb681d72f9375823b9df663f6ac90691e9f691"
+   "prev": "abe43ab7f9bbfd1ecb0377a548e95e1420efe1546bb537fd69bcd170311e0e4b",
+   "hash": "eafce3f6c74d2cdf58ad4a215ff5be9a5860c3123adf84d12c57cf3b3d930832"
   },
   {
    "stream": "asa-run",
    "n": 69,
-   "ts": 1794770618538,
+   "ts": 1794770925741,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -1326,13 +1326,13 @@
     "reasoning": "The claim is supported by the evidence. The ad says a client could \"save thousands\" and the small print cites average estate agent commission from a 2011 Which? survey. The survey evidence shows commissions averaging 1.8%, and on a £300,000 property that would be £5,400 versus the agent’s fixed fees of £798 or £1,158, so the saving is £4,602 or £4,242 respectively. That is plainly “thousands.” Even at the lower end of the survey range, the saving remains over £1,000, which still supports the general claim.",
     "missing_or_unsupported": []
    },
-   "prev": "142c230ea8347e086b8961898cfb681d72f9375823b9df663f6ac90691e9f691",
-   "hash": "c780470bff33041bb909e49fe260b38d33b469def2e9f05109cbaa372ff87e09"
+   "prev": "eafce3f6c74d2cdf58ad4a215ff5be9a5860c3123adf84d12c57cf3b3d930832",
+   "hash": "4b82ee9345320517781b1b5a851797ceab516b5f16617698e63b44e6fda3e005"
   },
   {
    "stream": "asa-run",
    "n": 70,
-   "ts": 1794770618539,
+   "ts": 1794770925742,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -1350,13 +1350,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "c780470bff33041bb909e49fe260b38d33b469def2e9f05109cbaa372ff87e09",
-   "hash": "f1a25305a7c6f8dcd94d51b067c7f9ab875ac4ce78a30c7276c63ec0ff8b0c97"
+   "prev": "4b82ee9345320517781b1b5a851797ceab516b5f16617698e63b44e6fda3e005",
+   "hash": "ec7b4d932f353fefd4912c35e47ec11f6034dd21bf6850455bd5f9430627298a"
   },
   {
    "stream": "asa-run",
    "n": 71,
-   "ts": 1794770618540,
+   "ts": 1794770925743,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -1364,13 +1364,13 @@
     "label": "sound",
     "source": "https://www.asa.org.uk/rulings/new-broom-ltd-a16-331595.html"
    },
-   "prev": "f1a25305a7c6f8dcd94d51b067c7f9ab875ac4ce78a30c7276c63ec0ff8b0c97",
-   "hash": "c96d9f47b83c40a6901835fd4bb1cfef958b1796759002132f91d4617dd7903b"
+   "prev": "ec7b4d932f353fefd4912c35e47ec11f6034dd21bf6850455bd5f9430627298a",
+   "hash": "c85ce4d8aeed2beb15a4ddc65e8d35ad4832ad7b0c45e2a101700bc818751660"
   },
   {
    "stream": "asa-run",
    "n": 72,
-   "ts": 1794770618541,
+   "ts": 1794770925744,
    "type": "item",
    "actor": "code",
    "data": {
@@ -1381,13 +1381,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "c96d9f47b83c40a6901835fd4bb1cfef958b1796759002132f91d4617dd7903b",
-   "hash": "9e70c7d66eef1bb446197e4b7c8332fcae2dc4760455e3f3d56ec0a1c20ce667"
+   "prev": "c85ce4d8aeed2beb15a4ddc65e8d35ad4832ad7b0c45e2a101700bc818751660",
+   "hash": "6c18ee5baaae19b301f375c457e74375290a1770287d94e69fedfaa65e75f734"
   },
   {
    "stream": "asa-run",
    "n": 73,
-   "ts": 1794770618542,
+   "ts": 1794770925745,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -1402,13 +1402,13 @@
      "The research footnote is unsourced and does not substantiate the comparison."
     ]
    },
-   "prev": "9e70c7d66eef1bb446197e4b7c8332fcae2dc4760455e3f3d56ec0a1c20ce667",
-   "hash": "4636605f27b29b33566427db1f153cd53affb2a6882a18bfd6edf7a4b9d73981"
+   "prev": "6c18ee5baaae19b301f375c457e74375290a1770287d94e69fedfaa65e75f734",
+   "hash": "5717dd5f19da929181c1dadb19278849d24283df1552e62bc8827a84d71c4add"
   },
   {
    "stream": "asa-run",
    "n": 74,
-   "ts": 1794770618543,
+   "ts": 1794770925746,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -1426,13 +1426,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "4636605f27b29b33566427db1f153cd53affb2a6882a18bfd6edf7a4b9d73981",
-   "hash": "91ec70721f130751abb0186e47bd8f35d7cc803cddf167668e884678347a9413"
+   "prev": "5717dd5f19da929181c1dadb19278849d24283df1552e62bc8827a84d71c4add",
+   "hash": "684d6cdeaaace72a86fddc88bb51803abebf1281e97d3683ebb23aafeaad3681"
   },
   {
    "stream": "asa-run",
    "n": 75,
-   "ts": 1794770618544,
+   "ts": 1794770925747,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -1440,13 +1440,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html"
    },
-   "prev": "91ec70721f130751abb0186e47bd8f35d7cc803cddf167668e884678347a9413",
-   "hash": "6775262cabb8037df6dc76851df4f087d431234da35eb1cec30c1a7df61a4560"
+   "prev": "684d6cdeaaace72a86fddc88bb51803abebf1281e97d3683ebb23aafeaad3681",
+   "hash": "8e721e94cb87ea7b1bf818a99b126a42c7fb0a39403b69eaf1c2dd0321f25215"
   },
   {
    "stream": "asa-run",
    "n": 76,
-   "ts": 1794770618545,
+   "ts": 1794770925748,
    "type": "item",
    "actor": "code",
    "data": {
@@ -1457,13 +1457,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "6775262cabb8037df6dc76851df4f087d431234da35eb1cec30c1a7df61a4560",
-   "hash": "d3651fda6650d263b8970ffd1146d8cf7e94b0cbd61b123765386f2922a571fd"
+   "prev": "8e721e94cb87ea7b1bf818a99b126a42c7fb0a39403b69eaf1c2dd0321f25215",
+   "hash": "b6d338ed2581c323bfe541e4ed8c8e9c8e05ad1124970bf4eb14f55c6a11c524"
   },
   {
    "stream": "asa-run",
    "n": 77,
-   "ts": 1794770618546,
+   "ts": 1794770925749,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -1477,13 +1477,13 @@
      "Unsourced research footnote does not substantiate the comparison"
     ]
    },
-   "prev": "d3651fda6650d263b8970ffd1146d8cf7e94b0cbd61b123765386f2922a571fd",
-   "hash": "5ef46d43946f72049ba592a2b6329717c28196e55cf5fd4b44e03fd8b2720401"
+   "prev": "b6d338ed2581c323bfe541e4ed8c8e9c8e05ad1124970bf4eb14f55c6a11c524",
+   "hash": "dab9d19718bca42bcdcd02e1acf2df9f84ebeb2f2d67c6a329be53a17e38c80a"
   },
   {
    "stream": "asa-run",
    "n": 78,
-   "ts": 1794770618547,
+   "ts": 1794770925750,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -1501,13 +1501,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "5ef46d43946f72049ba592a2b6329717c28196e55cf5fd4b44e03fd8b2720401",
-   "hash": "82da92287b2b690f84fb9a58a7f330974f66493e77d5b7a1b4bec81e64da5884"
+   "prev": "dab9d19718bca42bcdcd02e1acf2df9f84ebeb2f2d67c6a329be53a17e38c80a",
+   "hash": "5c186b46459f6ca427bcc2139009fcb34f8652d96004aadfe58aacac91d84811"
   },
   {
    "stream": "asa-run",
    "n": 79,
-   "ts": 1794770618548,
+   "ts": 1794770925751,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -1515,13 +1515,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html"
    },
-   "prev": "82da92287b2b690f84fb9a58a7f330974f66493e77d5b7a1b4bec81e64da5884",
-   "hash": "25ef80edbcdb3b6ba444d7c0fea0420a487a09fa146717cb98e7627ff79b6f44"
+   "prev": "5c186b46459f6ca427bcc2139009fcb34f8652d96004aadfe58aacac91d84811",
+   "hash": "02a6fa6d71de498bc3cf316633e30c50d88a4c55fc86bbc18f2dca8805e58a3c"
   },
   {
    "stream": "asa-run",
    "n": 80,
-   "ts": 1794770618549,
+   "ts": 1794770925752,
    "type": "item",
    "actor": "code",
    "data": {
@@ -1532,13 +1532,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "25ef80edbcdb3b6ba444d7c0fea0420a487a09fa146717cb98e7627ff79b6f44",
-   "hash": "78b3ac026d196c492cfea0c698a40295fc644c2966a763d43e0ebafaee8c8e19"
+   "prev": "02a6fa6d71de498bc3cf316633e30c50d88a4c55fc86bbc18f2dca8805e58a3c",
+   "hash": "51c89564636bedc14c63657a71734d203eaef1a881126584a590ff9f0d780812"
   },
   {
    "stream": "asa-run",
    "n": 81,
-   "ts": 1794770618550,
+   "ts": 1794770925753,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -1552,13 +1552,13 @@
      "Unsourced research footnote does not substantiate the claim"
     ]
    },
-   "prev": "78b3ac026d196c492cfea0c698a40295fc644c2966a763d43e0ebafaee8c8e19",
-   "hash": "b186ed42168789672f63de4beaeb15657d7e243862642de2e2b4663a60404202"
+   "prev": "51c89564636bedc14c63657a71734d203eaef1a881126584a590ff9f0d780812",
+   "hash": "bd3ef590a855a83612bfa15728c4bfe87be904518056636b109c48bbf2cea76c"
   },
   {
    "stream": "asa-run",
    "n": 82,
-   "ts": 1794770618551,
+   "ts": 1794770925754,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -1576,13 +1576,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "b186ed42168789672f63de4beaeb15657d7e243862642de2e2b4663a60404202",
-   "hash": "c16a6b239617b61cea956e25c39414aa72de8a18db9efbcd76f711fbf29d5c55"
+   "prev": "bd3ef590a855a83612bfa15728c4bfe87be904518056636b109c48bbf2cea76c",
+   "hash": "ab79d709f7a3c4f17ddb71a5a65210cbb5e9bcf206b08484ebc5b895b795dd07"
   },
   {
    "stream": "asa-run",
    "n": 83,
-   "ts": 1794770618552,
+   "ts": 1794770925755,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -1590,13 +1590,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html"
    },
-   "prev": "c16a6b239617b61cea956e25c39414aa72de8a18db9efbcd76f711fbf29d5c55",
-   "hash": "93874ac031f1a5520011d27e532791cb7fd31b2aeffff6c4820e68b09e753044"
+   "prev": "ab79d709f7a3c4f17ddb71a5a65210cbb5e9bcf206b08484ebc5b895b795dd07",
+   "hash": "6822e2ea314da61d58e7aa941fb22661762cfcda8180e9a6488cb27716b6f881"
   },
   {
    "stream": "asa-run",
    "n": 84,
-   "ts": 1794770618553,
+   "ts": 1794770925756,
    "type": "item",
    "actor": "code",
    "data": {
@@ -1607,13 +1607,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "93874ac031f1a5520011d27e532791cb7fd31b2aeffff6c4820e68b09e753044",
-   "hash": "98ce6686576928e5a1b72786f4a254a8e1eee0d3f95e49037e58d246054cf114"
+   "prev": "6822e2ea314da61d58e7aa941fb22661762cfcda8180e9a6488cb27716b6f881",
+   "hash": "b3ef9576437bf0da6526536f49dd10418e72c4d04f8f006777b70c8e4a98fdd8"
   },
   {
    "stream": "asa-run",
    "n": 85,
-   "ts": 1794770618554,
+   "ts": 1794770925757,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -1628,13 +1628,13 @@
      "No qualification explaining the basis or scope of the statement"
     ]
    },
-   "prev": "98ce6686576928e5a1b72786f4a254a8e1eee0d3f95e49037e58d246054cf114",
-   "hash": "2f2708f750a9279a29cba6689336aaa80d958e5545d9fcacb7f5ada684b42a22"
+   "prev": "b3ef9576437bf0da6526536f49dd10418e72c4d04f8f006777b70c8e4a98fdd8",
+   "hash": "23675d61eb69e1650dc68b75c850cdc75990330ae17cb671e448fdb18cc6c52b"
   },
   {
    "stream": "asa-run",
    "n": 86,
-   "ts": 1794770618555,
+   "ts": 1794770925758,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -1652,13 +1652,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "2f2708f750a9279a29cba6689336aaa80d958e5545d9fcacb7f5ada684b42a22",
-   "hash": "5bd886566e6e7f36cb3aede408ec171bd07ba28bcd354cd020b286fda90a0417"
+   "prev": "23675d61eb69e1650dc68b75c850cdc75990330ae17cb671e448fdb18cc6c52b",
+   "hash": "c911ad57392fcf290750340958713173c862b4b0b7a7131564ace4ea39ab7277"
   },
   {
    "stream": "asa-run",
    "n": 87,
-   "ts": 1794770618556,
+   "ts": 1794770925759,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -1666,13 +1666,13 @@
     "label": "sound",
     "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html"
    },
-   "prev": "5bd886566e6e7f36cb3aede408ec171bd07ba28bcd354cd020b286fda90a0417",
-   "hash": "0c12ed0cfe6bc64653cb60c41027962b1ba624bf3ede38153b1a69db75125ae8"
+   "prev": "c911ad57392fcf290750340958713173c862b4b0b7a7131564ace4ea39ab7277",
+   "hash": "8c4455760c1d1bd2e638fa35939a5137bf602845ec0522b1477bd46e36665088"
   },
   {
    "stream": "asa-run",
    "n": 88,
-   "ts": 1794770618557,
+   "ts": 1794770925760,
    "type": "item",
    "actor": "code",
    "data": {
@@ -1683,13 +1683,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "0c12ed0cfe6bc64653cb60c41027962b1ba624bf3ede38153b1a69db75125ae8",
-   "hash": "497c79f81a9d8b7cd38aaab5f856453d0882a4e0a15a88b641cc46d90ca75c98"
+   "prev": "8c4455760c1d1bd2e638fa35939a5137bf602845ec0522b1477bd46e36665088",
+   "hash": "d5e7934ba6f69ef48516588e5d0e44f465ed0b3be107809b2172d22e4619c1ec"
   },
   {
    "stream": "asa-run",
    "n": 89,
-   "ts": 1794770618558,
+   "ts": 1794770925761,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -1702,13 +1702,13 @@
      "The claim should not be read as an absolute statement about all competitor services, only the researched standard packages"
     ]
    },
-   "prev": "497c79f81a9d8b7cd38aaab5f856453d0882a4e0a15a88b641cc46d90ca75c98",
-   "hash": "93a3b538b78a95397d492b231754f2a77c4fd0fba7a3fac80f05ef18b6bed5a7"
+   "prev": "d5e7934ba6f69ef48516588e5d0e44f465ed0b3be107809b2172d22e4619c1ec",
+   "hash": "c371d1f7db817fa4a63e07048c1f5156b7c3f24f5b9d82124228038d988bfa4b"
   },
   {
    "stream": "asa-run",
    "n": 90,
-   "ts": 1794770618559,
+   "ts": 1794770925762,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -1726,13 +1726,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "93a3b538b78a95397d492b231754f2a77c4fd0fba7a3fac80f05ef18b6bed5a7",
-   "hash": "a909234c60629aca6bcf8d4d8341438c156fbf33dc524eb529d80982e579f3e5"
+   "prev": "c371d1f7db817fa4a63e07048c1f5156b7c3f24f5b9d82124228038d988bfa4b",
+   "hash": "2a904a3f293bb40cd3cd2f7b5d537b257c5db90e633f230d55a83b5ab3e61fd9"
   },
   {
    "stream": "asa-run",
    "n": 91,
-   "ts": 1794770618560,
+   "ts": 1794770925763,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -1740,13 +1740,13 @@
     "label": "sound",
     "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html"
    },
-   "prev": "a909234c60629aca6bcf8d4d8341438c156fbf33dc524eb529d80982e579f3e5",
-   "hash": "b3fe8f12b81b3beb2c6efd327f56294588514337ac2fa2107ebacc7a461cedb5"
+   "prev": "2a904a3f293bb40cd3cd2f7b5d537b257c5db90e633f230d55a83b5ab3e61fd9",
+   "hash": "07c10bdba39a90e9cb11b8dc9cfdbbdc34cfb1f8886b068acb3962f2bca27711"
   },
   {
    "stream": "asa-run",
    "n": 92,
-   "ts": 1794770618561,
+   "ts": 1794770925764,
    "type": "item",
    "actor": "code",
    "data": {
@@ -1757,13 +1757,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "b3fe8f12b81b3beb2c6efd327f56294588514337ac2fa2107ebacc7a461cedb5",
-   "hash": "dd9fee7528a1bee9a17981f6b463a213a60d9d9de40cec0c69d2e33449f1eabb"
+   "prev": "07c10bdba39a90e9cb11b8dc9cfdbbdc34cfb1f8886b068acb3962f2bca27711",
+   "hash": "6886ad7bbe30e00e2d029411a8f1ea139789829862c5906a06235d967d482da0"
   },
   {
    "stream": "asa-run",
    "n": 93,
-   "ts": 1794770618562,
+   "ts": 1794770925765,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -1778,13 +1778,13 @@
      "General statement about social media use by estate agents does not support the specific 'personal social media campaign' claim"
     ]
    },
-   "prev": "dd9fee7528a1bee9a17981f6b463a213a60d9d9de40cec0c69d2e33449f1eabb",
-   "hash": "0d6d219e71217b99bf0f889fe6ad6f2191996008724c467f4a03ba014c1f6ab9"
+   "prev": "6886ad7bbe30e00e2d029411a8f1ea139789829862c5906a06235d967d482da0",
+   "hash": "c4e9c7b12646d08e8893996298c86dbd47ecce3dfc6e853cb3e1480a2333965d"
   },
   {
    "stream": "asa-run",
    "n": 94,
-   "ts": 1794770618563,
+   "ts": 1794770925766,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -1802,13 +1802,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "0d6d219e71217b99bf0f889fe6ad6f2191996008724c467f4a03ba014c1f6ab9",
-   "hash": "4dd7f00a5ee8f9c20b54946b845041bcb8f742c3fe2eafb9a97606232288b3dc"
+   "prev": "c4e9c7b12646d08e8893996298c86dbd47ecce3dfc6e853cb3e1480a2333965d",
+   "hash": "6fd67bd3ee194728cde13a8874273fa57c4156e6e1725d7c4bc59d3b1da56d76"
   },
   {
    "stream": "asa-run",
    "n": 95,
-   "ts": 1794770618564,
+   "ts": 1794770925767,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -1816,13 +1816,13 @@
     "label": "flawed",
     "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html"
    },
-   "prev": "4dd7f00a5ee8f9c20b54946b845041bcb8f742c3fe2eafb9a97606232288b3dc",
-   "hash": "1606f984d87e46f40af6755bd992162defb0bf15e5998f76b00790d5a0cadbfd"
+   "prev": "6fd67bd3ee194728cde13a8874273fa57c4156e6e1725d7c4bc59d3b1da56d76",
+   "hash": "8e3d997e5d7db2cb6adeb599736930b2f7a50d7bc726fe1e41c2867691927741"
   },
   {
    "stream": "asa-run",
    "n": 96,
-   "ts": 1794770618565,
+   "ts": 1794770925768,
    "type": "item",
    "actor": "code",
    "data": {
@@ -1833,13 +1833,13 @@
      "No figures in this item can be recomputed; the item is judged on the evidence given."
     ]
    },
-   "prev": "1606f984d87e46f40af6755bd992162defb0bf15e5998f76b00790d5a0cadbfd",
-   "hash": "7c28d99a903900147ebffbabd60c2396d0ce5a791642e4cf7989ea614213a109"
+   "prev": "8e3d997e5d7db2cb6adeb599736930b2f7a50d7bc726fe1e41c2867691927741",
+   "hash": "73bce619b67c3c77484b302ff65da2b2cee11024f93323bc0989bfb01eba1c8d"
   },
   {
    "stream": "asa-run",
    "n": 97,
-   "ts": 1794770618566,
+   "ts": 1794770925769,
    "type": "serv_assessment",
    "actor": "serv",
    "data": {
@@ -1854,13 +1854,13 @@
      "No source/date details for the research, so the comparison basis is unclear."
     ]
    },
-   "prev": "7c28d99a903900147ebffbabd60c2396d0ce5a791642e4cf7989ea614213a109",
-   "hash": "b7f578a038a745649daf5f194839b891b4a9be86ffef9de119daab7e8562cc25"
+   "prev": "73bce619b67c3c77484b302ff65da2b2cee11024f93323bc0989bfb01eba1c8d",
+   "hash": "9d217671d930bc5ae817884773682dcec0ee023087021149b727de71b1d2cb79"
   },
   {
    "stream": "asa-run",
    "n": 98,
-   "ts": 1794770618567,
+   "ts": 1794770925770,
    "type": "reppo_review",
    "actor": "reppo",
    "data": {
@@ -1878,13 +1878,13 @@
      "instruction_adherence": 100
     }
    },
-   "prev": "b7f578a038a745649daf5f194839b891b4a9be86ffef9de119daab7e8562cc25",
-   "hash": "711875d0059f7d84dd22dd1e9e1bbffdf1f9f587f1fc19862f404f1c2dc23efe"
+   "prev": "9d217671d930bc5ae817884773682dcec0ee023087021149b727de71b1d2cb79",
+   "hash": "51af62471296f0231d408633140a7de8be0e895b8de2e52cedd6fd2daeb89724"
   },
   {
    "stream": "asa-run",
    "n": 99,
-   "ts": 1794770618568,
+   "ts": 1794770925771,
    "type": "asa_label_revealed",
    "actor": "asa",
    "data": {
@@ -1892,8 +1892,8 @@
     "label": "sound",
     "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html"
    },
-   "prev": "711875d0059f7d84dd22dd1e9e1bbffdf1f9f587f1fc19862f404f1c2dc23efe",
-   "hash": "3b2c2e6e775ecdc96843674294902d0ec1dcf4a6945902c6829e46495f7b57a8"
+   "prev": "51af62471296f0231d408633140a7de8be0e895b8de2e52cedd6fd2daeb89724",
+   "hash": "62a8bf707fe88abdd0d6a58135836b4d8ac1c9d9819731e326bc6f93243458ca"
   }
  ]
 }
