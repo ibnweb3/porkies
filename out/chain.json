@@ -1,0 +1,1899 @@
+{
+ "stream": "asa-run",
+ "head": "7853a6503e988e6c7ddff3cdeb16eb693433a0c57e8631fed64353097ed020ee",
+ "entries": [
+  {
+   "stream": "asa-run",
+   "n": 1,
+   "ts": 1794758535129,
+   "type": "run_started",
+   "actor": "code",
+   "data": {
+    "items_file_sha256": "dab09772c1e317f74c5893b0a7037f00c275172458b1ce03f029cc32ca556ce9",
+    "item_count": 24,
+    "note": "ASA labels are never shown to SERV or Reppo"
+   },
+   "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+   "hash": "f1ce98287a12213aa09cd934c10e97bb8fead9fe1f81cc88649d7c5c14e73a31"
+  },
+  {
+   "stream": "asa-run",
+   "n": 2,
+   "ts": 1794758535130,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "cbre-yields",
+    "claim_sha256": "739da2b03b2f47c7d88c46ac208fc8eb2f1a9f8903012e9373e6a5ad03faf8a0",
+    "context_sha256": "8537934683d073b6dce47cdb18873bbb285a19a43ab6986fd432f649ff0373cf",
+    "code_checks": [
+     "1-bed: advertised £745-£925/week vs achieved £700-£750/week: the advertised range overlaps the achieved range but its top end is £175 above the achieved high.",
+     "2-bed: advertised £1,115-£1,335/week vs achieved £1,100-£2,150/week: the advertised range lies inside the achieved range.",
+     "3-bed: advertised £1,750-£2,500/week vs achieved £2,095-£2,308/week: the advertised range overlaps the achieved range but its top end is £192 above the achieved high."
+    ]
+   },
+   "prev": "f1ce98287a12213aa09cd934c10e97bb8fead9fe1f81cc88649d7c5c14e73a31",
+   "hash": "9e88d1baad3f2b5018fe307ca3dba4e2fae8a8a77bb8e573798b416834e967c4"
+  },
+  {
+   "stream": "asa-run",
+   "n": 3,
+   "ts": 1794758535131,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "cbre-yields",
+    "verdict": "not_supported",
+    "confidence": 0.97,
+    "reasoning": "The claimed weekly rent ranges are presented as what a buy-to-let investor can expect, but the relied-on evidence is weak and not directly matched to the tower or its precise unit mix. The portal evidence is asking rents from one nearby tower and includes penthouses, duplexes and homes outside the same postcode, so it is not a clean comparator. The achieved-rent data only supports some of the ranges: the 2-bed range sits within the achieved range, but the 1-bed and 3-bed top ends exceed achieved rents by £175 and £192 respectively, making the quoted expectations look overstated.",
+    "missing_or_unsupported": [
+     "Evidence based on asking rents, not achieved rents, and from a different scheme",
+     "Comparator includes penthouses/duplexes and homes outside the same postcode",
+     "1-bed upper rent exceeds achieved high",
+     "3-bed upper rent exceeds achieved high",
+     "Claimed figures are framed as investor expectations without adequate qualification"
+    ]
+   },
+   "prev": "9e88d1baad3f2b5018fe307ca3dba4e2fae8a8a77bb8e573798b416834e967c4",
+   "hash": "84ce4e2680c9f8ffd2f97bc196a8b8f7b0bb1e3598ac78fe6421118f5a644daf"
+  },
+  {
+   "stream": "asa-run",
+   "n": 4,
+   "ts": 1794758535132,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "cbre-yields",
+    "eval_id": "cmwhxbezq000408l86u98htth",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "Your response was accepted and will ship because all rubric dimensions scored 100, indicating perfect performance across the board. The decision was unanimous among all evaluators.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "84ce4e2680c9f8ffd2f97bc196a8b8f7b0bb1e3598ac78fe6421118f5a644daf",
+   "hash": "03be896a32309ae527c9ef05cd0c431f52adbd8d5d51abbf9a44a159be2bd598"
+  },
+  {
+   "stream": "asa-run",
+   "n": 5,
+   "ts": 1794758535133,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "cbre-yields",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/cbre-ltd-a18-439184.html"
+   },
+   "prev": "03be896a32309ae527c9ef05cd0c431f52adbd8d5d51abbf9a44a159be2bd598",
+   "hash": "06402a7f1e6a03c8903321decee31da304b66047ee40a9eda13fc1656f69def1"
+  },
+  {
+   "stream": "asa-run",
+   "n": 6,
+   "ts": 1794758535134,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "churchill-energy",
+    "claim_sha256": "b89a81dd9a3ac2393cfc5a43a1e400c81bfb9a66ef29ea212d56a6479ff53961",
+    "context_sha256": "3d849ee387710d2a7a8fc1c0547c9127a00f6434a829c86d89bfdca542042061",
+    "code_checks": [
+     "24,255 kWh vs Ofgem medium 14,200: the assumed comparison home uses 71% more energy than Ofgem's typical figure.",
+     "24,255 kWh vs Ofgem high 21,100: the assumed comparison home uses 15% more energy than Ofgem's typical figure.",
+     "27,560 kWh vs Ofgem medium 14,200: the assumed comparison home uses 94% more energy than Ofgem's typical figure.",
+     "27,560 kWh vs Ofgem high 21,100: the assumed comparison home uses 31% more energy than Ofgem's typical figure."
+    ]
+   },
+   "prev": "06402a7f1e6a03c8903321decee31da304b66047ee40a9eda13fc1656f69def1",
+   "hash": "968e03e45107b2480a41b0ca73066546bfa271ceb2646af9b53f79999099a018"
+  },
+  {
+   "stream": "asa-run",
+   "n": 7,
+   "ts": 1794758535135,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "churchill-energy",
+    "verdict": "not_supported",
+    "confidence": 0.96,
+    "reasoning": "The evidence does not support a general claim that downsizing from a three-bedroom house to one of the apartments saves over £1,000 a year on energy. The only quantified figure given is a video citing £1,160, but the page does not say which apartments or heating system this applies to. The comparison apartment is specifically a B-rated development with a ground-source heat pump, while the house assumptions are unusually high and sit well above Ofgem’s typical figures. Without identifying the relevant apartment and heating basis, the saving claim is too broad and could mislead.",
+    "missing_or_unsupported": [
+     "No identification of which apartment(s) the saving applies to",
+     "No identification of the heating type underlying the saving",
+     "The claim generalises from one cited figure to all apartments",
+     "The house energy assumptions are higher than typical Ofgem figures, so the saving may not be representative"
+    ]
+   },
+   "prev": "968e03e45107b2480a41b0ca73066546bfa271ceb2646af9b53f79999099a018",
+   "hash": "05ddedeb2483cdff43c4c0976e4640f6191b95780c6383577bfe36db341d138f"
+  },
+  {
+   "stream": "asa-run",
+   "n": 8,
+   "ts": 1794758535136,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "churchill-energy",
+    "eval_id": "cmwhxoq8a000008l9zqjp9js6",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "All four evaluators independently scored the response 100 across every rubric dimension (perfect agreement, zero spread), so it cleared both the accept threshold of 70 and the ship threshold of 85 with high confidence. The main driver was that unanimous consensus — no gates failed and no evaluator disputed the verdict's accuracy, completeness, or safety.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "05ddedeb2483cdff43c4c0976e4640f6191b95780c6383577bfe36db341d138f",
+   "hash": "9caa8d16d67e5f6c501a330a54f202f56de64243eff0e62e016f17c73b55d8a4"
+  },
+  {
+   "stream": "asa-run",
+   "n": 9,
+   "ts": 1794758535137,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "churchill-energy",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/churchill-retirement-living-ltd-a23-1192106-churchill-retirement-living-ltd.html"
+   },
+   "prev": "9caa8d16d67e5f6c501a330a54f202f56de64243eff0e62e016f17c73b55d8a4",
+   "hash": "da03ec77edbf27a6590a56910e7bf7c7963520baffa21f82fb1630a03b3a70e8"
+  },
+  {
+   "stream": "asa-run",
+   "n": 10,
+   "ts": 1794758535138,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "churchill-total",
+    "claim_sha256": "19687728ecf8c330f5f6b621ebfd50792eb6268634c7ec315c06ed5d4c69a4fe",
+    "context_sha256": "db7ea39e423fb6b861106c026ee6202d3098ed93e285b9c4b4ebdee631f8b916",
+    "code_checks": [
+     "24,255 kWh vs Ofgem medium 14,200: the assumed comparison home uses 71% more energy than Ofgem's typical figure.",
+     "24,255 kWh vs Ofgem high 21,100: the assumed comparison home uses 15% more energy than Ofgem's typical figure.",
+     "27,560 kWh vs Ofgem medium 14,200: the assumed comparison home uses 94% more energy than Ofgem's typical figure.",
+     "27,560 kWh vs Ofgem high 21,100: the assumed comparison home uses 31% more energy than Ofgem's typical figure."
+    ]
+   },
+   "prev": "da03ec77edbf27a6590a56910e7bf7c7963520baffa21f82fb1630a03b3a70e8",
+   "hash": "e72660a7a27c6dd1f47003bc3453f17d92a05d5c219859a8680f833c73abb4d3"
+  },
+  {
+   "stream": "asa-run",
+   "n": 11,
+   "ts": 1794758535139,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "churchill-total",
+    "verdict": "not_supported",
+    "confidence": 0.95,
+    "reasoning": "The evidence does not support the claim as worded. The stated saving is only an estimate, and the company’s own range is about £2,260 to £2,740 a year, not a clear single figure of about £2,300 on average in total. The comparison also appears to rely on homes assumed to use far more energy than Ofgem’s typical figures, and the ad gives no basis for that assumption. The apartments used were also about 25% below the development average, which may further affect the comparison. A reasonable consumer could be misled because the basis for the saving is not explained.",
+    "missing_or_unsupported": [
+     "No explanation of the calculation basis",
+     "Estimated range is £2,260-£2,740, not a precise average of £2,300",
+     "Comparison homes use materially higher energy assumptions than Ofgem typical figures",
+     "Apartments compared were about 25% lower than the development average"
+    ]
+   },
+   "prev": "e72660a7a27c6dd1f47003bc3453f17d92a05d5c219859a8680f833c73abb4d3",
+   "hash": "d6e36f008ee9f894524e0dedffec5f723cb2f160c9783309f6023a0ed474717c"
+  },
+  {
+   "stream": "asa-run",
+   "n": 12,
+   "ts": 1794758535140,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "churchill-total",
+    "eval_id": "cmwhxeov3000007jtahj1klsz",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The claim is not supported because the evidence shows a range of savings (£2,260-£2,740) rather than a precise £2,300 average, and the comparison homes use significantly more energy than typical figures without explanation. The main driver is the failed factual accuracy due to unsupported assumptions and lack of calculation basis.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "d6e36f008ee9f894524e0dedffec5f723cb2f160c9783309f6023a0ed474717c",
+   "hash": "92981d2468a432c7a3c2c3ac1c30ce0bf3bd7d441db357660721b79f0888035c"
+  },
+  {
+   "stream": "asa-run",
+   "n": 13,
+   "ts": 1794758535141,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "churchill-total",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/churchill-retirement-living-ltd-a23-1192106-churchill-retirement-living-ltd.html"
+   },
+   "prev": "92981d2468a432c7a3c2c3ac1c30ce0bf3bd7d441db357660721b79f0888035c",
+   "hash": "cb4657d9b05347d2a8090aaabf3c2e91494e5a49dff246ce3fc9e3985a86e7b9"
+  },
+  {
+   "stream": "asa-run",
+   "n": 14,
+   "ts": 1794758535142,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "connectuk-auction",
+    "claim_sha256": "3988bac28223d671134ce12efed496425063c04b666637c102208009e66795d2",
+    "context_sha256": "9a3fcd514d4fbc0acabaedc2e94d383fad29c34ed69ca720854470907f79114f",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "cb4657d9b05347d2a8090aaabf3c2e91494e5a49dff246ce3fc9e3985a86e7b9",
+   "hash": "16dd8c95abe267d89f23c867a1812e1702000f04a91d1b912a330f74ba7daef6"
+  },
+  {
+   "stream": "asa-run",
+   "n": 15,
+   "ts": 1794758535143,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "connectuk-auction",
+    "verdict": "not_supported",
+    "confidence": 0.95,
+    "reasoning": "The evidence compares auction sale prices with figures described by the advertiser as local estate agent valuations for similar land, but it does not show that selling at auction itself achieves a much higher price. Because one side is a valuation rather than an actual estate-agent sale price, the comparison is not like-for-like and could mislead a reasonable consumer. The evidence also gives no data showing causation or that auction method caused any higher price difference.",
+    "missing_or_unsupported": [
+     "Uses estate agent valuations rather than actual estate agent sale prices",
+     "No like-for-like comparison of the same land sold by both methods",
+     "No evidence that auction method caused the higher price",
+     "'Much higher price' is overstated on the basis provided"
+    ]
+   },
+   "prev": "16dd8c95abe267d89f23c867a1812e1702000f04a91d1b912a330f74ba7daef6",
+   "hash": "22fda429840ffd4a359a7c0ae019a59b039be32523634572ec84f52d4e8552ba"
+  },
+  {
+   "stream": "asa-run",
+   "n": 16,
+   "ts": 1794758535144,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "connectuk-auction",
+    "eval_id": "cmwhxbefz000308l8qfiypp4v",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The submission earned perfect scores across all four rubric dimensions with unanimous evaluator consensus (zero score spread), driving the high-confidence accept and ship decision.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "22fda429840ffd4a359a7c0ae019a59b039be32523634572ec84f52d4e8552ba",
+   "hash": "dee49ac251097f33a6e6c922a1e933b7d2377760eb1897bc6e70436038ef85fa"
+  },
+  {
+   "stream": "asa-run",
+   "n": 17,
+   "ts": 1794758535145,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "connectuk-auction",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/connect-uk-sales-ltd-a24-1256131-connect-uk-sales-ltd.html"
+   },
+   "prev": "dee49ac251097f33a6e6c922a1e933b7d2377760eb1897bc6e70436038ef85fa",
+   "hash": "1dce376175b9091f94168734ce902b16e6655bb13809dfc0e52283719d9db31a"
+  },
+  {
+   "stream": "asa-run",
+   "n": 18,
+   "ts": 1794758535146,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "connectuk-risk",
+    "claim_sha256": "eaaf547091ca9fe502aa87422e4422797484a6f7b566f94a172f8d88773d7f21",
+    "context_sha256": "1e980cc9dffc577b3f5ac716c0676f91e07e10c816c7d5c6bb0696d051f62dd9",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "1dce376175b9091f94168734ce902b16e6655bb13809dfc0e52283719d9db31a",
+   "hash": "9802adede523bf876138c5b7fce89d4ea4f017d93b35b92d3be83d1451b8efb3"
+  },
+  {
+   "stream": "asa-run",
+   "n": 19,
+   "ts": 1794758535147,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "connectuk-risk",
+    "verdict": "not_supported",
+    "confidence": 0.96,
+    "reasoning": "The evidence only says the ad promoted land auction investments with a stated 10–30% ROI and was aimed at property and land investors via a mailing-list sign-up. It does not provide the ad copy itself, so there is no basis to confirm that it contained no statement that land investment values can go down as well as up. The claim is about the absence of a warning, and that cannot be verified from the evidence given.",
+    "missing_or_unsupported": [
+     "No full ad text provided to check for the missing risk warning",
+     "Absence of 'value can go down as well as up' cannot be confirmed from the evidence"
+    ]
+   },
+   "prev": "9802adede523bf876138c5b7fce89d4ea4f017d93b35b92d3be83d1451b8efb3",
+   "hash": "b943f7df08030bc24a1bbcb5da4c225412e3ccf83ad0e023ab9033cdfce653cf"
+  },
+  {
+   "stream": "asa-run",
+   "n": 20,
+   "ts": 1794758535148,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "connectuk-risk",
+    "eval_id": "cmwhyc1um000f08l8qhv1s05u",
+    "score": 91,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The main driver for this evaluation result is the high rubric scores with a scored decision of \"accept\" based on a score of 91, supported by a high confidence and meeting the gate requirements.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 75,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "b943f7df08030bc24a1bbcb5da4c225412e3ccf83ad0e023ab9033cdfce653cf",
+   "hash": "005f54b3c6f474b2391dea7246f8c8378673877178b9f391cf25e2725a9d639c"
+  },
+  {
+   "stream": "asa-run",
+   "n": 21,
+   "ts": 1794758535149,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "connectuk-risk",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/connect-uk-sales-ltd-a24-1256131-connect-uk-sales-ltd.html"
+   },
+   "prev": "005f54b3c6f474b2391dea7246f8c8378673877178b9f391cf25e2725a9d639c",
+   "hash": "c5ac2225ed5eec4bbf5cc6f0c96537ffa8d4522ad6b8f1a7f768faf6cccb6c4c"
+  },
+  {
+   "stream": "asa-run",
+   "n": 22,
+   "ts": 1794758535150,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "connectuk-roi",
+    "claim_sha256": "85dca932084b35bcb3a2f393e432dfc409b3208c4116622b3d5cc903fd9da62d",
+    "context_sha256": "71791b1655d16099faaea08974cc9571a52488ab18ad5168af1f2f1859b927ae",
+    "code_checks": [
+     "Case 1: valued 25,000 -> sold 48,500 is +94%; sold 48,500 -> lots totalling 138,500 is +185.6%; valued 25,000 -> lots is +454%.",
+     "Case 2: 950,000 -> lots totalling 1,242,000 is +30.7%.",
+     "Neither case sits inside the stated 10-30% range: case 1 is far above it and case 2 (+30.7%) is just above it. The sample is 2 cases, one from 2021."
+    ]
+   },
+   "prev": "c5ac2225ed5eec4bbf5cc6f0c96537ffa8d4522ad6b8f1a7f768faf6cccb6c4c",
+   "hash": "6c11efc650fa25410bd140567162f2bcfc1ecf3495a444866a7d68834acab519"
+  },
+  {
+   "stream": "asa-run",
+   "n": 23,
+   "ts": 1794758535151,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "connectuk-roi",
+    "verdict": "not_supported",
+    "confidence": 0.98,
+    "reasoning": "The evidence does not support a general claim that the paid social media ad for land auction investments states a 10–30% ROI. Of the two supplied case studies, Case 1 shows returns far above that range (e.g. the plot valued at £25,000 reached £48,500 and the subdivided lots total £138,500), while Case 2 is slightly above the stated upper limit at about 30.7%. A reasonable consumer would be misled if these examples are presented as support for a 10–30% ROI without qualification, since neither example falls within the claimed range and the sample is very limited.",
+    "missing_or_unsupported": [
+     "No example falls within the stated 10–30% ROI range",
+     "Case 1 is far above the claimed range",
+     "Case 2 is slightly above the claimed upper limit",
+     "Only two case studies are provided, which is too limited to substantiate the range as a general claim"
+    ]
+   },
+   "prev": "6c11efc650fa25410bd140567162f2bcfc1ecf3495a444866a7d68834acab519",
+   "hash": "edfb875e9dbe2e0eb330228a8e5427c93788abffae47b8ae4a12320830439586"
+  },
+  {
+   "stream": "asa-run",
+   "n": 24,
+   "ts": 1794758535152,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "connectuk-roi",
+    "eval_id": "cmwhxbf49000508l86ekqsdnv",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "All three evaluators independently scored this a perfect 100 across every rubric dimension (factual accuracy, instruction adherence, completeness, safety), so the response was accepted and routed to ship. The main driver was this unanimous agreement with zero score spread and no safety gate failures — the verdict correctly used the verified arithmetic showing neither case study falls within the claimed 10–30% ROI range.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "edfb875e9dbe2e0eb330228a8e5427c93788abffae47b8ae4a12320830439586",
+   "hash": "b89237931e6f1ee7600624ea987d84347c05dc8da6481a3b9195bc3c77a78012"
+  },
+  {
+   "stream": "asa-run",
+   "n": 25,
+   "ts": 1794758535153,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "connectuk-roi",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/connect-uk-sales-ltd-a24-1256131-connect-uk-sales-ltd.html"
+   },
+   "prev": "b89237931e6f1ee7600624ea987d84347c05dc8da6481a3b9195bc3c77a78012",
+   "hash": "f0e16fd6898f8b69b06113da367779e38ab4d6f4dc9f5c2fbff53540e78b4afa"
+  },
+  {
+   "stream": "asa-run",
+   "n": 26,
+   "ts": 1794758535154,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "hkl-fees",
+    "claim_sha256": "26e22552ee7cea8471f9b08937767a0c0ec506b546992fc4a39e399410052144",
+    "context_sha256": "38663fb73aff27ec84b020e2e4f037ef76ec91b2acf66d8f880daebb11b0f515",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "f0e16fd6898f8b69b06113da367779e38ab4d6f4dc9f5c2fbff53540e78b4afa",
+   "hash": "9864b21d18ab20446e45efe3b517a515c9ae66155fb928644d835634b7f920ca"
+  },
+  {
+   "stream": "asa-run",
+   "n": 27,
+   "ts": 1794758535155,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "hkl-fees",
+    "verdict": "not_supported",
+    "confidence": 0.96,
+    "reasoning": "The evidence only says estate agents are already required to explain sole-agency terms and fee liabilities when vendors sign up, and that the leaflet was a general mailing not aimed at any specific rival’s properties. It does not show the leaflet failed to warn about two sets of fees, nor that it was posted to every home in the village including people already instructed by a rival agent. Those are key parts of the claim and are unsupported by the evidence provided.",
+    "missing_or_unsupported": [
+     "No evidence that the leaflet was posted to every home in the village, including homes already instructed by a rival agent",
+     "No evidence that the leaflet omitted a warning about potential liability for two sets of fees if a vendor switches from a sole-agency contract",
+     "The general mailing nature does not establish the specific content claimed"
+    ]
+   },
+   "prev": "9864b21d18ab20446e45efe3b517a515c9ae66155fb928644d835634b7f920ca",
+   "hash": "f0822ba86ad784bf7031f30da410f69aed4dfe224f290adf23a6040e5332d1ba"
+  },
+  {
+   "stream": "asa-run",
+   "n": 28,
+   "ts": 1794758535156,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "hkl-fees",
+    "eval_id": "cmwhxoq5m000607jpbjcw2tpa",
+    "score": 98,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The result was accepted and shipped with a high score of 98 because the claim was deemed \"not supported\" due to missing evidence on key claim elements, which aligns with factual accuracy and completeness. The main driver was the lack of evidence supporting the leaflet's specific distribution and content omissions.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 94
+    }
+   },
+   "prev": "f0822ba86ad784bf7031f30da410f69aed4dfe224f290adf23a6040e5332d1ba",
+   "hash": "0c638cd1abfcac146523a5050d503bad4e64ddcc2895c6e92f78343f789bca9a"
+  },
+  {
+   "stream": "asa-run",
+   "n": 29,
+   "ts": 1794758535157,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "hkl-fees",
+    "label": "sound",
+    "source": "https://www.asa.org.uk/rulings/hilton-king-locke-a12-189204.html"
+   },
+   "prev": "0c638cd1abfcac146523a5050d503bad4e64ddcc2895c6e92f78343f789bca9a",
+   "hash": "c08eb6064a44249cd9f046f8969d295d6688296a85e2e8e3d646f0733e4ec675"
+  },
+  {
+   "stream": "asa-run",
+   "n": 30,
+   "ts": 1794758535158,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "hkl-higher",
+    "claim_sha256": "336412eb6b84482ffd34e179a4f01d63f04ec491409b81c0566883c6cbaa54b8",
+    "context_sha256": "3784dd809bdf62923014cfbcbbcb16874b4d139d0cbac13968e1acd3c8717a72",
+    "code_checks": [
+     "Two of 13 completed sales (15.4%) were more than 10% above another agent's initial valuation; the three examples given were 10.8%, 10.6% and 5.9%, so 2 of 3 examples reach 10%.",
+     "The comparison is final sale price against another agent's initial valuation, not against that agent's own sale price; 13 sales is a small sample."
+    ]
+   },
+   "prev": "c08eb6064a44249cd9f046f8969d295d6688296a85e2e8e3d646f0733e4ec675",
+   "hash": "48d0d1e07f5507aca0aa737b997b97b56495b4df51ce72468fdb83a7a16a2170"
+  },
+  {
+   "stream": "asa-run",
+   "n": 31,
+   "ts": 1794758535159,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "hkl-higher",
+    "verdict": "not_supported",
+    "confidence": 0.95,
+    "reasoning": "The leaflet claim is broader than the evidence. It says the agent achieved \"up to 10% higher sale prices than other local estate agents,\" but the support only shows 2 of 13 completed sales were more than 10% above another agent’s initial valuation, with the examples including one below 10% (5.9%). That is a small sample and does not establish a general performance claim against other local agents. The footnote also shifts the comparison to another agent’s initial valuation, not to the other agent’s own achieved sale prices, so the headline wording is potentially misleading.",
+    "missing_or_unsupported": [
+     "Small sample of 13 sales does not support a broad market-wide claim",
+     "Only 2 of 13 sales exceeded 10%; one example was 5.9%",
+     "Claim compares sale prices to other agents' initial valuations, not their sale prices",
+     "Need clearer qualification that 'up to 10%' is based on a limited number of cases"
+    ]
+   },
+   "prev": "48d0d1e07f5507aca0aa737b997b97b56495b4df51ce72468fdb83a7a16a2170",
+   "hash": "93a10a96e0593115e1dd1f5630c5566eb70b36079fda5ef920a6cbecb632e7bb"
+  },
+  {
+   "stream": "asa-run",
+   "n": 32,
+   "ts": 1794758535160,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "hkl-higher",
+    "eval_id": "cmwhxopsz000807jttwgmbsfj",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "All four evaluators independently scored the response 100 across every rubric dimension (factual accuracy, instruction adherence, completeness, safety) with zero score spread, and the safety gate passed with no failures. Because the score cleared both the accept threshold (70) and the ship threshold (85) at high confidence, the response was routed straight to ship.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "93a10a96e0593115e1dd1f5630c5566eb70b36079fda5ef920a6cbecb632e7bb",
+   "hash": "24ed0fde62c8315ea3d9f59c5827acbe6b0215b86afab8834d5aec23ac78c697"
+  },
+  {
+   "stream": "asa-run",
+   "n": 33,
+   "ts": 1794758535161,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "hkl-higher",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/hilton-king-locke-a12-189204.html"
+   },
+   "prev": "24ed0fde62c8315ea3d9f59c5827acbe6b0215b86afab8834d5aec23ac78c697",
+   "hash": "e6e09a770550d65cfc7c2f65f1236599f16fb10130cfc98003ff5666b2724f87"
+  },
+  {
+   "stream": "asa-run",
+   "n": 34,
+   "ts": 1794758535162,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "hkl-sevendays",
+    "claim_sha256": "bb2891dc6428060fa9304ef0ef5506d4fe927d6e05fcd5f4c5a598d1b0b8e36f",
+    "context_sha256": "47d0b9a36cfaf920b6923978a918bf86f2003f9116907a7dd7d8d2291ba3f744",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "e6e09a770550d65cfc7c2f65f1236599f16fb10130cfc98003ff5666b2724f87",
+   "hash": "b1e8b516e8bb3ec7b7be368846f82eb39d63d3f2d1e1d308839b412853fcc77f"
+  },
+  {
+   "stream": "asa-run",
+   "n": 35,
+   "ts": 1794758535163,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "hkl-sevendays",
+    "verdict": "not_supported",
+    "confidence": 0.95,
+    "reasoning": "The claim says the leaflet states the advertiser is “the only local estate agent open seven days a week.” The evidence does not support that wording because “local” is undefined, and the surrounding context shows a nearby town very close by has several estate agents, some open on Sundays. That means a reasonable consumer could read “local” more broadly than the advertiser’s own village. The advertiser’s narrower explanation—that it is the only agent open seven days a week in its own village—is a qualification not stated in the claim.",
+    "missing_or_unsupported": [
+     "“local” is undefined and could include nearby towns",
+     "claim lacks the village-only qualification",
+     "evidence shows nearby estate agents open on Sundays"
+    ]
+   },
+   "prev": "b1e8b516e8bb3ec7b7be368846f82eb39d63d3f2d1e1d308839b412853fcc77f",
+   "hash": "010834b8264468b4ec909fd502d3a454c44a2eb63f4a5fddf1fc35089633423f"
+  },
+  {
+   "stream": "asa-run",
+   "n": 36,
+   "ts": 1794758535164,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "hkl-sevendays",
+    "eval_id": "cmwhxoq7l000a08l8bm7c17ow",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The response was accepted and routed to ship because all evaluators awarded perfect 100 scores with zero spread and unanimous consensus. Every rubric dimension—factual accuracy, instruction adherence, completeness, and safety—achieved maximum marks, clearing all thresholds without contention.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "010834b8264468b4ec909fd502d3a454c44a2eb63f4a5fddf1fc35089633423f",
+   "hash": "64768696992c8cb3181e1eb126a6a3a04b1877d55ce581ba155ce44d9c99319c"
+  },
+  {
+   "stream": "asa-run",
+   "n": 37,
+   "ts": 1794758535165,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "hkl-sevendays",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/hilton-king-locke-a12-189204.html"
+   },
+   "prev": "64768696992c8cb3181e1eb126a6a3a04b1877d55ce581ba155ce44d9c99319c",
+   "hash": "77ed3ab328c592d8149b7e471ab8de9eda6089c3fd69d2e038f49ba13df35116"
+  },
+  {
+   "stream": "asa-run",
+   "n": 38,
+   "ts": 1794758535166,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "landprofits-profits",
+    "claim_sha256": "0179af041fe319cc449dfbadad476116797f3fa8f56f201236e51dcf7ba67cb7",
+    "context_sha256": "3974b68e33808dc49b17e03df1a1292b2008d91d791e6f27110f98abe919170b",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "77ed3ab328c592d8149b7e471ab8de9eda6089c3fd69d2e038f49ba13df35116",
+   "hash": "f52a22df2410e56720cf4a7cdcbaebee5d69767daa20f1b95974c221bf7394cb"
+  },
+  {
+   "stream": "asa-run",
+   "n": 39,
+   "ts": 1794758535167,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "landprofits-profits",
+    "verdict": "not_supported",
+    "confidence": 0.98,
+    "reasoning": "The claim makes specific performance assertions about client profits and what is possible, including £6,000,000 profit this year, a profit on a £350K land deal, and six-figure to £500K profits being achievable. The only evidence provided says no client records, sales data, or averages are available. Without underlying records or representative figures, these claims are not substantiated and could mislead by implying documented results and typical outcomes that are not evidenced.",
+    "missing_or_unsupported": [
+     "No client records or sales data supporting the £6,000,000 profit claim",
+     "No evidence for the alleged £350K land deal profit",
+     "No averages or representative performance data for £100,000 to £500,000 profits",
+     "No evidence that six-figure profits are generally achievable rather than exceptional"
+    ]
+   },
+   "prev": "f52a22df2410e56720cf4a7cdcbaebee5d69767daa20f1b95974c221bf7394cb",
+   "hash": "b5f8794371508ac194eae469840f1e5e33ee37ccf1a6a7a750f5f04ea0595ada"
+  },
+  {
+   "stream": "asa-run",
+   "n": 40,
+   "ts": 1794758535168,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "landprofits-profits",
+    "eval_id": "cmwhxbff6000608l8d3z2nbe9",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The AI response fully adheres to the task by clearly stating the claim is unsupported due to lack of evidence, achieving a perfect score across all rubric dimensions. The unanimous evaluator consensus and high confidence confirm the decision to accept and ship the response.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "b5f8794371508ac194eae469840f1e5e33ee37ccf1a6a7a750f5f04ea0595ada",
+   "hash": "81e8341342c34f67e9d7cc9a93c9c6306ddee65616c91d5b18b4e6a2246b49cd"
+  },
+  {
+   "stream": "asa-run",
+   "n": 41,
+   "ts": 1794758535169,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "landprofits-profits",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/land-profits-edu-ltd-a24-1256132-land-profits-edu-ltd.html"
+   },
+   "prev": "81e8341342c34f67e9d7cc9a93c9c6306ddee65616c91d5b18b4e6a2246b49cd",
+   "hash": "8381385ff536296c79a0ef2270364616bb0b77d927bd4729915c1d03c399ccee"
+  },
+  {
+   "stream": "asa-run",
+   "n": 42,
+   "ts": 1794758535170,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "landprofits-risk",
+    "claim_sha256": "9504c62333335d1b6c41bb9547c49c87a929f74ff11b3431a9b6703ac5b44b60",
+    "context_sha256": "79175b0831641048f87ff627144ac273e5fb7fb820060bac0a16445bc1b14c61",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "8381385ff536296c79a0ef2270364616bb0b77d927bd4729915c1d03c399ccee",
+   "hash": "4d64c78fe1ff82f706fc163811c84e4b6ba1bc444618a159b2aee0060e0ddc8b"
+  },
+  {
+   "stream": "asa-run",
+   "n": 43,
+   "ts": 1794758535171,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "landprofits-risk",
+    "verdict": "not_supported",
+    "confidence": 0.93,
+    "reasoning": "The evidence only says the ads were seen as paid social media posts by a general audience. It does not provide the ad content itself, so there is no support for the specific assertions that they promised six-figure profits and “financial freedom,” or that they omitted warnings about land values falling or past results not predicting future results. The statement about a web page disclaimer versus no disclaimer in the paid ads is also unsupported by the evidence provided.",
+    "missing_or_unsupported": [
+     "No evidence of six-figure profit or “financial freedom” wording",
+     "No evidence that the ads omitted a warning that land values can fall",
+     "No evidence that the ads omitted a “past results are not a guide to future results” statement",
+     "No evidence supporting the distinction between the web page disclaimer and the paid social ads"
+    ]
+   },
+   "prev": "4d64c78fe1ff82f706fc163811c84e4b6ba1bc444618a159b2aee0060e0ddc8b",
+   "hash": "8b9cdab55bec56048fd9f351b567cec74a40b875f521db0a3dc09500df816e6a"
+  },
+  {
+   "stream": "asa-run",
+   "n": 44,
+   "ts": 1794758535172,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "landprofits-risk",
+    "eval_id": "cmwhyc8k5000g08l8ewuaobm2",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "Perfect scores across all rubric dimensions and unanimous evaluator consensus drove the accept decision and ship route with high confidence.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "8b9cdab55bec56048fd9f351b567cec74a40b875f521db0a3dc09500df816e6a",
+   "hash": "45c898db79975f672526750ba2e09fece359d64b54166294381bb1f90761e84f"
+  },
+  {
+   "stream": "asa-run",
+   "n": 45,
+   "ts": 1794758535173,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "landprofits-risk",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/land-profits-edu-ltd-a24-1256132-land-profits-edu-ltd.html"
+   },
+   "prev": "45c898db79975f672526750ba2e09fece359d64b54166294381bb1f90761e84f",
+   "hash": "0ba1999040cd29738afe29fbb5c66d979c428e8421a74e1235ebe7fcacd911a8"
+  },
+  {
+   "stream": "asa-run",
+   "n": 46,
+   "ts": 1794758535174,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "lodges-return",
+    "claim_sha256": "05abb6b66f932c19e4d27b3bdce4cf311b2e9a4ff8bbbfc9e4ee2f5020373d89",
+    "context_sha256": "57e36bbab0a1f8cea7ba94fe07164eb2e61a1a6b27f763fb2696c685b02519c3",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "0ba1999040cd29738afe29fbb5c66d979c428e8421a74e1235ebe7fcacd911a8",
+   "hash": "67b07b7580a329588edc7585ee3d46e72e94093c51c9c5007ee240beb1ae89d1"
+  },
+  {
+   "stream": "asa-run",
+   "n": 47,
+   "ts": 1794758535175,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "lodges-return",
+    "verdict": "not_supported",
+    "confidence": 0.98,
+    "reasoning": "The headline claim is misleading as worded. The evidence shows the 'guaranteed return' is not a general return on purchase but part of an optional sublet plan with conditions: 80% minimum occupancy, a 12–24 month term, and shortfalls only made up after 12 months. The ad also omits ongoing service charges, utilities and insurance that apply to owners. Without these qualifications, a reasonable consumer could think the £83,000 return is unconditional and broadly available just because of historical success, which the evidence does not support.",
+    "missing_or_unsupported": [
+     "Optional sublet plan not disclosed",
+     "80% minimum occupancy شرط omitted",
+     "12–24 month term omitted",
+     "Shortfall only made up after 12 months omitted",
+     "Ongoing service charge, utilities and insurance omitted",
+     "'Guaranteed return' presented without key conditions"
+    ]
+   },
+   "prev": "67b07b7580a329588edc7585ee3d46e72e94093c51c9c5007ee240beb1ae89d1",
+   "hash": "d80a5fcb3ac7d6f93b2e701167355b174b43a23a2cdd137bf404cc447f0ef745"
+  },
+  {
+   "stream": "asa-run",
+   "n": 48,
+   "ts": 1794758535176,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "lodges-return",
+    "eval_id": "cmwhy8e8f000a07jpe3shtd4h",
+    "score": 94,
+    "route": "review",
+    "decision": "accept",
+    "confidence": "medium",
+    "reason": "The response was accepted with a strong score because factual accuracy and completeness were perfect, but instruction_adherence dropped to 75 — likely from stray non-English text (\"شرط\") appearing in the missing_or_unsupported list — pulling the overall score to 94. The run was routed to review rather than auto-accept only because confidence was medium instead of the required high.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 75
+    }
+   },
+   "prev": "d80a5fcb3ac7d6f93b2e701167355b174b43a23a2cdd137bf404cc447f0ef745",
+   "hash": "b1e9c8f6ff757cdab901b846515053adb0484866377f08f64697cc72c2e547d8"
+  },
+  {
+   "stream": "asa-run",
+   "n": 49,
+   "ts": 1794758535177,
+   "type": "serv_revision",
+   "actor": "serv",
+   "data": {
+    "id": "lodges-return",
+    "verdict": "not_supported",
+    "confidence": 0.99,
+    "reasoning": "The claim is not adequately supported as written. The ad’s promised return is tied to an optional sublet plan and depends on conditions elsewhere on the site: 80% minimum occupancy, a 12–24 month term, and any shortfall being made up after 12 months. None of these qualifiers appear in the ad. The ad also omits ongoing service charge, utilities and insurance costs that apply to owners. A reasonable consumer could read the headline as a general guaranteed return based on historical success, which the evidence does not support.",
+    "missing_or_unsupported": [
+     "Optional sublet plan not disclosed",
+     "80% minimum occupancy requirement omitted",
+     "12–24 month term omitted",
+     "Shortfall only made up after 12 months omitted",
+     "Ongoing service charge, utilities and insurance omitted",
+     "Guarantee presented without key conditions"
+    ]
+   },
+   "prev": "b1e9c8f6ff757cdab901b846515053adb0484866377f08f64697cc72c2e547d8",
+   "hash": "e36b405201603e99fbf7e94aa2d21303d08df65eed82c1ff60da0457b791e0e3"
+  },
+  {
+   "stream": "asa-run",
+   "n": 50,
+   "ts": 1794758535178,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "lodges-return",
+    "eval_id": "cmwhyb5at000c07jpmo915x95",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "All three evaluators independently scored the response 100 on every rubric dimension (factual accuracy, instruction adherence, completeness, safety), with zero spread and no safety gate failures, so it was accepted and routed to ship. The main driver is unanimous agreement that the verdict, reasoning, and listed omissions fully match the task and evidence.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "e36b405201603e99fbf7e94aa2d21303d08df65eed82c1ff60da0457b791e0e3",
+   "hash": "9310cac13d5a457d9faefcd73058cba6e683138fab5c93dfff4d91bd56b329c8"
+  },
+  {
+   "stream": "asa-run",
+   "n": 51,
+   "ts": 1794758535179,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "lodges-return",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/luxury-lodge-estates-company-ltd-a24-1256125-luxury-lodge-estates-company-ltd.html"
+   },
+   "prev": "9310cac13d5a457d9faefcd73058cba6e683138fab5c93dfff4d91bd56b329c8",
+   "hash": "19e0b51387d0ab60f2475cb5bcf757bb7732fa155fba7e112b9952e0fcba009a"
+  },
+  {
+   "stream": "asa-run",
+   "n": 52,
+   "ts": 1794758535180,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "lodges-risk",
+    "claim_sha256": "487aedfd315398be257327591fc38742f36291f84d3116f697e773f9ff64e230",
+    "context_sha256": "2bbc12c8808722384e396b5420833ac9664b0203f5310db919483f3ad1b1078b",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "19e0b51387d0ab60f2475cb5bcf757bb7732fa155fba7e112b9952e0fcba009a",
+   "hash": "837fcbbb9cb4a54e26c7ab1b48ec9b7d8dc2bce17d5aa7c150ae8cab87ab89c2"
+  },
+  {
+   "stream": "asa-run",
+   "n": 53,
+   "ts": 1794758535181,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "lodges-risk",
+    "verdict": "not_supported",
+    "confidence": 0.95,
+    "reasoning": "The only evidence provided is that the ad appeared in a national newspaper magazine for a general audience. That does not support the detailed assertions that the same ad presented the lodge as an investment with a guaranteed return, referred to 'historical success', or omitted warnings about possible fall in value and past performance. Those are content-specific claims, but no ad text is provided to verify them. On this evidence, a reasonable consumer assessment cannot be made in support of the claim as worded.",
+    "missing_or_unsupported": [
+     "No evidence the ad described the lodge as an investment with a guaranteed return",
+     "No evidence the ad referred to 'historical success'",
+     "No evidence the ad omitted a warning that the lodge value could fall",
+     "No evidence the ad omitted any statement about past performance"
+    ]
+   },
+   "prev": "837fcbbb9cb4a54e26c7ab1b48ec9b7d8dc2bce17d5aa7c150ae8cab87ab89c2",
+   "hash": "4e8da2fd12850107afd4e44d50b9663b7341ca0dfb3ccee64a76a7d40817d06c"
+  },
+  {
+   "stream": "asa-run",
+   "n": 54,
+   "ts": 1794758535182,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "lodges-risk",
+    "eval_id": "cmwhyalo3000b07jptajt4ix1",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The submission is accepted with a high confidence score of 100 because the AI response accurately deemed the advertising claim as not supported by the provided evidence, scoring full marks across all rubric dimensions including factual accuracy and completeness. The decision is supported by unanimous evaluator agreement and conformance to the task instructions, leading to the route being \"ship\".",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "4e8da2fd12850107afd4e44d50b9663b7341ca0dfb3ccee64a76a7d40817d06c",
+   "hash": "d403950efa3809455488bdf77ad415470ee6f6ae0c8984aad5a455ae5e711520"
+  },
+  {
+   "stream": "asa-run",
+   "n": 55,
+   "ts": 1794758535183,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "lodges-risk",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/luxury-lodge-estates-company-ltd-a24-1256125-luxury-lodge-estates-company-ltd.html"
+   },
+   "prev": "d403950efa3809455488bdf77ad415470ee6f6ae0c8984aad5a455ae5e711520",
+   "hash": "9d1ccda44aff4934fdcc293ad0ee06ff7f1fe38788c57f88ac0d6263b256a8e4"
+  },
+  {
+   "stream": "asa-run",
+   "n": 56,
+   "ts": 1794758535184,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "newbuild-forecast",
+    "claim_sha256": "3b19725b5a41a72e2b085ccf80a0908fac9c7e18b90cc6215db023be0a8b0a88",
+    "context_sha256": "c80f494cb489e3994e5483ebee7540e2c4ed8ddb8c5914fa0a30d12ff5c9c1b9",
+    "code_checks": [
+     "A 5% TOTAL rise on £430,000 is £21,500, which is 50% of the £43,000 deposit. So '5-10% rise equals a 50-100% return on the deposit' is arithmetically consistent.",
+     "A 10% TOTAL rise on £430,000 is £43,000, which is 100% of the £43,000 deposit. So '5-10% rise equals a 50-100% return on the deposit' is arithmetically consistent.",
+     "If instead the rise is 5% per YEAR for 18 months (compounded), the value is about £462,650, a gain of £32,650, 75.9% of the deposit (the advertiser's own reply quotes 462,787 / 76% / 155%, close but not identical).",
+     "If instead the rise is 10% per YEAR for 18 months (compounded), the value is about £496,087, a gain of £66,087, 153.7% of the deposit (the advertiser's own reply quotes 462,787 / 76% / 155%, close but not identical).",
+     "The sums do not test whether the price rise will happen; they only show what the percentages imply."
+    ]
+   },
+   "prev": "9d1ccda44aff4934fdcc293ad0ee06ff7f1fe38788c57f88ac0d6263b256a8e4",
+   "hash": "bdce83c733e900724487b38d79a94ce3fd02142df2c45a89d90bccbe659d0eda"
+  },
+  {
+   "stream": "asa-run",
+   "n": 57,
+   "ts": 1794758535185,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "newbuild-forecast",
+    "verdict": "not_supported",
+    "confidence": 0.93,
+    "reasoning": "The arithmetic for converting a 5-10% total rise on a £430,000 unit into a 50-100% return on a £43,000 deposit is consistent. However, the claim goes further by saying prices in east London are expected to rise 5-10% over the next 18 months and have already done so in the past. The only evidence offered is a 2014 article about average prices in the whole borough rising 43% between May 2013 and May 2014, which does not show a 5-10% rise over 18 months, nor does it specifically support east London, off-plan flats, or the expected future increase.",
+    "missing_or_unsupported": [
+     "No evidence that east London prices are expected to rise 5-10% over the next 18 months",
+     "No evidence that prices have already risen 5-10% over the relevant period",
+     "Evidence is a past 43% rise in the whole borough, not east London specifically",
+     "The 50-100% return calculation is arithmetically consistent but does not support the underlying market forecast"
+    ]
+   },
+   "prev": "bdce83c733e900724487b38d79a94ce3fd02142df2c45a89d90bccbe659d0eda",
+   "hash": "50b8c33020dd48bafaf41855378507496eca2b04735f84162bd06b07424388dc"
+  },
+  {
+   "stream": "asa-run",
+   "n": 58,
+   "ts": 1794758535186,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "newbuild-forecast",
+    "eval_id": "cmwhx86f5000208l8r6z41te6",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The response correctly identifies that while the arithmetic behind the return calculation is sound, the underlying market forecast of 5-10% price growth lacks adequate supporting evidence—the single 2014 article about borough-wide 43% annual growth doesn't substantiate the specific claim about east London off-plan flats rising 5-10% over 18 months. All three evaluators awarded perfect scores with complete consensus, meeting both the acceptance threshold and the higher bar for immediate shipping.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "50b8c33020dd48bafaf41855378507496eca2b04735f84162bd06b07424388dc",
+   "hash": "edb6d205d262d492de29459abc0ca78a10eee38bf8e0f5a47890e688573e1ac4"
+  },
+  {
+   "stream": "asa-run",
+   "n": 59,
+   "ts": 1794758535187,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "newbuild-forecast",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/newbuild-sales-ltd-a15-315511.html"
+   },
+   "prev": "edb6d205d262d492de29459abc0ca78a10eee38bf8e0f5a47890e688573e1ac4",
+   "hash": "e39d0fc8b1ce1237f5cb24cd9045b4586a730384faf32bf6a23885a746c909ad"
+  },
+  {
+   "stream": "asa-run",
+   "n": 60,
+   "ts": 1794758535188,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "newbuild-risk",
+    "claim_sha256": "11d3077622e0feb1f180ca8b58be1ad7adb628a276d97955724681c05b119a48",
+    "context_sha256": "200a7df8de9db98a50689305eaf4770c5bb3d1d78e1f1abb96bc7235e57b9ae1",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "e39d0fc8b1ce1237f5cb24cd9045b4586a730384faf32bf6a23885a746c909ad",
+   "hash": "aa6154b9d4fcaea6221d9b4232a7c5f4e26c6c40e59c94e33e1e3a4bbaeb180d"
+  },
+  {
+   "stream": "asa-run",
+   "n": 61,
+   "ts": 1794758535189,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "newbuild-risk",
+    "verdict": "not_supported",
+    "confidence": 0.97,
+    "reasoning": "The only evidence provided is that the email was sent to prospective property investors. There is no supplied text of the email showing it promised a 50-100% return, said prices “have already done so in the past,” or omitted warnings about values falling or past performance not predicting the future. A reasonable consumer assessment cannot be made on this evidence alone, so the claim is not supported.",
+    "missing_or_unsupported": [
+     "No evidence of the 50-100% return promise",
+     "No evidence of the quoted wording about prices having already done so in the past",
+     "No evidence about whether the email included or omitted warnings that property values can fall",
+     "No evidence about whether the email included or omitted a past-performance disclaimer"
+    ]
+   },
+   "prev": "aa6154b9d4fcaea6221d9b4232a7c5f4e26c6c40e59c94e33e1e3a4bbaeb180d",
+   "hash": "14131fd79b6abddc32f38e9615f24f54e1c008d34bd06504b279a95680972e8e"
+  },
+  {
+   "stream": "asa-run",
+   "n": 62,
+   "ts": 1794758535190,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "newbuild-risk",
+    "eval_id": "cmwhyelry000h08l83uurupx3",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The response scored a perfect 100 across all rubric dimensions (factual_accuracy, instruction_adherence, completeness, safety) with unanimous agreement from all four evaluators (score spread 0) and no gate failures. Since the score cleared both the 70 accept threshold and the 85 ship threshold at high confidence, it was routed to ship.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "14131fd79b6abddc32f38e9615f24f54e1c008d34bd06504b279a95680972e8e",
+   "hash": "a725692826b314fac75f2970ceb0aa0b110fb710a7ceeac8f169c702b485238d"
+  },
+  {
+   "stream": "asa-run",
+   "n": 63,
+   "ts": 1794758535191,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "newbuild-risk",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/newbuild-sales-ltd-a15-315511.html"
+   },
+   "prev": "a725692826b314fac75f2970ceb0aa0b110fb710a7ceeac8f169c702b485238d",
+   "hash": "0d785ab75885e97f9b88b05279bbaf8138a22000a46468d7782bbaf6e2914663"
+  },
+  {
+   "stream": "asa-run",
+   "n": 64,
+   "ts": 1794758535192,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "pb-saving",
+    "claim_sha256": "8b474f90e942d0947c6f9141046668f49875dd200454188b591fdf09530ecb32",
+    "context_sha256": "98ea1b2559f27aa7f5ca1e821d2d4c3069e797f148dd9fc31871441efbc10582",
+    "code_checks": [
+     "1.5% of £303,190 is £4,548.",
+     "Minus the outside-London fixed fee (£798): £3,750. Minus the London fixed fee (£1,158): £3,390.",
+     "Neither equals the advertised £4,158. The disclosed inputs would need an average sale price of about £330,400 (with the £798 fee) or £354,400 (with £1,158) to give £4,158. That average sale price is not shown."
+    ]
+   },
+   "prev": "0d785ab75885e97f9b88b05279bbaf8138a22000a46468d7782bbaf6e2914663",
+   "hash": "027d22abf47e43976038a54c47b83a70343a7a8a5919bf38e1eafb5a6be3a7c9"
+  },
+  {
+   "stream": "asa-run",
+   "n": 65,
+   "ts": 1794758535193,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "pb-saving",
+    "verdict": "not_supported",
+    "confidence": 0.99,
+    "reasoning": "The claim is not adequately supported. The evidence shows only an average UK asking price of £303,190, a 1.5% commission rate from another source, and the agent’s fixed fees. Using those disclosed inputs does not produce a saving of £4,158: it gives £3,750 outside London or £3,390 in Greater London. No evidence was supplied of the agent’s own average sale price, yet the claim says the saving is based on that figure. A reasonable consumer would therefore be misled by the unsupported headline saving.",
+    "missing_or_unsupported": [
+     "No evidence of the agent’s average sale price",
+     "The £4,158 figure does not match the disclosed arithmetic",
+     "Commission rate source is indirect and not linked to the agent’s own sales data"
+    ]
+   },
+   "prev": "027d22abf47e43976038a54c47b83a70343a7a8a5919bf38e1eafb5a6be3a7c9",
+   "hash": "afa184d11fad61780f410f169cf09f2935341e3fa836875ff71c1f414a91f6f2"
+  },
+  {
+   "stream": "asa-run",
+   "n": 66,
+   "ts": 1794758535194,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "pb-saving",
+    "eval_id": "cmwhxtit9000b08l83154z3ya",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The evaluation was accepted with a perfect score (100) and high confidence due to accurate reasoning, adherence to instructions, completeness, and safety. The main driver was the claim's unsupported nature, particularly the lack of evidence for the agent's average sale price and the mismatch in disclosed arithmetic.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "afa184d11fad61780f410f169cf09f2935341e3fa836875ff71c1f414a91f6f2",
+   "hash": "3c7d13b947d1609b4a95b3511442e52f807bd9375e0bc4696e3709a309bde84c"
+  },
+  {
+   "stream": "asa-run",
+   "n": 67,
+   "ts": 1794758535195,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "pb-saving",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/new-broom-ltd-a16-331595.html"
+   },
+   "prev": "3c7d13b947d1609b4a95b3511442e52f807bd9375e0bc4696e3709a309bde84c",
+   "hash": "0d7538fe4dc553c678fa84fd9b2b1f74bf0fa46345fb11d0d34bc63f3f36c07f"
+  },
+  {
+   "stream": "asa-run",
+   "n": 68,
+   "ts": 1794758535196,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "pb-thousands",
+    "claim_sha256": "45d4c7f0de58d2c0428521db12d71f6a023bd2b02fa6d5d47f0b17a767bed73d",
+    "context_sha256": "cf44e790008dcceb6b5af5e77897e63d96e018208d99d17e67f6ffa2e5cbb9d5",
+    "code_checks": [
+     "At 0.75% commission on £300,000 the commission is £2,250; saving versus the fixed fees is £1,452 (outside London) or £1,092 (London).",
+     "At 1.00% commission on £300,000 the commission is £3,000; saving versus the fixed fees is £2,202 (outside London) or £1,842 (London).",
+     "At 1.80% commission on £300,000 the commission is £5,400; saving versus the fixed fees is £4,602 (outside London) or £4,242 (London)."
+    ]
+   },
+   "prev": "0d7538fe4dc553c678fa84fd9b2b1f74bf0fa46345fb11d0d34bc63f3f36c07f",
+   "hash": "33be9c7aeb49b5ae3543be641a2153ad3d5c5709561b7dd7804c9e02c95e79d3"
+  },
+  {
+   "stream": "asa-run",
+   "n": 69,
+   "ts": 1794758535197,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "pb-thousands",
+    "verdict": "supported",
+    "confidence": 0.95,
+    "reasoning": "The claim is supported by the evidence. The ad says a client could \"save thousands\" and the small print cites average estate agent commission from a 2011 Which? survey. The survey evidence shows commissions averaging 1.8%, and on a £300,000 property that would be £5,400 versus the agent’s fixed fees of £798 or £1,158, so the saving is £4,602 or £4,242 respectively. That is plainly “thousands.” Even at the lower end of the survey range, the saving remains over £1,000, which still supports the general claim.",
+    "missing_or_unsupported": []
+   },
+   "prev": "33be9c7aeb49b5ae3543be641a2153ad3d5c5709561b7dd7804c9e02c95e79d3",
+   "hash": "f8472b745c9237c23251cc1076161e1e7b7345ec326d0cecf18819354c259b29"
+  },
+  {
+   "stream": "asa-run",
+   "n": 70,
+   "ts": 1794758535198,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "pb-thousands",
+    "eval_id": "cmwhx855h000108l8jkpbv7o7",
+    "score": 91,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The response shipped because it scored 91 with high confidence, clearing the accept threshold (70) and ship threshold (85) with no safety gate failures. The only notable drag was factual_accuracy at 75 from the consensus-weighted evaluator, likely reflecting debate over whether a ~£1,092–£1,452 saving at the low end of the survey range robustly supports \"thousands.\"",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 75,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "f8472b745c9237c23251cc1076161e1e7b7345ec326d0cecf18819354c259b29",
+   "hash": "9d218a6fb65523107aaf42c5d13265a7cdb3166868875c6d6d1d9ad1e06dd769"
+  },
+  {
+   "stream": "asa-run",
+   "n": 71,
+   "ts": 1794758535199,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "pb-thousands",
+    "label": "sound",
+    "source": "https://www.asa.org.uk/rulings/new-broom-ltd-a16-331595.html"
+   },
+   "prev": "9d218a6fb65523107aaf42c5d13265a7cdb3166868875c6d6d1d9ad1e06dd769",
+   "hash": "978433738212c29737fc25dbc7a7e335b373688877c4b56c7405e982a048e568"
+  },
+  {
+   "stream": "asa-run",
+   "n": 72,
+   "ts": 1794758535200,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "remax-board",
+    "claim_sha256": "6ef12da70659a65a4348782739360ec5f17d0d92605eb2d9302f68a656758602",
+    "context_sha256": "b8d157a9d0a0b237f7a18f5eaafc9cd7bfb064270885aa0be3958bcada5d7db7",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "978433738212c29737fc25dbc7a7e335b373688877c4b56c7405e982a048e568",
+   "hash": "a78da47df3497d5a0da9bfc08171a14e0be1e699c0840f64190d3b17216be7b6"
+  },
+  {
+   "stream": "asa-run",
+   "n": 73,
+   "ts": 1794758535201,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "remax-board",
+    "verdict": "not_supported",
+    "confidence": 0.96,
+    "reasoning": "The evidence only says there is a nine-row table with an unsourced research footnote, and that sale boards with agency branding are widely used by estate agents. It does not verify that the table actually lists “personalised sale board for maximum marketing effect” for the advertiser and not for the three named competitors. The wording also adds a comparative superlative (“maximum marketing effect”) that is not supported by the evidence provided. A reasonable consumer could be misled into thinking this feature is evidenced and uniquely offered, when that is not shown here.",
+    "missing_or_unsupported": [
+     "The actual table contents are not provided.",
+     "No evidence that the advertiser has this feature and the three named competitors do not.",
+     "“Maximum marketing effect” is an unsupported superlative.",
+     "The research footnote is unsourced and does not substantiate the comparison."
+    ]
+   },
+   "prev": "a78da47df3497d5a0da9bfc08171a14e0be1e699c0840f64190d3b17216be7b6",
+   "hash": "934e2c26db60ec33337003a3a33410b3c7ec99818ab17558752647ade1849e1f"
+  },
+  {
+   "stream": "asa-run",
+   "n": 74,
+   "ts": 1794758535202,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "remax-board",
+    "eval_id": "cmwhy4x2q000807jpcu713wfy",
+    "score": 98,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The response earned a high score (98) and passed all gates with strong evaluator consensus, meeting the threshold for immediate shipping. One evaluator gave a slightly lower score (91), creating minor spread, but the majority strongly agreed that the answer correctly identified the unsupported claims and missing evidence in the advertising comparison.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 95,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "934e2c26db60ec33337003a3a33410b3c7ec99818ab17558752647ade1849e1f",
+   "hash": "7aebb08ac33f182cd2640ef352cdb0f0457bba2abe957651e699fc31109a1dc1"
+  },
+  {
+   "stream": "asa-run",
+   "n": 75,
+   "ts": 1794758535203,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "remax-board",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html"
+   },
+   "prev": "7aebb08ac33f182cd2640ef352cdb0f0457bba2abe957651e699fc31109a1dc1",
+   "hash": "9234bc51daf940fef4727256b45a02c459850f46eb8d86f6052e8ccf404d0e4e"
+  },
+  {
+   "stream": "asa-run",
+   "n": 76,
+   "ts": 1794758535204,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "remax-feedback",
+    "claim_sha256": "916cf670a7e943ec1c3539db816cac69587e875e08f41863be673dd2f3658776",
+    "context_sha256": "3ffb75c7a57eb71352743c86eb1277e87f98c4cc459ecf466a278b2a49b382f9",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "9234bc51daf940fef4727256b45a02c459850f46eb8d86f6052e8ccf404d0e4e",
+   "hash": "174adc96ba48063d2944600438285337a0d7743ea6b2c8ec6bb51c5ce3ff9579"
+  },
+  {
+   "stream": "asa-run",
+   "n": 77,
+   "ts": 1794758535205,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "remax-feedback",
+    "verdict": "not_supported",
+    "confidence": 0.98,
+    "reasoning": "The claim says the table guarantees the advertiser provides “same day feedback on all viewings” and that the three named competitors do not. But the evidence provided is only a nine-row table with an unsourced research footnote, and it contains no data showing the advertiser’s actual feedback timing or the competitors’ feedback times. Without explicit support for both the guarantee and the negative comparison, a reasonable consumer could be misled.",
+    "missing_or_unsupported": [
+     "No evidence the advertiser guarantees same-day feedback on all viewings",
+     "No evidence the three named competitors do not offer same-day feedback",
+     "Unsourced research footnote does not substantiate the comparison"
+    ]
+   },
+   "prev": "174adc96ba48063d2944600438285337a0d7743ea6b2c8ec6bb51c5ce3ff9579",
+   "hash": "ef4879dfca9eec81104255a46bd171e0f18d37d72450b3b79e641d49bc1bdbef"
+  },
+  {
+   "stream": "asa-run",
+   "n": 78,
+   "ts": 1794758535206,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "remax-feedback",
+    "eval_id": "cmwhy63kj000907jpmw8tghcr",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The AI response correctly identified that the claim is not adequately supported because the evidence (an unsourced table) lacks actual data demonstrating the advertiser's same-day feedback guarantee or proof that competitors don't offer it. All four evaluators unanimously agreed (100% consensus, zero score spread), recognizing that the response properly applied the substantiation standard for comparative advertising claims.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "ef4879dfca9eec81104255a46bd171e0f18d37d72450b3b79e641d49bc1bdbef",
+   "hash": "58270b10485ff495ab6dfdc4c631d026cf80e0a4cb8e60f0128fa76437df5ac5"
+  },
+  {
+   "stream": "asa-run",
+   "n": 79,
+   "ts": 1794758535207,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "remax-feedback",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html"
+   },
+   "prev": "58270b10485ff495ab6dfdc4c631d026cf80e0a4cb8e60f0128fa76437df5ac5",
+   "hash": "73bdf9ae7c4c6c76a58884a67dfa4250ecd67e45126a1121db9e5fa601cbda1f"
+  },
+  {
+   "stream": "asa-run",
+   "n": 80,
+   "ts": 1794758535208,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "remax-negotiation",
+    "claim_sha256": "f9e0c0c5a8772edcb53111248a7b7ae94b9931ca35cfe4313ded77aad22345cb",
+    "context_sha256": "b5c11e5c50c758ab1a0ff6952cc7e0ebe3c2e229d5fc7fd9db1efae5280944e0",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "73bdf9ae7c4c6c76a58884a67dfa4250ecd67e45126a1121db9e5fa601cbda1f",
+   "hash": "f377aa7b1ee5774d508b3f478f3e9cbff23bd46c974c090425c55bda7452b48b"
+  },
+  {
+   "stream": "asa-run",
+   "n": 81,
+   "ts": 1794758535209,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "remax-negotiation",
+    "verdict": "not_supported",
+    "confidence": 0.98,
+    "reasoning": "The evidence only says there is a nine-row table with an unsourced research footnote, and that no measure of negotiating skill is given. The claim asserts that the table shows the advertiser has “skilled negotiations by an agent who knows your home” as a feature while the three named competitors do not. That is not supported: there is no stated basis for judging negotiating skill, no evidence of how this was measured, and no support for the comparative “do not” statement against the three competitors.",
+    "missing_or_unsupported": [
+     "No measure or evidence of negotiating skill",
+     "Unsupported comparison that the three named competitors do not have this feature",
+     "Unsourced research footnote does not substantiate the claim"
+    ]
+   },
+   "prev": "f377aa7b1ee5774d508b3f478f3e9cbff23bd46c974c090425c55bda7452b48b",
+   "hash": "980b7ef463d59e703c79cf710aaa1a066add8a86088b1021ba3098c896753be5"
+  },
+  {
+   "stream": "asa-run",
+   "n": 82,
+   "ts": 1794758535210,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "remax-negotiation",
+    "eval_id": "cmwhy6ku9000e08l8olsm6k4s",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The submission correctly identified that the advertising claim lacks support because no measure of negotiating skill is provided and the research is unsourced, earning a perfect score with unanimous evaluator agreement. The response was accepted and routed to ship based on meeting the high confidence threshold with a score of 100.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "980b7ef463d59e703c79cf710aaa1a066add8a86088b1021ba3098c896753be5",
+   "hash": "6d010ac9beda0a0302c8c36b180fb141a3f8ff6e312c43e373cdf5cae909e740"
+  },
+  {
+   "stream": "asa-run",
+   "n": 83,
+   "ts": 1794758535211,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "remax-negotiation",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html"
+   },
+   "prev": "6d010ac9beda0a0302c8c36b180fb141a3f8ff6e312c43e373cdf5cae909e740",
+   "hash": "4ce28916badbeeaa148bf9d93ae9cd56366d95f4c54c84f332b4367d83f3f033"
+  },
+  {
+   "stream": "asa-run",
+   "n": 84,
+   "ts": 1794758535212,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "remax-number1",
+    "claim_sha256": "615512e9868a9cfef018d0a6926a0b028fc021a04b39ad0c36bfb7edbe13f8b9",
+    "context_sha256": "56b9c0059b0969e374f9a30b17e1df0efae903b90fdefd1dc9e052c9280ac809",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "4ce28916badbeeaa148bf9d93ae9cd56366d95f4c54c84f332b4367d83f3f033",
+   "hash": "4ed14fb2a79a7f0916d3ed45438ee0d65a4556b503dbc17c34750b9d2242a2f1"
+  },
+  {
+   "stream": "asa-run",
+   "n": 85,
+   "ts": 1794758535213,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "remax-number1",
+    "verdict": "not_supported",
+    "confidence": 0.92,
+    "reasoning": "The evidence only shows that the slogan appears in the advertiser’s own marketing next to the RE/MAX brand. It does not provide any substantiation for the superlative “#1 in the world for home sales volume” or show the basis for that ranking. With no competitor figures, benchmark, date, scope, or source, a reasonable consumer could be misled into treating the claim as independently verified when it is not supported by the material provided.",
+    "missing_or_unsupported": [
+     "No evidence that RE/MAX is #1 worldwide for home sales volume",
+     "No source, ranking methodology, or date for the superlative claim",
+     "No competitor data or comparison shown to justify the '#1' assertion",
+     "No qualification explaining the basis or scope of the statement"
+    ]
+   },
+   "prev": "4ed14fb2a79a7f0916d3ed45438ee0d65a4556b503dbc17c34750b9d2242a2f1",
+   "hash": "5cfd885774678c2c4dc0c453425ee646290e24f4ca8b5f55b99e7fdc6cd08715"
+  },
+  {
+   "stream": "asa-run",
+   "n": 86,
+   "ts": 1794758535214,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "remax-number1",
+    "eval_id": "cmwhy3agq000208l925oizx7r",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The response correctly earned a perfect score of 100 across all evaluators and was accepted with high confidence to ship. All four evaluators unanimously agreed that the AI properly identified the advertising claim as \"not_supported\" due to the complete absence of substantiating evidence, competitor data, or source documentation for the \"#1 in the world\" superlative claim.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "5cfd885774678c2c4dc0c453425ee646290e24f4ca8b5f55b99e7fdc6cd08715",
+   "hash": "615f87412d2e47e7ca88ce72fd4ff5b99356e175312f071392f5643a3e93ab41"
+  },
+  {
+   "stream": "asa-run",
+   "n": 87,
+   "ts": 1794758535215,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "remax-number1",
+    "label": "sound",
+    "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html"
+   },
+   "prev": "615f87412d2e47e7ca88ce72fd4ff5b99356e175312f071392f5643a3e93ab41",
+   "hash": "488e1e10f33031fedbcfb0ba700e2dd730685457f1a80ca40f3420ba0ea8941e"
+  },
+  {
+   "stream": "asa-run",
+   "n": 88,
+   "ts": 1794758535216,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "remax-personal",
+    "claim_sha256": "72ca22c076db5bc4d3047e7c7dc984455bfb328b1cf1815a68e0e4359c81f805",
+    "context_sha256": "a9d5446a8367222534796f53c1288a3ac9c9a77f7f0f500fe23da738da655c7b",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "488e1e10f33031fedbcfb0ba700e2dd730685457f1a80ca40f3420ba0ea8941e",
+   "hash": "7da1aa472d3e64f4afed1ac1d0cf319f787c29a6a03789563fca30e1c619a921"
+  },
+  {
+   "stream": "asa-run",
+   "n": 89,
+   "ts": 1794758535217,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "remax-personal",
+    "verdict": "supported",
+    "confidence": 0.86,
+    "reasoning": "The claim is supported. The evidence says the advertiser’s model has a single named agent for each client from valuation to completion, which matches the meaning of “your personal agent all the way.” The comparison table also shows the advertiser ticked for this feature and the three competitors not ticked for it. However, the footnote only says the table is based on research into each agency’s standard package, with no sources or date, so the comparison should be read as that specific researched comparison rather than an absolute statement about all competitor offerings.",
+    "missing_or_unsupported": [
+     "Comparison is only said to be based on research of each agency's standard package; no sources or date are given",
+     "The claim should not be read as an absolute statement about all competitor services, only the researched standard packages"
+    ]
+   },
+   "prev": "7da1aa472d3e64f4afed1ac1d0cf319f787c29a6a03789563fca30e1c619a921",
+   "hash": "0064f3d5ad81aa81c9b1bed51ab88e57f7626fb66a84790d6f4eb1972c413679"
+  },
+  {
+   "stream": "asa-run",
+   "n": 90,
+   "ts": 1794758535218,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "remax-personal",
+    "eval_id": "cmwhxwtgb000c08l8xio5b264",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "The evaluation was accepted and \"shipped\" with a score of 100 because the response was factually accurate, adhered to instructions, and was complete. The main driver was its consistent high scores across every rubric dimension with no failing evaluators or safety concerns.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "0064f3d5ad81aa81c9b1bed51ab88e57f7626fb66a84790d6f4eb1972c413679",
+   "hash": "aee0eb5da8c58109b4a49b51e509b25953e10a4280634b5445e3780729a233d0"
+  },
+  {
+   "stream": "asa-run",
+   "n": 91,
+   "ts": 1794758535219,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "remax-personal",
+    "label": "sound",
+    "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html"
+   },
+   "prev": "aee0eb5da8c58109b4a49b51e509b25953e10a4280634b5445e3780729a233d0",
+   "hash": "8cd22c52f68d874db8b26ba35c6f189c666be44b9e3eb1ccb78e169f27e5ba0c"
+  },
+  {
+   "stream": "asa-run",
+   "n": 92,
+   "ts": 1794758535220,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "remax-social",
+    "claim_sha256": "ddb6910d88076e67c6b2f0a8018bc5e860188fe5736a63868fa58b2d2b49495f",
+    "context_sha256": "0596f932109487a4e2204615ffb504393048d0b92053d268d292874b795acb0f",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "8cd22c52f68d874db8b26ba35c6f189c666be44b9e3eb1ccb78e169f27e5ba0c",
+   "hash": "d5d245010be1e1192916a966204bc1819590b657a9c3356d4322cab81ce71e5d"
+  },
+  {
+   "stream": "asa-run",
+   "n": 93,
+   "ts": 1794758535221,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "remax-social",
+    "verdict": "not_supported",
+    "confidence": 0.88,
+    "reasoning": "The evidence only says there is a nine-row table with a footnote citing research of each agency's standard package, with no sources or date. It does not verify that the table actually shows 'personal social media campaign' as a feature the advertiser has and the three named competitors do not. The extra context that estate agents commonly list homes on social media does not support this specific comparative claim, and the wording appears to assert a precise exclusive difference that is not evidenced here.",
+    "missing_or_unsupported": [
+     "No provided table content showing the feature is present for the advertiser and absent for all three competitors",
+     "No source, date, or methodology for the cited research",
+     "The claim depends on a precise comparative feature list not evidenced in the material",
+     "General statement about social media use by estate agents does not support the specific 'personal social media campaign' claim"
+    ]
+   },
+   "prev": "d5d245010be1e1192916a966204bc1819590b657a9c3356d4322cab81ce71e5d",
+   "hash": "d738b6f6a328f4788b23404310c364e43cb67e6479256922843047524c5d9c22"
+  },
+  {
+   "stream": "asa-run",
+   "n": 94,
+   "ts": 1794758535222,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "remax-social",
+    "eval_id": "cmwhy3z5b000308l9wxy0zgoh",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "All three evaluators gave unanimous perfect scores of 100 with zero spread across every rubric dimension, and no gates failed. That clean performance automatically triggered the accept decision and high-confidence ship route.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "d738b6f6a328f4788b23404310c364e43cb67e6479256922843047524c5d9c22",
+   "hash": "ceb4f696083b20b776e0b028a85f0031e7520e340751b71e640d3c9a7119e687"
+  },
+  {
+   "stream": "asa-run",
+   "n": 95,
+   "ts": 1794758535223,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "remax-social",
+    "label": "flawed",
+    "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html"
+   },
+   "prev": "ceb4f696083b20b776e0b028a85f0031e7520e340751b71e640d3c9a7119e687",
+   "hash": "b4e7bd5c336db11d6eee7b367ea279b261d091202ab76e9edfd9d1208eb0b1af"
+  },
+  {
+   "stream": "asa-run",
+   "n": 96,
+   "ts": 1794758535224,
+   "type": "item",
+   "actor": "code",
+   "data": {
+    "id": "remax-viewings",
+    "claim_sha256": "67dd369cd3dd9c49ffd80ba4b20e7013f7130feb3798895b976b0edaf9168138",
+    "context_sha256": "1893f147d0c2bfaa7c14b39480498ec9f4e4e00121a937ed0b62412a4b1daafb",
+    "code_checks": [
+     "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ]
+   },
+   "prev": "b4e7bd5c336db11d6eee7b367ea279b261d091202ab76e9edfd9d1208eb0b1af",
+   "hash": "3e3e86d369213091e545b407b696aaecd1a07227d12fcb194708b6f9a570ce26"
+  },
+  {
+   "stream": "asa-run",
+   "n": 97,
+   "ts": 1794758535225,
+   "type": "serv_assessment",
+   "actor": "serv",
+   "data": {
+    "id": "remax-viewings",
+    "verdict": "not_supported",
+    "confidence": 0.87,
+    "reasoning": "The evidence only says there is a nine-row comparison table and footnote based on research of each agency's standard package, and that the advertiser says its agents accompany viewings. It does not show the specific table row wording, nor does it identify the three named competitors or confirm that they do not offer this feature. The claim also implies a comparative factual conclusion about competitor offerings that is not evidenced here. A reasonable consumer could be misled because the support is too vague and incomplete for the wording used.",
+    "missing_or_unsupported": [
+     "No evidence of the exact table row saying 'accompanied viewings by your personal agent'.",
+     "No evidence naming the three competitors or showing their features.",
+     "No evidence that the competitors do not offer accompanied viewings.",
+     "No source/date details for the research, so the comparison basis is unclear."
+    ]
+   },
+   "prev": "3e3e86d369213091e545b407b696aaecd1a07227d12fcb194708b6f9a570ce26",
+   "hash": "28fb2c8bd3f7be0cdcd9f4da55da9245f39bac08871ae6e326688f7b380e3631"
+  },
+  {
+   "stream": "asa-run",
+   "n": 98,
+   "ts": 1794758535226,
+   "type": "reppo_review",
+   "actor": "reppo",
+   "data": {
+    "id": "remax-viewings",
+    "eval_id": "cmwhy34zj000108l9xyjd0m2q",
+    "score": 100,
+    "route": "ship",
+    "decision": "accept",
+    "confidence": "high",
+    "reason": "All four evaluators awarded perfect scores across every dimension with zero disagreement and no failed gates, so the response ships automatically.",
+    "rubric_scores": {
+     "safety": 100,
+     "completeness": 100,
+     "factual_accuracy": 100,
+     "instruction_adherence": 100
+    }
+   },
+   "prev": "28fb2c8bd3f7be0cdcd9f4da55da9245f39bac08871ae6e326688f7b380e3631",
+   "hash": "97885c626c11a8f41024d6a783e5b3f257906ed67b7d959c5d4154dc83ca8d19"
+  },
+  {
+   "stream": "asa-run",
+   "n": 99,
+   "ts": 1794758535227,
+   "type": "asa_label_revealed",
+   "actor": "asa",
+   "data": {
+    "id": "remax-viewings",
+    "label": "sound",
+    "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html"
+   },
+   "prev": "97885c626c11a8f41024d6a783e5b3f257906ed67b7d959c5d4154dc83ca8d19",
+   "hash": "7853a6503e988e6c7ddff3cdeb16eb693433a0c57e8631fed64353097ed020ee"
+  }
+ ]
+}

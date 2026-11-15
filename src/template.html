@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claim Audit: property ads vs the evidence</title>
+<meta name="description" content="Tests whether property advertising claims follow from their evidence, using real UK ASA rulings as the answer key. Built for the SERV Hackathon, Reppo track.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cstyle%3Erect%7Bfill:%23355c70%7D@media(prefers-color-scheme:dark)%7Brect%7Bfill:%23a9c4d2%7D%7D%3C/style%3E%3Crect x='7' y='4' width='18' height='25' rx='4'/%3E%3Crect x='13' y='7' width='6' height='2' rx='1' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+:root{--stage:#4f6f82;--stage2:#2b3f4c;--paper:#e9e9e6;--card:#f7f7f5;--ink:#15191c;--mute:#566067;--line:#d3d4cf;--accent:#355c70;--accent-ink:#fff;--strap:#2f6a85;--ok:#14532d;--okbg:#d6f0dd;--bad:#7f1d1d;--badbg:#f9d9d6;--warn:#78350f;--warnbg:#fbe9b8;--chip:#efefec;--focus:rgba(53,92,112,.55)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--stage:#1f2d36;--stage2:#10171c;--paper:#171c20;--card:#1f262b;--ink:#eef0ee;--mute:#9aa4aa;--line:#2c353b;--accent:#a9c4d2;--accent-ink:#10202a;--strap:#3f89aa;--ok:#9be3b0;--okbg:#14391f;--bad:#fca5a5;--badbg:#3f1514;--warn:#fcd34d;--warnbg:#3b2a0a;--chip:#252d33;--focus:rgba(169,196,210,.6)}}
+*{box-sizing:border-box}
+html,body{overflow-x:clip}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;min-height:100vh;color:var(--ink);background:radial-gradient(1200px 700px at 70% -10%,var(--stage) 0,var(--stage2) 70%) fixed;font:400 clamp(15px,1.5vw,17px)/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--accent);color:var(--accent-ink)}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1120px;margin:0 auto;padding:16px 16px 56px}
+.panel{background:var(--paper);border-radius:clamp(22px,4vw,36px);padding:clamp(18px,4vw,44px);box-shadow:0 30px 80px rgba(0,0,0,.28)}
+/* top: headline and badge sit directly on the city scene */
+.top{color:#f1f4f5;height:calc(100vh - 24px);min-height:560px;display:flex;flex-direction:column;padding:clamp(6px,1.5vw,18px) clamp(2px,1.5vw,16px) 16px}
+.top .menu{color:rgba(241,244,245,.7)}
+.top .tag{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#f1f4f5}
+.top .lede{color:rgba(241,244,245,.85)}
+.top .hero h1 em{color:#a9d3e6}
+.top .cta{background:#f1f4f5;color:#15191c}
+.top nav a:focus-visible,.top .cta:focus-visible{box-shadow:0 0 0 3px rgba(255,255,255,.7)}
+@media (hover:hover){.top .cta:hover{background:#a9d3e6;color:#15191c}}
+.panel{margin-top:8px}
+/* top bar */
+nav{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+nav .menu{font-size:13px;letter-spacing:.12em;color:var(--mute);margin:0 0 4px}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:6px 18px;flex-wrap:wrap}
+nav a{display:inline-block;padding:6px 0;font-weight:600;font-size:clamp(15px,1.6vw,18px);text-decoration:none;text-transform:uppercase;letter-spacing:.02em}
+nav a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,.link:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus);border-radius:8px}
+@media (hover:hover){nav a:hover{text-decoration:underline}}
+.tag{font-size:13px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);white-space:nowrap}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:8px 24px;align-items:center;flex:1}
+.hero h1{font-family:"Segoe UI Variable Display","Segoe UI",ui-sans-serif,system-ui,-apple-system,Roboto,sans-serif;font-size:clamp(28px,3.5vw,48px);line-height:1.14;margin:0 0 16px;font-weight:700;letter-spacing:-.015em;text-wrap:balance;max-width:20ch;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:clamp(15px,1.15vw,17px);line-height:1.6;color:var(--mute);max-width:46ch;margin:0 0 18px}
+.cta{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;background:var(--ink);color:var(--paper);font-weight:600;text-decoration:none}
+@media (hover:hover){.cta:hover{background:var(--accent);color:var(--accent-ink)}}
+@media (max-width:820px){.hero{grid-template-columns:1fr;min-height:0}.hero h1{margin-top:20px}}
+/* lanyard + badge */
+.rig{position:relative;height:440px;display:flex;justify-content:center;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+.swing{position:absolute;top:-6px;left:50%;width:0;height:0;transform-origin:0 0;will-change:transform}
+.strap{position:absolute;left:-15px;top:0;width:30px;height:150px;background:repeating-linear-gradient(180deg,var(--strap) 0 150px,#245870 150px 151px);border-radius:0 0 4px 4px;overflow:hidden;display:flex;justify-content:center}
+.strap span{writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);font-size:11px;font-weight:800;letter-spacing:.18em;color:#cfe3ec;white-space:nowrap;padding:12px 0;line-height:30px}
+.clip{position:absolute;left:-12px;top:146px;width:24px;height:34px;border-radius:6px;background:linear-gradient(90deg,#b9c0c4,#eef1f2 45%,#9aa2a7);box-shadow:0 2px 4px rgba(0,0,0,.35)}
+.badge{position:absolute;left:-125px;top:172px;width:250px;border-radius:20px;background:var(--card);color:var(--ink);border:1px solid var(--line);box-shadow:0 22px 40px rgba(0,0,0,.3);padding:34px 18px 16px;cursor:grab}
+.badge:active{cursor:grabbing}
+.badge .slot{position:absolute;top:12px;left:50%;width:54px;height:8px;margin-left:-27px;border-radius:6px;background:var(--paper);box-shadow:inset 0 1px 2px rgba(0,0,0,.35)}
+.badge .org{font-size:11px;letter-spacing:.14em;color:var(--mute);font-weight:700}
+.badge .big{font-size:28px;line-height:1.05;font-weight:800;letter-spacing:-.02em;margin:4px 0 12px}
+.badge .row{display:flex;align-items:center;gap:12px}
+.badge svg.ring{flex:0 0 64px}
+.badge .lines{font-size:12.5px;color:var(--mute);line-height:1.35}
+.badge .lines b{color:var(--ink)}
+.badge .code{margin-top:14px;padding-top:10px;border-top:1px dashed var(--line)}
+.badge .code svg{display:block;width:100%;height:34px}
+.badge .code small{display:block;margin-top:4px;font:10.5px ui-monospace,Menlo,Consolas,monospace;color:var(--mute);letter-spacing:.04em}
+@media (max-width:820px){.rig{height:460px}.top{height:auto}}
+/* sections */
+section{margin-top:clamp(40px,7vw,84px)}
+h2{display:flex;gap:14px;align-items:baseline;font-size:clamp(24px,3.2vw,38px);line-height:1.05;margin:0 0 16px;font-weight:800;letter-spacing:-.03em}
+h2 i{font-style:normal;font-size:clamp(13px,1.6vw,16px);letter-spacing:.1em;color:var(--mute);font-weight:700}
+p{margin:0 0 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px}
+.card .k{color:var(--mute);font-size:14px}.card .v{font-size:clamp(26px,3vw,34px);font-weight:800;letter-spacing:-.03em;margin:4px 0}.card .s{font-size:14px;color:var(--mute)}
+.gl{color:var(--mute);font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;padding:0;list-style:none;margin:0;counter-reset:s}
+.steps li{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px 18px;counter-increment:s}
+.steps li::before{content:"0" counter(s);display:block;font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--accent);margin-bottom:8px}
+.steps b{display:block;font-size:18px;letter-spacing:-.01em}.steps span{color:var(--mute);font-size:14.5px}
+/* claim badges */
+.bar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:0 0 16px}
+.toggle{display:inline-flex;gap:10px;align-items:center;cursor:pointer;min-height:44px;font-weight:600}
+.toggle input{width:20px;height:20px;accent-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;align-items:start}
+details{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;padding-top:14px}
+details::before{content:"";position:absolute;top:10px;left:50%;width:44px;height:7px;margin-left:-22px;border-radius:6px;background:var(--paper);box-shadow:inset 0 1px 2px rgba(0,0,0,.3)}
+summary{list-style:none;cursor:pointer;padding:14px 16px 16px;border-radius:22px;display:block}
+summary::-webkit-details-marker{display:none}
+summary .t{font-weight:600;font-size:16px;line-height:1.35;margin:8px 0 12px}
+summary .id{font-size:11px;letter-spacing:.12em;color:var(--mute);font-weight:700;text-transform:uppercase}
+summary .b{display:flex;gap:6px;flex-wrap:wrap}
+@media (hover:hover){summary:hover{background:var(--chip)}}
+.badge-chip{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:600;background:var(--chip);border:1px solid var(--line);white-space:nowrap}
+.ok{background:var(--okbg);color:var(--ok);border-color:transparent}.bad{background:var(--badbg);color:var(--bad);border-color:transparent}.warn{background:var(--warnbg);color:var(--warn);border-color:transparent}
+.body{padding:2px 16px 16px;border-top:1px solid var(--line)}
+.body h3{font-size:12px;color:var(--mute);margin:14px 0 4px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.body ul{margin:0;padding-left:20px}.body p{font-size:15px}
+.mono{font:13px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;word-break:break-all}
+button{font:inherit;font-weight:600;min-height:46px;padding:8px 20px;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;-webkit-user-select:none;user-select:none}
+button.primary{background:var(--ink);color:var(--paper)}
+@media (hover:hover){button:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}}
+.out{margin-top:12px;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:var(--card);min-height:52px}
+.note{background:var(--warnbg);border-radius:20px;padding:16px 20px;color:var(--ink)}
+.note ul{margin:0;padding-left:20px}.note li{margin:6px 0}
+.photo{position:fixed;inset:0;z-index:-1;pointer-events:none;background:url(img/london-sunset.jpg) 60% 78%/cover no-repeat}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,20,29,.9) 0,rgba(10,20,29,.78) 38%,rgba(10,20,29,.3) 100%),linear-gradient(to top,rgba(10,20,29,.5) 0,transparent 35%)}
+footer{position:relative;color:#d8e2e8;font-size:14px;padding:22px 8px 0;max-width:1120px;margin:0 auto}
+footer a{color:#fff}
+
+/* ---- v2: graphical menu, badge-style claim cards, calmer colour ---- */
+:root{--paper:#e6eaec;--card:#ffffff;--ink:#12181c;--mute:#4f5b63;--line:#d5dbde;--teal:#12806c;--coral:#d4453a;--indigo:#4054d6;--amber:#b8700a;--violet:#7048c9;--tealbg:#d9f2ec;--coralbg:#fbe0dd;--indigobg:#e0e5fb;--amberbg:#fbebcf}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#161b1f;--card:#1f262c;--ink:#eef1f2;--mute:#9fabb3;--line:#2d363d;--teal:#3dc7ab;--coral:#ff7a6e;--indigo:#8ea0ff;--amber:#f2b34a;--violet:#b595ff;--tealbg:#123a33;--coralbg:#43201d;--indigobg:#1f2748;--amberbg:#3c2d0f}}
+.top nav{align-items:center;gap:12px 20px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:.01em}
+.brand svg{width:30px;height:30px;color:#f1f4f5}
+.pills{display:flex;gap:8px;flex-wrap:wrap}
+.top nav a.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px 0 13px;border-radius:999px;color:#f1f4f5;text-decoration:none;text-transform:none;letter-spacing:0;font-weight:600;font-size:14.5px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.3);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .15s,transform .15s,color .15s}
+.pill svg{width:19px;height:19px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (hover:hover){.top nav a.pill:hover{background:rgba(255,255,255,.26);transform:translateY(-1px);text-decoration:none}}
+.top nav a.pill[aria-current="true"]{background:#f1f4f5;color:#12181c;border-color:transparent}
+.top nav a.pill:active{transform:scale(.97)}
+@media (max-width:700px){.pills{order:3;width:100%;gap:6px}.top nav a.pill{padding:0 10px 0 8px;font-size:13.5px;gap:5px}.pill svg{width:17px;height:17px}}
+.panel{box-shadow:0 30px 80px rgba(0,0,0,.3)}
+h2 i{color:var(--teal)}
+.cards .card{border:0;border-radius:18px;padding:18px 18px 16px;box-shadow:0 1px 0 rgba(0,0,0,.04),0 14px 28px -18px rgba(20,32,44,.35);position:relative;overflow:hidden}
+.cards .card::before{content:"";position:absolute;left:0;top:0;right:0;height:5px;background:var(--tone,var(--teal))}
+.cards .card .k{font-weight:600;color:var(--ink);font-size:14.5px}
+.cards .card .v{color:var(--tone,var(--teal))}
+/* claim badges */
+.grid{grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+details.claim{background:var(--card);border:0;border-radius:22px;padding-top:0;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.04),0 16px 30px -20px rgba(20,32,44,.45)}
+details.claim::before{display:none}
+details.claim summary{padding:0;border-radius:22px}
+.band{display:flex;align-items:center;gap:8px;padding:14px 16px 12px;font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:var(--chip);color:var(--mute);position:relative}
+.band::after{content:"";position:absolute;top:6px;left:50%;width:40px;height:5px;margin-left:-20px;border-radius:4px;background:rgba(0,0,0,.14)}
+.band svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.band.bad{background:var(--coralbg);color:var(--coral)}.band.ok{background:var(--tealbg);color:var(--teal)}
+.band .lab-hide{display:none}
+body.veiled .band{background:var(--chip);color:var(--mute)}body.veiled .band .lab-show,body.veiled .band .ico-show{display:none}body.veiled .band .lab-hide{display:inline}
+.cbody{padding:12px 16px 14px}
+.cbody .kind{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:700}
+.cbody h3{font-size:19px;line-height:1.2;margin:4px 0 8px;font-weight:700;letter-spacing:-.01em;color:var(--ink);text-transform:none}
+.cbody p{font-size:14.5px;line-height:1.5;color:var(--mute);margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pipe{display:flex;position:relative;margin:16px 0 4px}
+.pipe::before{content:"";position:absolute;left:16.6%;right:16.6%;top:16px;height:2px;background:var(--line)}
+.node{flex:1;text-align:center;position:relative;font-size:12px;line-height:1.25;color:var(--mute)}
+.node .dot{width:34px;height:34px;border-radius:50%;margin:0 auto 6px;display:grid;place-items:center;color:#fff;background:var(--tone);box-shadow:0 0 0 4px var(--card)}
+.node .dot svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.node b{display:block;color:var(--ink);font-size:12.5px}
+.t-ok{--tone:var(--teal)}.t-bad{--tone:var(--coral)}.t-blue{--tone:var(--indigo)}.t-warn{--tone:var(--amber)}.t-none{--tone:#8b98a1}
+.agree{margin:12px 0 0;padding:8px 12px;border-radius:12px;font-size:13px;font-weight:600;display:flex;gap:8px;align-items:center}
+.agree.yes{background:var(--tealbg);color:var(--teal)}.agree.no{background:var(--coralbg);color:var(--coral)}
+.agree svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.more{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-top:1px solid var(--line);font-size:13px;font-weight:600;color:var(--mute)}
+.more svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;transition:transform .2s}
+details.claim[open] .more svg{transform:rotate(180deg)}
+details.claim .body{border-top:0;padding:4px 16px 16px;background:var(--card)}
+details.claim .body h3{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+@media (hover:hover){details.claim summary:hover{background:transparent}details.claim summary:hover .more{color:var(--ink)}}
+
+/* ---- Try it ---- */
+.try .privacy{display:flex;gap:10px;align-items:flex-start;background:var(--amberbg);color:var(--ink);border-radius:14px;padding:12px 14px;font-size:14px;margin:0 0 16px}
+.try .privacy svg{flex:none;margin-top:2px;color:var(--amber)}
+.examples{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.ex{min-height:44px;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);font:inherit;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;-webkit-user-select:none;user-select:none}
+.ex .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:9px;background:var(--tone)}
+@media (hover:hover){.ex:hover{border-color:var(--tone);background:var(--chip)}}
+.ex:focus-visible,.tryform textarea:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus)}
+.tryform{background:var(--card);border-radius:22px;padding:18px;box-shadow:0 1px 0 rgba(0,0,0,.04),0 16px 30px -20px rgba(20,32,44,.45)}
+.tryform label{display:block;font-weight:700;font-size:14px;margin:0 0 6px}
+.tryform .count{float:right;font-weight:400;color:var(--mute);font-variant-numeric:tabular-nums}
+.tryform textarea{width:100%;font:inherit;font-size:16px;line-height:1.5;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);resize:vertical;min-height:84px}
+.formbar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:16px}
+.formbar button[disabled]{opacity:.55;cursor:progress}
+.run{display:grid;gap:12px;margin-top:16px}
+.step{background:var(--card);border-radius:18px;padding:14px 16px 14px 64px;position:relative;box-shadow:0 1px 0 rgba(0,0,0,.04),0 12px 24px -18px rgba(20,32,44,.4)}
+.step .n{position:absolute;left:14px;top:14px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--tone,var(--mute));color:#fff;font-weight:800}
+.step h3{margin:0 0 6px;font-size:16px;font-weight:700}
+.step p{font-size:15px;margin:0 0 8px}.step ul{margin:0;padding-left:18px;font-size:14.5px}.step li{margin:3px 0}
+.spin{display:inline-block;width:16px;height:16px;border:3px solid var(--line);border-top-color:var(--indigo);border-radius:50%;animation:sp .9s linear infinite;vertical-align:-3px;margin-right:8px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.final{border-radius:18px;padding:16px 18px;font-weight:600;font-size:16px;line-height:1.45}
+.final.ok{background:var(--tealbg);color:var(--teal)}.final.bad{background:var(--coralbg);color:var(--coral)}.final.warn{background:var(--amberbg);color:var(--amber)}
+.chip2{display:inline-block;padding:3px 12px;border-radius:999px;font-weight:700;font-size:13px;margin-right:8px}
+</style>
+</head>
+<body>
+<div class="photo" aria-hidden="true"></div>
+<div class="wrap">
+<div class="top">
+<nav aria-label="Sections">
+  <div class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="3" width="18" height="26" rx="4" fill="currentColor"/><rect x="13" y="6.5" width="6" height="2" rx="1" fill="#15191c"/><circle cx="16" cy="16" r="4.2" fill="none" stroke="#15191c" stroke-width="1.8"/><path d="M13 24h6" stroke="#15191c" stroke-width="1.8" stroke-linecap="round"/></svg><span>Claim Audit</span></div>
+  <div class="pills">
+    <a class="pill" href="#try"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5l12 7.5-12 7.5z"/></svg>Try it</a>
+    <a class="pill" href="#results"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V11M10 20V4M16 20v-6M22 20H2"/></svg>Results</a>
+    <a class="pill" href="#claims"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="11" r="2.2"/><path d="M14 10h4M14 14h4M6.5 16.5c.6-1.4 4.4-1.4 5 0"/></svg>Claims</a>
+    <a class="pill" href="#verify"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 5-5"/></svg>Verify</a>
+    <a class="pill" href="#limits"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.01"/></svg>Limits</a>
+  </div>
+  <span class="tag">SERV Hackathon 02 · Reppo track</span>
+</nav>
+
+<header class="hero">
+  <div>
+    <h1>Can an AI spot a <em>misleading</em> property ad?</h1>
+    <p class="lede">Property ads promise big returns and savings. The UK advertising watchdog has already ruled on many of them. We gave <span class="num" id="nItems">24</span> of those claims to an AI and checked: does it agree with the watchdog?</p>
+    <a class="cta" href="#try">Try it yourself</a>
+  </div>
+  <div class="rig" aria-hidden="true" id="rig">
+    <div class="swing" id="swing">
+      <div class="strap"><span id="strapText"></span></div>
+      <div class="clip"></div>
+      <div class="badge" id="badge">
+        <div class="slot"></div>
+        <div class="org">CLAIM AUDIT · UK PROPERTY ADS</div>
+        <div class="big" id="bBig"></div>
+        <div class="row">
+          <svg class="ring" viewBox="0 0 64 64" width="64" height="64"><circle cx="32" cy="32" r="26" fill="none" stroke="var(--line)" stroke-width="8"/><circle id="ringArc" cx="32" cy="32" r="26" fill="none" stroke="var(--accent)" stroke-width="8" stroke-linecap="round" transform="rotate(-90 32 32)" stroke-dasharray="0 999"/><text id="ringTxt" x="32" y="37" text-anchor="middle" font-size="15" font-weight="800" fill="var(--ink)"></text></svg>
+          <div class="lines" id="bLines"></div>
+        </div>
+        <div class="code"><svg id="bars" viewBox="0 0 200 34" preserveAspectRatio="none"></svg><small id="bHead"></small></div>
+      </div>
+    </div>
+  </div>
+</header>
+</div>
+
+<div class="panel">
+<section id="try" class="try" aria-labelledby="h-try" style="margin-top:0"><h2 id="h-try"><i>00</i>Try it yourself</h2>
+<p>Paste a property ad claim and the evidence behind it. The calculator checks the sums, the AI says whether the claim holds up, then an independent panel checks the AI. It takes about a minute. No sign-up.</p>
+<div class="privacy" role="note"><svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.01"/></svg><span><b>Public by design.</b> The second-opinion panel's reviews are public, so please do not paste names, addresses, emails or phone numbers. Everything you paste is screened by SERV's prompt-injection guard.</span></div>
+<p class="gl" style="margin:0 0 8px"><b>Start with an example:</b></p>
+<div class="examples" id="t-examples" role="group" aria-label="Example claims"></div>
+<div class="note" id="t-off" hidden>Live checking is not switched on in this copy of the page. The 24 recorded cases below show the whole pipeline.</div>
+<form class="tryform" id="tryform" autocomplete="off">
+  <label for="t-claim">The claim <span class="count" id="t-c1">0/1200</span></label>
+  <textarea id="t-claim" maxlength="1200" rows="3" required spellcheck="false" placeholder="e.g. Prices in this area will rise at least 5-10% in 18 months, a 50-100% return on your deposit"></textarea>
+  <label for="t-ev" style="margin-top:14px">The evidence behind it <span class="count" id="t-c2">0/2500</span></label>
+  <textarea id="t-ev" maxlength="2500" rows="5" required spellcheck="false" placeholder="Paste the numbers, sources and small print the advert gives, for example: the deposit, the price, the article it cites..."></textarea>
+  <div class="formbar"><button class="primary" id="t-go" type="submit">Check this claim</button><span class="gl" id="t-left"></span></div>
+</form>
+<div class="run" id="t-out" aria-live="polite"></div>
+</section>
+
+<section id="results" aria-labelledby="h-res"><h2 id="h-res"><i>01</i>Results</h2>
+<div class="cards" id="cards"></div>
+<p class="gl" id="resnote" style="margin-top:12px"></p></section>
+
+<section aria-labelledby="h-how"><h2 id="h-how"><i>02</i>How it works</h2>
+<p>For each claim, four simple steps:</p>
+<ol class="steps">
+  <li><b>A calculator checks the sums</b><span>Every figure in the claim is recalculated by plain code, not by AI.</span></li>
+  <li><b>The AI gives its verdict</b><span>Is the claim backed up by the evidence? The AI (SERV Reasoning) says yes or no and explains why.</span></li>
+  <li><b>A second opinion checks the AI</b><span>An independent panel of reviewers (Reppo) scores the answer: approve, look again, or reject.</span></li>
+  <li><b>A second look</b><span>If the panel is not happy, its comments go back to the AI to think again.</span></li>
+</ol></section>
+
+<section id="claims" aria-labelledby="h-cl"><h2 id="h-cl"><i>03</i>Every claim</h2>
+<div class="bar"><label class="toggle"><input type="checkbox" id="reveal" checked> Show what the watchdog decided</label><span class="gl" id="count"></span></div>
+<div class="grid" id="list"></div></section>
+
+<section id="verify" aria-labelledby="h-ver"><h2 id="h-ver"><i>04</i>Check the log</h2>
+<p>Every step is saved in a log that shows tampering: each entry is locked to the one before it, so changing anything breaks the chain. Press the button and your own browser re-checks every entry. Nothing is sent anywhere.</p>
+<p class="gl">Log fingerprint: <span class="mono" id="head"></span></p>
+<div class="bar"><button class="primary" id="verify-btn">Check the log</button><button id="tamper">Tamper with one entry, then check</button></div>
+<div class="out" id="vout" role="status" aria-live="polite">Not checked yet.</div>
+<p class="gl" style="margin-top:10px">This shows tampering, it does not prevent it: someone controlling the whole file could rewrite all of it. That is why the log fingerprint is printed here and on the badge.</p></section>
+
+<section id="limits" aria-labelledby="h-lim"><h2 id="h-lim"><i>05</i>What this does not prove</h2>
+<div class="note"><ul>
+<li><b>Small test.</b> Only 24 claims from 11 rulings, and just 5 were judged fair by the watchdog. Treat every number as a first signal, not proof.</li>
+<li><b>Our wording.</b> An AI summarised each ruling, then we rewrote each claim neutrally. The link on each claim goes to the real ruling, which is the authority.</li>
+<li><b>Possible head start.</b> The AI may have read these public rulings while it was trained.</li>
+<li><b>Knowing the rules.</b> Some claims are flawed because a risk warning is missing, which tests whether the AI knows the advertising rules as much as whether it can reason.</li>
+<li><b>Reused code.</b> The tamper-evident log comes from an earlier project of the author, Backstop (MIT licence). Everything else was built during this hackathon.</li>
+</ul></div></section>
+</div>
+<footer><p>Rulings © Advertising Standards Authority, linked on each claim. Tests only; no personal data. Built for the SERV Hackathon, Edition 02. The hanging-badge idea is inspired by portfolio templates; the design and code here are original. Background photo: "Sunset over Bishopsgate" by <a href="https://unsplash.com/photos/onNuFFz3L_E" rel="noopener">Andrea De Santis</a> on Unsplash (Unsplash License).</p></footer>
+</div>
+
+<script type="application/json" id="data">__DATA__</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const $=(s)=>document.querySelector(s);
+const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e};
+const S=D.stats,R=D.results,g=S.reppo_gate_on_serv_answer,f=S.feedback_loop,sa=S.serv_alone;
+$('#nItems').textContent=S.items;
+
+/* ---- badge content (real numbers) ---- */
+$('#bBig').textContent=`${S.items} ads checked`;
+const arc=$('#ringArc');const frac=sa.correct/S.items;arc.setAttribute('stroke-dasharray',`${(frac*2*Math.PI*26).toFixed(1)} 999`);
+$('#ringTxt').textContent=`${sa.correct}/${S.items}`;
+$('#bLines').innerHTML='';
+for(const [a,b] of [['AI = watchdog',`${sa.correct} of ${S.items}`],['Approved first time',`${R.filter(r=>r.pass1.reppo.route==='ship').length}`],['Reconsidered',`${f.revised_n}`]]){const d=el('div');const bb=el('b','num',b);d.append(a+': ',bb);$('#bLines').append(d)}
+$('#bHead').textContent='LOG '+D.chain.head.slice(0,8)+'…'+D.chain.head.slice(-6);
+(function bars(){const svg=$('#bars');let x=0;const NS='http://www.w3.org/2000/svg';for(const ch of D.chain.head){const d=parseInt(ch,16);const w=1+(d%4)*.55,gap=1+((d>>2)%3)*.35;const r=document.createElementNS(NS,'rect');r.setAttribute('x',x.toFixed(2));r.setAttribute('y',0);r.setAttribute('width',w.toFixed(2));r.setAttribute('height',34);r.setAttribute('fill','currentColor');svg.append(r);x+=w+gap}svg.setAttribute('viewBox',`0 0 ${x.toFixed(1)} 34`)})();
+$('#strapText').textContent=('CLAIM AUDIT · SERV × REPPO · ').repeat(8);
+
+/* ---- results cards ---- */
+const cards=[
+ ['The AI agrees with the watchdog',`${sa.correct} of ${S.items}`,`${sa.flawed_caught} of ${S.asa_flawed} misleading claims spotted; ${sa.sound_wrongly_flagged} of ${S.asa_sound} fair claims wrongly called misleading`],
+ ['The second opinion caught a mistake',g.serv_wrong_n?`${g.reppo_flagged_wrong_answers} of ${g.serv_wrong_n}`:'0 mistakes',g.serv_wrong_n?`The AI was wrong ${g.serv_wrong_n} times; the panel questioned ${g.reppo_flagged_wrong_answers} of them`:'The AI made no mistakes, so there was nothing to catch'],
+ ['Good answers the panel doubted',`${g.reppo_false_flags} of ${g.serv_right_n}`,`Correct answers the panel did not approve. Average score ${g.mean_score_when_serv_right} out of 100 when the AI was right`+(g.mean_score_when_serv_wrong!==null?`, ${g.mean_score_when_serv_wrong} when it was wrong`:'')],
+ ['After a second look',`${f.final_correct} of ${S.items}`,`${f.revised_n} answers were reconsidered; ${f.changed_to_correct} became correct, ${f.changed_to_wrong} became wrong`]
+];
+const TONES=['var(--teal)','var(--indigo)','var(--amber)','var(--violet)'];cards.forEach(([k,v,s],i)=>{const c=el('div','card');c.style.setProperty('--tone',TONES[i]);c.append(el('div','k',k),el('div','v num',v),el('div','s',s));$('#cards').append(c)});
+$('#resnote').textContent=`We show counts, not percentages, on purpose: with only ${S.items} claims, one answer changes any percentage a lot. (Second-opinion credits used: ${S.reppo_credits_charged.toLocaleString('en-GB')}.)`;
+
+/* ---- claim badges ---- */
+const ROUTE={ship:'approved',review:'look again',block:'rejected'};
+const VERD={supported:'backed up',not_supported:'not backed up'};
+const ruling=(r)=>r.label==='flawed'?'not_supported':'supported';
+function chip(t,c){const b=el('span','badge-chip '+(c||''),t);return b}
+const TITLES={'cbre-yields':'Rental yields for a London tower','newbuild-forecast':'“50–100% return” on new flats','connectuk-roi':'“10–30% ROI” on land auctions','connectuk-auction':'Auction beats estate agents','landprofits-profits':'Millions in profit for course students','churchill-energy':'Save £1,000+ on energy bills','churchill-total':'Save £2,300 a year by downsizing','hkl-higher':'“Up to 10% higher sale prices”','hkl-sevendays':'“Only agent open seven days”','hkl-fees':'Leaflet with no double-fee warning','pb-saving':'“£4,158 average saving”','pb-thousands':'“You could save thousands”','remax-personal':'“Your personal agent all the way”','remax-viewings':'Accompanied viewings','remax-number1':'“#1 in the world for sales”','remax-social':'Personal social media campaign','remax-board':'Personalised sale board','remax-feedback':'Same-day viewing feedback','remax-negotiation':'Skilled negotiation','lodges-return':'Guaranteed holiday-lodge returns','lodges-risk':'Lodge ad with no risk warning','connectuk-risk':'Land ad with no risk warning','landprofits-risk':'Course ad with no risk warning','newbuild-risk':'Investor email with no risk warning'};
+const KIND={substantiation:'Is the number backed up?',comparison:'Is the comparison fair?',omission:'Is something left out?'};
+const IC={calc:'<rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 7.5h7M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h.01M15 16h.01"/>',ai:'<path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4zM18 15l.9 2.1 2.1.9-2.1.9L18 21l-.9-2.1-2.1-.9 2.1-.9z"/>',panel:'<circle cx="9" cy="9" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3.5 19c.6-3 3-4.5 5.5-4.5s4.9 1.5 5.5 4.5M15.5 14.6c2.2-.3 4.2.9 5 3.4"/>',ok:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>',flag:'<path d="M5 21V4M5 5h11l-2 4 2 4H5"/>',look:'<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.2-4.2"/>',chev:'<path d="M6 9l6 6 6-6"/>',shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>'};
+const svg=(k)=>'<svg viewBox="0 0 24 24" aria-hidden="true">'+IC[k]+'</svg>';
+const html=(tag,cls,inner)=>{const e=el(tag,cls);e.innerHTML=inner;return e};
+function node(tone,ico,title,sub){return html('div','node t-'+tone,'<div class="dot">'+svg(ico)+'</div><b></b><span></span>')}
+function mk(tone,ico,title,sub){const n=node(tone,ico);n.querySelector('b').textContent=title;n.querySelector('span').textContent=sub;return n}
+function row(r){
+  const d=el('details','claim');const s=el('summary');
+  const bad=r.label==='flawed';
+  const band=el('div','band '+(bad?'bad':'ok'));band.dataset.asa='1';
+  band.append(html('span','ico-show',svg(bad?'flag':'ok')),el('span','lab-show',bad?'Watchdog: misleading':'Watchdog: fair claim'),el('span','lab-hide','Watchdog verdict hidden'));
+  const cb=el('div','cbody');
+  cb.append(el('div','kind',KIND[r.group]||r.group),el('h3','',TITLES[r.id]||r.id),el('p','',r.claim));
+  const pipe=el('div','pipe');
+  const figs=!(r.checks.length===1&&r.checks[0].startsWith('No figures'));
+  pipe.append(mk(figs?'ok':'none','calc','Calculator',figs?'sums checked':'no figures'));
+  const sup=r.pass1.assessment.verdict==='supported';
+  pipe.append(mk(sup?'ok':'bad','ai',sup?'Backed up':'Not backed up','AI verdict'));
+  const rv=r.pass1.reppo;
+  pipe.append(mk(rv.route==='ship'?'blue':rv.route==='block'?'bad':'warn','panel',rv.route==='ship'?'Approved':rv.route==='block'?'Rejected':'Look again','Panel '+rv.score+'/100'));
+  cb.append(pipe);
+  const agree=r.pass1.assessment.verdict===ruling(r);
+  const ag=html('div','agree '+(agree?'yes':'no'),svg(agree?'ok':'x')+'<span></span>');ag.dataset.asa='1';
+  ag.querySelector('span').textContent=agree?'The AI agrees with the watchdog':'The AI disagrees with the watchdog';
+  cb.append(ag);
+  const more=html('div','more','<span>See the full file</span>'+svg('chev'));
+  s.append(band,cb,more);d.append(s);
+  const body=el('div','body');const sec=(h,c)=>{body.append(el('h3','',h));body.append(c)};
+  sec('Claim',el('p','',r.claim));sec('The evidence we gave the AI',el('p','',r.context));
+  const ul=el('ul');for(const c of r.checks)ul.append(el('li','',c));sec('Checked by a calculator',ul);
+  const sv=(a)=>{const w=el('div');w.append(el('p','',a.reasoning));if(a.missing_or_unsupported.length){const u=el('ul');for(const x of a.missing_or_unsupported)u.append(el('li','',x));w.append(u)}return w};
+  sec(`The AI’s verdict: ${VERD[r.pass1.assessment.verdict]} (confidence ${r.pass1.assessment.confidence})`,sv(r.pass1.assessment));
+  const rp=(x)=>{const w=el('div');w.append(el('p','num',`Score ${x.score} out of 100 · ${ROUTE[x.route]} · ${x.confidence} confidence`));w.append(el('p','',x.reason||''));w.append(el('p','gl num','Scored on: '+Object.entries(x.rubric_scores||{}).map(([k,v])=>k.replace(/_/g,' ')+' '+v).join(', ')));return w};
+  sec('The second-opinion panel (Reppo)',rp(r.pass1.reppo));
+  if(r.pass2){sec(`The AI after the panel’s comments: ${VERD[r.pass2.assessment.verdict]} (confidence ${r.pass2.assessment.confidence})`,sv(r.pass2.assessment));sec('The panel’s view of the new answer',rp(r.pass2.reppo))}
+  if(r.error)sec('Error',el('p','',r.error));
+  const a=el('a','link','Read the watchdog’s ruling');a.href=r.source;a.rel='noopener';a.target='_blank';const p=el('p');p.append(a);body.append(p);
+  d.append(body);return d;
+}
+for(const r of R)$('#list').append(row(r));
+$('#count').textContent=`${R.length} claims`;
+$('#reveal').addEventListener('change',e=>{document.body.classList.toggle('veiled',!e.target.checked);document.querySelectorAll('.agree').forEach(n=>n.style.display=e.target.checked?'':'none')});
+(function(){const links=[...document.querySelectorAll('.pill')];const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));const io=new IntersectionObserver(es=>{for(const e of es){if(e.isIntersecting){links.forEach(a=>a.removeAttribute('aria-current'));const a=map.get(e.target.id);if(a)a.setAttribute('aria-current','true')}}},{rootMargin:'-35% 0px -55% 0px'});for(const id of map.keys()){const s=document.getElementById(id);if(s)io.observe(s)}})();
+
+/* ---- chain verifier ---- */
+function canon(v){if(v===null)return'null';switch(typeof v){case'boolean':return v?'true':'false';case'string':return JSON.stringify(v);case'number':if(!Number.isFinite(v))throw new Error('number');return JSON.stringify(v);case'object':{if(Array.isArray(v))return'['+v.map(canon).join(',')+']';const k=Object.keys(v).sort();return'{'+k.map(x=>{if(v[x]===undefined)throw new Error('undefined');return JSON.stringify(x)+':'+canon(v[x])}).join(',')+'}'}default:throw new Error('type')}}
+async function sha(s){const b=new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)));return[...b].map(x=>x.toString(16).padStart(2,'0')).join('')}
+async function verify(entries,head){let prev='0'.repeat(64);for(let i=0;i<entries.length;i++){const e=entries[i];if(e.n!==i+1)return{ok:false,at:e.n,why:'entry missing, repeated or reordered'};if(e.prev!==prev)return{ok:false,at:e.n,why:'does not link to the previous entry'};const h=await sha(canon({stream:e.stream,n:e.n,ts:e.ts,type:e.type,actor:e.actor,data:e.data,prev:e.prev}));if(h!==e.hash)return{ok:false,at:e.n,why:'contents do not match the recorded hash (entry was changed)'};prev=e.hash}if(head&&prev!==head)return{ok:false,at:entries.length,why:'chain does not end at the recorded head'};return{ok:true,n:entries.length,head:prev}}
+$('#head').textContent=D.chain.head;
+const out=$('#vout');
+$('#verify-btn').addEventListener('click',async()=>{out.textContent='Checking…';const r=await verify(D.chain.entries,D.chain.head);out.textContent=r.ok?`The log is intact: all ${r.n} entries check out.`:`The log has been changed: entry ${r.at} fails (${r.why}).`});
+$('#tamper').addEventListener('click',async()=>{const c=JSON.parse(JSON.stringify(D.chain.entries));const k=c.findIndex(e=>e.type==='reppo_review');const before=c[k].data.score;c[k].data.score=before===null?1:Math.min(100,before+1);const r=await verify(c,D.chain.head);out.textContent=r.ok?'Unexpectedly valid.':`In a copy of the log, we changed one panel score from ${before} to ${c[k].data.score}. The check now fails at entry ${r.at}: ${r.why}.`});
+
+
+/* ---- Try it: send a claim to the live checker (keys stay on the server) ---- */
+(function(){
+  const form=$('#tryform'),claimEl=$('#t-claim'),evEl=$('#t-ev'),go=$('#t-go'),out=$('#t-out'),left=$('#t-left');
+  const count=()=>{$('#t-c1').textContent=claimEl.value.length+'/1200';$('#t-c2').textContent=evEl.value.length+'/2500'};
+  claimEl.addEventListener('input',count);evEl.addEventListener('input',count);
+  (D.examples||[]).forEach((x,i)=>{const b=el('button','ex');b.type='button';b.style.setProperty('--tone',['var(--coral)','var(--amber)','var(--indigo)','var(--teal)'][i%4]);b.append(el('span','dot'),document.createTextNode(x.title));b.addEventListener('click',()=>{claimEl.value=x.claim;evEl.value=x.evidence;count();claimEl.focus({preventScroll:true})});$('#t-examples').append(b)});
+  count();
+  const off=()=>{form.hidden=true;$('#t-off').hidden=false};
+  async function status(){try{const r=await fetch('/api/status');const j=await r.json();if(!j.live)return off();left.textContent=j.left>0?`${j.left} live check${j.left===1?'':'s'} left today`:'No live checks left today (limit reached)'}catch{off()}}
+  status();
+  const step=(n,tone,title)=>{const s=el('div','step');s.style.setProperty('--tone',tone);s.append(el('div','n',String(n)),el('h3','',title));const b=el('div');s.append(b);out.append(s);return b};
+  const spin=(b,txt)=>{b.replaceChildren();const w=el('p');w.append(el('span','spin'),document.createTextNode(txt));b.append(w);return w};
+  const notice=(msg,tone)=>{const d=el('div','final '+tone,msg);return d};
+  const sleep=(ms)=>new Promise(r=>setTimeout(r,ms));
+  const finish=()=>{go.disabled=false;go.textContent='Check this claim';status()};
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();go.disabled=true;go.textContent='Checking…';out.replaceChildren();
+    const b1=step(1,'var(--teal)','The calculator');spin(b1,'The AI is picking out the figures, and plain code is doing the sums…');
+    let j;
+    try{const r=await fetch('/api/check',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({claim:claimEl.value,evidence:evEl.value})});j=await r.json()}
+    catch{out.replaceChildren(notice('Could not reach the checker. Check your connection and try again.','bad'));return finish()}
+    if(!j.ok){out.replaceChildren(notice(j.error||'Something went wrong.','bad'));return finish()}
+    b1.replaceChildren();
+    if(j.calcs.length){const ul=el('ul');for(const c of j.calcs){const li=el('li');li.append(document.createTextNode(c.label+': '));li.append(el('span','mono',c.expression+' = '));li.append(el('b','num',c.display));ul.append(li)}b1.append(ul);b1.append(el('p','gl','Done by plain code, not by AI. The AI only chose which sums to run.'))}
+    else b1.append(el('p','','No figures in this text could be recalculated.'));
+    const a=j.assessment,sup=a.verdict==='supported';
+    const b2=step(2,sup?'var(--teal)':'var(--coral)','The AI’s verdict');
+    const chip=el('span','chip2 '+(sup?'ok':'bad'),sup?'Backed up':'Not backed up');chip.style.background=sup?'var(--tealbg)':'var(--coralbg)';chip.style.color=sup?'var(--teal)':'var(--coral)';
+    const hp=el('p');hp.append(chip,document.createTextNode('confidence '+a.confidence));b2.append(hp,el('p','',a.reasoning));
+    if(a.missing_or_unsupported.length){const ul=el('ul');for(const m of a.missing_or_unsupported)ul.append(el('li','',m));b2.append(ul)}
+    const b3=step(3,'var(--indigo)','The second opinion (Reppo)');
+    if(!j.reppoId){b3.append(el('p','',j.reppoError||'The second opinion is not available right now.'));out.append(notice(`Result: the AI says the claim is ${sup?'backed up':'NOT backed up'} by the evidence you gave. The second opinion was not available this time.`,sup?'ok':'bad'));return finish()}
+    const w=spin(b3,'The independent panel is reviewing the AI’s answer… usually about a minute.');
+    let rv=null;const t0=Date.now();
+    for(let i=0;i<70&&!rv;i++){
+      await sleep(i<3?4000:5000);
+      try{const r=await fetch('/api/review?id='+encodeURIComponent(j.reppoId));const k=await r.json();
+        if(k.ok&&k.status==='COMPLETED')rv=k;else if(k.ok&&k.status==='FAILED'){rv={failed:true};break}}catch{}
+      w.lastChild.textContent='The independent panel is reviewing the AI’s answer… '+Math.round((Date.now()-t0)/1000)+'s (usually about a minute).';
+    }
+    b3.replaceChildren();
+    if(!rv||rv.failed){b3.append(el('p','',rv&&rv.failed?'The panel could not review this one (you are not charged for that).':'The panel is taking longer than usual. The AI’s answer above is still valid.'));out.append(notice(`Result: the AI says the claim is ${sup?'backed up':'NOT backed up'}. The second opinion did not arrive.`,sup?'ok':'bad'));return finish()}
+    const rt={ship:'Approved',review:'Look again',block:'Rejected'}[rv.route]||rv.route;
+    const rc=rv.route==='ship'?'ok':rv.route==='block'?'bad':'warn';
+    const cp=el('span','chip2 '+rc,rt);cp.style.background={ok:'var(--indigobg)',bad:'var(--coralbg)',warn:'var(--amberbg)'}[rc];cp.style.color={ok:'var(--indigo)',bad:'var(--coral)',warn:'var(--amber)'}[rc];
+    const sp=el('p','num');sp.append(cp,document.createTextNode(`score ${rv.score} out of 100 · ${rv.confidence} confidence`));
+    b3.append(sp,el('p','',rv.reason||''));
+    if(rv.rubric_scores)b3.append(el('p','gl num','Scored on: '+Object.entries(rv.rubric_scores).map(([k,v])=>k.replace(/_/g,' ')+' '+v).join(', ')));
+    out.append(notice(`Result: the AI says this claim is ${sup?'backed up':'NOT backed up'} by the evidence you gave, and the panel ${rv.route==='ship'?'approved':'did not fully approve'} that answer.`+(rv.route==='ship'?'':' Treat it with care.'),sup?'ok':'bad'));
+    finish();
+  });
+})();
+
+/* ---- the hanging badge: a damped pendulum you can grab ---- */
+(function(){
+  const rig=$('#rig'),sw=$('#swing'),badge=$('#badge');
+  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let th=reduce?0:.28,om=0,drag=false,last=0,visible=true,raf=0;
+  const K=11,C=1.35,LIM=.95;
+  const pivot=()=>{const r=sw.getBoundingClientRect();return{x:r.left,y:r.top}};
+  const draw=()=>{sw.style.transform=`rotate(${th}rad)`};
+  function step(t){raf=0;if(!visible)return;const dt=Math.min(.033,(t-last)/1000||.016);last=t;
+    if(!drag){const a=-K*Math.sin(th)-C*om;om+=a*dt;th+=om*dt;}
+    draw();
+    if(drag||Math.abs(th)>.0008||Math.abs(om)>.004)raf=requestAnimationFrame(step);else{th=0;om=0;draw()}}
+  const kick=()=>{if(!raf&&visible){last=performance.now();raf=requestAnimationFrame(step)}};
+  badge.addEventListener('pointerdown',e=>{if(reduce)return;drag=true;badge.setPointerCapture(e.pointerId);om=0;kick()});
+  badge.addEventListener('pointermove',e=>{if(!drag)return;const p=pivot();const a=Math.atan2(-(e.clientX-p.x),(e.clientY-p.y));const n=Math.max(-LIM,Math.min(LIM,a));om=(n-th)/Math.max(.016,.016)*.35;th=n});
+  const up=()=>{drag=false;kick()};badge.addEventListener('pointerup',up);badge.addEventListener('pointercancel',up);
+  /* gentle sway when the mouse brushes past: a small, capped push in the direction of travel */
+  let lx=null,lt=0;
+  badge.addEventListener('pointerenter',e=>{lx=e.clientX;lt=performance.now()});
+  badge.addEventListener('pointerleave',()=>{lx=null});
+  badge.addEventListener('pointermove',e=>{
+    if(reduce||drag||e.pointerType==='touch')return;
+    const now=performance.now();if(lx===null){lx=e.clientX;lt=now;return}
+    const dt=now-lt;if(dt<30)return;                 // at most one push every 30 ms
+    const v=(e.clientX-lx)/dt*1000;lx=e.clientX;lt=now;   // px per second
+    if(Math.abs(th)>.32&&Math.sign(-v)===Math.sign(th))return; // already swinging wide that way
+    om=Math.max(-.8,Math.min(.8,om+Math.max(-.25,Math.min(.25,-v*.00014)))); // small push, total speed capped: roughly 15 degrees at the very most
+    kick();
+  });
+  new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(visible)kick()}).observe(rig);
+  draw();kick();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "listing-audit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node src/run.ts",
+    "site": "node src/stats.ts > out/stats.log && node src/seal.ts && node src/build-site.ts"
+  }
+}

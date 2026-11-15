@@ -1,0 +1,354 @@
+{
+  "about": "Real advertising claims ruled on by the UK ASA (public rulings). Records are PARAPHRASED from the ASA pages by an AI reader; the source URL is the authority. Labels (upheld / not upheld) are the regulator's, not ours. Harvested 2026-11-15 (rate-limited pages retried successfully with a plain browser user agent). Some fields may contain reader errors: verify against the ruling before publishing any figure.",
+  "known_data_discrepancies": [
+    "Luxury Lodges: headline says up to 83,454 over two years; the ruling's assessment text says 83,354",
+    "ULEZProsperity website: ruling says 37-month rental period; advertiser's response says 38 months"
+  ],
+  "in_scope_real_estate": [
+    {
+      "id": "cbre-2018",
+      "url": "https://www.asa.org.uk/rulings/cbre-ltd-a18-439184.html",
+      "date": "2018-10-10",
+      "kind": "off-plan London tower marketed to buy-to-let investors (rental factsheet)",
+      "claims": [
+        {
+          "text": "Estimated weekly rents and estimated average gross yields per unit type were representative and achievable (1-bed 3.9-4.9%, 2-bed 4.5-4.6%, 3-bed 2.9-3.8%, 3-bed duplex 3.1-3.5%; weekly rents 1-bed 745-925, 2-bed 1115-1335, 3-bed 1750-2500)",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "estimates not substantiated against comparable achieved rents; most rent ranges above achieved rents at a nearby tower"
+        },
+        {
+          "text": "Gross yields shown with no explanation of how they were calculated",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "basis of projection not apparent"
+        }
+      ],
+      "evidence_asa_examined": "Achieved rents at a nearby tower (per LonRes): 1-bed 700-750/week, 2-bed 1100-2150/week, 3-bed 2095-2308/week; no data found for 3-bed duplexes. The advertiser's evidence relied on asking prices from a single tower and included penthouses, duplexes and properties outside the postcode.",
+      "rules": "CAP 3.1, 3.7, 3.11, 14.3"
+    },
+    {
+      "id": "luxury-lodges-2025",
+      "url": "https://www.asa.org.uk/rulings/luxury-lodge-estates-company-ltd-a24-1256125-luxury-lodge-estates-company-ltd.html",
+      "date": "2025-02-12",
+      "kind": "holiday lodge property investment with a rental-income guarantee (magazine ad)",
+      "claims": [
+        {
+          "text": "Guaranteed return of up to about 83,454 over two years, based on historical success, from 295,000",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "ambiguous whether return refers to rent or value; guarantee not explained"
+        },
+        {
+          "text": "No warning that investment values can fall; 'historical success' with no past-performance qualifier",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "missing risk"
+        },
+        {
+          "text": "From 295,000 price shown without ongoing non-optional charges",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "material cost omitted"
+        }
+      ],
+      "context_in_ruling": "80% minimum occupancy; shortfall made up after 12 months; guarantee runs 12 to 24 months",
+      "rules": "CAP 3.1, 3.3, 3.9, 3.18, 3.19, 14.1, 14.4, 14.5"
+    },
+    {
+      "id": "connect-uk-2025",
+      "url": "https://www.asa.org.uk/rulings/connect-uk-sales-ltd-a24-1256131-connect-uk-sales-ltd.html",
+      "date": "2025-02-12",
+      "kind": "land auction investment (social and web ads)",
+      "claims": [
+        {
+          "text": "Land investments return 10-30% ROI",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "two case studies, one old, did not show the return was generally achievable"
+        },
+        {
+          "text": "No warning that investment value can go down",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "missing risk"
+        },
+        {
+          "text": "Selling land at auction achieves much higher prices than using an estate agent",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "compared valuations with sold prices; no evidence difference was caused by the auction method"
+        }
+      ],
+      "evidence_asa_examined": "Case 1: plot valued at 25,000, sold for 48,500, split into lots totalling 138,500. Case 2: plot valued at 950,000, split into 20 lots totalling 1,242,000 (30% increase).",
+      "rules": "CAP 3.1, 3.7, 3.9, 14.4"
+    },
+    {
+      "id": "land-profits-2025",
+      "url": "https://www.asa.org.uk/rulings/land-profits-edu-ltd-a24-1256132-land-profits-edu-ltd.html",
+      "date": "2025-02-12",
+      "kind": "training for investing in land (social and web ads); property-adjacent, not a listing",
+      "claims": [
+        {
+          "text": "Six-figure profits and financial freedom with no warning values can fall",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "missing risk"
+        },
+        {
+          "text": "Helped hundreds of clients; client results shown without 'past performance is not a guide'",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "unrepresentative examples, no qualifier"
+        },
+        {
+          "text": "One client made 350K on a deal; clients made 6,000,000 profit this year; profits of 100K to half a million possible",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "no evidence supplied for objective profit claims"
+        }
+      ],
+      "rules": "CAP 3.1, 3.7, 3.9, 14.4, 14.5"
+    },
+    {
+      "id": "churchill-2024",
+      "url": "https://www.asa.org.uk/rulings/churchill-retirement-living-ltd-a23-1192106-churchill-retirement-living-ltd.html",
+      "date": "2024-01-31",
+      "kind": "retirement apartment sales marketing; savings claims",
+      "claims": [
+        {
+          "text": "Downsizing to a Churchill apartment saves over 1,000 a year on energy (video cites 1,160)",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "comparison apartment was an unusually efficient B-rated heat-pump development; not representative"
+        },
+        {
+          "text": "Downsizing saves about 2,300 a year overall",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "comparison homes used far more energy than typical homes; basis not qualified"
+        },
+        {
+          "text": "Cost-of-living narrative on the web page",
+          "label": "flawed",
+          "outcome": "upheld for the web page only",
+          "flaw": "likely to cause fear or distress without justification (not a numbers flaw)"
+        },
+        {
+          "text": "Same narrative in the paid Facebook post",
+          "label": "sound",
+          "outcome": "not found in breach",
+          "flaw": null
+        }
+      ],
+      "evidence_asa_examined": "Churchill estimated saving range 2,260-2,740. Comparison homes used 24,255 and 27,560 kWh a year; Ofgem typical medium household 14,200 kWh, high 21,100 kWh. Apartments used were 25% below their development's average.",
+      "rules": "CAP 1.3, 3.1, 3.7, 3.9, 4.2"
+    },
+    {
+      "id": "remax-2026",
+      "url": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html",
+      "date": "2026-06-10",
+      "kind": "estate agency comparison against three named competitors (leaflet and Facebook post)",
+      "claims": [
+        {
+          "text": "Your personal agent all the way",
+          "label": "sound",
+          "outcome": "not misleading",
+          "flaw": null
+        },
+        {
+          "text": "Accompanied viewings by your personal agent",
+          "label": "sound",
+          "outcome": "not misleading",
+          "flaw": null
+        },
+        {
+          "text": "Number 1 in the world for home sales volume (read as the brand)",
+          "label": "sound",
+          "outcome": "not misleading",
+          "flaw": null
+        },
+        {
+          "text": "Personal social media campaign (shown as unique to the advertiser)",
+          "label": "flawed",
+          "outcome": "misleading",
+          "flaw": "competitors also offer it"
+        },
+        {
+          "text": "Personalised sale board for maximum marketing effect",
+          "label": "flawed",
+          "outcome": "misleading",
+          "flaw": "competitors also offer it"
+        },
+        {
+          "text": "Same day feedback on all viewings",
+          "label": "flawed",
+          "outcome": "misleading",
+          "flaw": "presented as guaranteed and superior; not substantiated"
+        },
+        {
+          "text": "Skilled negotiations by an agent who knows your home",
+          "label": "flawed",
+          "outcome": "misleading",
+          "flaw": "subjective, no objective standard"
+        },
+        {
+          "text": "Nine-criteria comparison table ticking the advertiser on all nine and competitors on two",
+          "label": "flawed",
+          "outcome": "upheld (not verifiable)",
+          "flaw": "footnote cited 'research of each agency's standard package' with no sources or date"
+        }
+      ],
+      "rules": "CAP 3.1, 3.7, 3.32, 3.34"
+    },
+    {
+      "id": "pegasus-2024",
+      "url": "https://www.asa.org.uk/rulings/pegasus-homes-ltd-a24-1248718-lifestory-group-ltd.html",
+      "date": "2024-11-13",
+      "kind": "retirement apartments rent-to-buy promotion (newspaper)",
+      "claims": [
+        {
+          "text": "Rent first and buy within 12 months to get nine months' rent back or 5% off the asking price",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "key conditions in tiny print; asterisk attached to only one of the two offers. NOT a reasoning flaw: an omission/layout flaw"
+        }
+      ],
+      "rules": "CAP 8.17"
+    },
+    {
+      "id": "taylor-wimpey-2012",
+      "url": "https://www.asa.org.uk/rulings/taylor-wimpey-uk-ltd-a12-190009.html",
+      "date": "2012-11-14",
+      "kind": "new-build flats; image vs headline price (website)",
+      "claims": [
+        {
+          "text": "Show-home bathroom photo shown next to a 'from' price",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "bathroom had upgrades not included in the price. Image/price mismatch, not a reasoning flaw. Old (2012)"
+        }
+      ],
+      "rules": "CAP 3.1, 3.3, 3.17"
+    },
+    {
+      "id": "newbuild-sales-2015",
+      "url": "https://www.asa.org.uk/rulings/newbuild-sales-ltd-a15-315511.html",
+      "date": "2015-12",
+      "kind": "off-plan London E14 flats pitched to investors by email",
+      "claims": [
+        {
+          "text": "Prices in the area are expected to rise at least 5-10% over the next 18 months and already have, which equates to a 50-100% return on the actual investment",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "advertiser's only valid support was a 43% borough-wide average price rise in one past year; that does not show these particular properties will rise 5-10%. Arithmetic in the advertiser's reply is internally consistent: the flaw is the conclusion, not the sums"
+        },
+        {
+          "text": "No statement that past performance is not a guide or that values can fall as well as rise",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "missing risk and past-performance qualifier"
+        },
+        {
+          "text": "The 50-100% return figure gives no basis for how it was calculated",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "basis of projection not apparent"
+        }
+      ],
+      "evidence_in_ruling": "Advertiser's worked example (from its reply): unit price 430,000; 10% deposit (43,000); 5% a year growth over 18 months gives value 462,787, a gain of 32,787 = 76% return on the deposit; 10% growth gives 155%. Evidence offered: a 2014 newspaper article on Tower Hamlets average prices up 43% (May 2013 to May 2014).",
+      "rules": "CAP 3.1, 3.3, 14.3, 14.4, 14.5",
+      "note": "Best 'right numbers, wrong conclusion' case in the set"
+    },
+    {
+      "id": "hilton-king-locke-2012",
+      "url": "https://www.asa.org.uk/rulings/hilton-king-locke-a12-189204.html",
+      "date": "2012",
+      "kind": "estate agent leaflet in Chalfont St Peter",
+      "claims": [
+        {
+          "text": "Up to 10% higher sale prices than other local estate agents",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "compares final sale prices with other agents' initial valuations (not a fair comparison); support was vendor testimonials; based on only 13 sales"
+        },
+        {
+          "text": "We are the only local estate agent open seven days a week",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "'local' undefined; agents in the neighbouring town were open seven days"
+        },
+        {
+          "text": "Leaflet sent to a rival's customers without warning about possible double fees under a sole-agency contract",
+          "label": "sound",
+          "outcome": "not upheld",
+          "flaw": null
+        }
+      ],
+      "evidence_in_ruling": "Advertiser said 13 sales completed, two more than 10% above another agent's valuation; examples cited 10.8%, 10.6% and 5.9% above initial valuation.",
+      "rules": "CAP 3.1, 3.3, 3.7, 3.11, 3.38"
+    },
+    {
+      "id": "purplebricks-2016",
+      "url": "https://www.asa.org.uk/rulings/new-broom-ltd-a16-331595.html",
+      "date": "2016",
+      "kind": "online estate agent TV ad and website savings claims",
+      "claims": [
+        {
+          "text": "You could save thousands (small print cites a 2011 Which? survey of average agent commission)",
+          "label": "sound",
+          "outcome": "not upheld",
+          "flaw": null,
+          "why_sound": "ASA found evidence weak but read the claim loosely: fixed fees mean an agent would need very low commission for no saving to arise"
+        },
+        {
+          "text": "4,158 average customer saving when selling",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "evidence was UK average asking prices (not Purplebricks' own sold prices) and a single conveyancing firm's email for the 1.5% average commission; no sales data to show how the average was derived"
+        },
+        {
+          "text": "Saving claim could be checked by consumers or competitors",
+          "label": "flawed",
+          "outcome": "upheld",
+          "flaw": "ad did not disclose the average sale price used or link to the calculation"
+        }
+      ],
+      "evidence_in_ruling": "Average UK asking price 303,190; assumed average agent commission 1.5%; Purplebricks fixed fees 798 outside London, 1,158 in Greater London (inc. VAT). A simple recompute from these disclosed inputs does not give 4,158 (1.5% of 303,190 is 4,547.85; minus the fees gives about 3,390 to 3,750).",
+      "rules": "CAP 3.1, 3.7, 3.33, 3.35; BCAP 3.1, 3.9, 3.33"
+    }
+  ],
+  "out_of_scope_not_real_estate_same_pattern": [
+    {
+      "id": "harrington-byrne-2024",
+      "url": "https://www.asa.org.uk/rulings/harrington---byrne-ltd-a24-1247595-harrington---byrne-ltd.html",
+      "what": "gold sovereign coin ad framed as an investment; no risk warning; upheld"
+    },
+    {
+      "id": "capgroup-2026",
+      "url": "https://www.asa.org.uk/rulings/cap-group-inc-ltd-a26-1329629-capgroup-int-ltd.html",
+      "what": "whiskey cask and gold investments; 8-15% return claim; the 8-15% figure held for only 65% of casks in the advertiser's own data; upheld"
+    },
+    {
+      "id": "rosenthal-radio-2025",
+      "url": "https://www.asa.org.uk/rulings/rosenthal-capital-ltd-a24-1263931-rosenthal-capital-ltd.html",
+      "what": "car buy-and-rent-back scheme on radio; broadcast-placement ruling"
+    },
+    {
+      "id": "rosenthal-web-2025",
+      "url": "https://www.asa.org.uk/rulings/rosenthal-capital-ltd-a24-1270983-rosenthal-capital-ltd.html",
+      "what": "car rent-back scheme website; 21%+ yields supported only by a testimonial; upheld"
+    },
+    {
+      "id": "zimran-prosperi-2024",
+      "url": "https://www.asa.org.uk/rulings/zimran-ltd-a24-1265945-zimran-ltd.html",
+      "what": "investment-training app video ad: fictional returns presented as real; risk text small and obscured; upheld on all three"
+    },
+    {
+      "id": "denhan-2021",
+      "url": "https://www.asa.org.uk/rulings/denhan-international-ltd-a21-1118871-denhan-international-ltd.html",
+      "what": "estate agent letter not identifiable as advertising; upheld; not a claim-reasoning case"
+    }
+  ],
+  "fetch_failed_retry_later": []
+}

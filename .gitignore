@@ -1,0 +1,11 @@
+.env
+.dev.vars
+node_modules/
+.wrangler/
+.claude/
+.codex-pass.md
+*.log
+out/dryrun.json
+out/try1*.json
+out/live1.*
+out/results.backup*

@@ -1,0 +1,1001 @@
+[
+  {
+    "id": "newbuild-forecast",
+    "group": "substantiation",
+    "label": "flawed",
+    "claim": "An email to investors about off-plan flats in east London says prices in the area are expected to rise at least 5-10% over the next 18 months and have already done so in the past, which it says equates to a 50-100% return on the actual investment.",
+    "context": "Advertiser's worked example: unit price 430,000 GBP; 10% deposit (43,000 GBP) with nothing more to pay until completion; 5% a year growth over 18 months gives a value of about 462,787 GBP, a gain of 32,787 GBP, a 76% return on the deposit; 10% growth would give about 155%. Support offered: a 2014 newspaper article reporting that average house prices in the whole borough rose 43% between May 2013 and May 2014.",
+    "source": "https://www.asa.org.uk/rulings/newbuild-sales-ltd-a15-315511.html",
+    "checks": [
+      "A 5% TOTAL rise on £430,000 is £21,500, which is 50% of the £43,000 deposit. So '5-10% rise equals a 50-100% return on the deposit' is arithmetically consistent.",
+      "A 10% TOTAL rise on £430,000 is £43,000, which is 100% of the £43,000 deposit. So '5-10% rise equals a 50-100% return on the deposit' is arithmetically consistent.",
+      "If instead the rise is 5% per YEAR for 18 months (compounded), the value is about £462,650, a gain of £32,650, 75.9% of the deposit (the advertiser's own reply quotes 462,787 / 76% / 155%, close but not identical).",
+      "If instead the rise is 10% per YEAR for 18 months (compounded), the value is about £496,087, a gain of £66,087, 153.7% of the deposit (the advertiser's own reply quotes 462,787 / 76% / 155%, close but not identical).",
+      "The sums do not test whether the price rise will happen; they only show what the percentages imply."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.93,
+        "reasoning": "The arithmetic for converting a 5-10% total rise on a £430,000 unit into a 50-100% return on a £43,000 deposit is consistent. However, the claim goes further by saying prices in east London are expected to rise 5-10% over the next 18 months and have already done so in the past. The only evidence offered is a 2014 article about average prices in the whole borough rising 43% between May 2013 and May 2014, which does not show a 5-10% rise over 18 months, nor does it specifically support east London, off-plan flats, or the expected future increase.",
+        "missing_or_unsupported": [
+          "No evidence that east London prices are expected to rise 5-10% over the next 18 months",
+          "No evidence that prices have already risen 5-10% over the relevant period",
+          "Evidence is a past 43% rise in the whole borough, not east London specifically",
+          "The 50-100% return calculation is arithmetically consistent but does not support the underlying market forecast"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhx86f5000208l8r6z41te6",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The response correctly identifies that while the arithmetic behind the return calculation is sound, the underlying market forecast of 5-10% price growth lacks adequate supporting evidence—the single 2014 article about borough-wide 43% annual growth doesn't substantiate the specific claim about east London off-plan flats rising 5-10% over 18 months. All three evaluators awarded perfect scores with complete consensus, meeting both the acceptance threshold and the higher bar for immediate shipping.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "pb-thousands",
+    "group": "substantiation",
+    "label": "sound",
+    "claim": "A TV ad for the same online estate agent shows a client being told 'you could save thousands', with small print citing average estate agent commission from a 2011 Which? survey.",
+    "context": "The Which? survey (2011) reported commissions between 0.75% and 3.5% with a national average of 1.8%. The agent charges one of two fixed fees (798 GBP outside London, 1,158 GBP inside, including VAT). A property valued at 300,000 GBP would pay 3,000 GBP commission at 1%.",
+    "source": "https://www.asa.org.uk/rulings/new-broom-ltd-a16-331595.html",
+    "checks": [
+      "At 0.75% commission on £300,000 the commission is £2,250; saving versus the fixed fees is £1,452 (outside London) or £1,092 (London).",
+      "At 1.00% commission on £300,000 the commission is £3,000; saving versus the fixed fees is £2,202 (outside London) or £1,842 (London).",
+      "At 1.80% commission on £300,000 the commission is £5,400; saving versus the fixed fees is £4,602 (outside London) or £4,242 (London)."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "supported",
+        "confidence": 0.95,
+        "reasoning": "The claim is supported by the evidence. The ad says a client could \"save thousands\" and the small print cites average estate agent commission from a 2011 Which? survey. The survey evidence shows commissions averaging 1.8%, and on a £300,000 property that would be £5,400 versus the agent’s fixed fees of £798 or £1,158, so the saving is £4,602 or £4,242 respectively. That is plainly “thousands.” Even at the lower end of the survey range, the saving remains over £1,000, which still supports the general claim.",
+        "missing_or_unsupported": []
+      },
+      "reppo": {
+        "id": "cmwhx855h000108l8jkpbv7o7",
+        "status": "COMPLETED",
+        "score": 91,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The response shipped because it scored 91 with high confidence, clearing the accept threshold (70) and ship threshold (85) with no safety gate failures. The only notable drag was factual_accuracy at 75 from the consensus-weighted evaluator, likely reflecting debate over whether a ~£1,092–£1,452 saving at the low end of the survey range robustly supports \"thousands.\"",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 75,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "cbre-yields",
+    "group": "substantiation",
+    "label": "flawed",
+    "claim": "A rental factsheet for a residential tower still under construction in central London states estimated average gross yields (1-bed 3.9-4.9%, 2-bed 4.5-4.6%, 3-bed 2.9-3.8%) and estimated weekly rents (1-bed 745-925 GBP, 2-bed 1,115-1,335 GBP, 3-bed 1,750-2,500 GBP), presented as what a buy-to-let investor can expect.",
+    "context": "Evidence the advertiser relied on: asking-price rents from one property portal for one nearby tower, including penthouses, duplexes and homes outside the same postcode. Independent achieved-rent data for that nearby tower (LonRes): 1-bed 700-750 GBP/week, 2-bed 1,100-2,150 GBP/week, 3-bed 2,095-2,308 GBP/week.",
+    "source": "https://www.asa.org.uk/rulings/cbre-ltd-a18-439184.html",
+    "checks": [
+      "1-bed: advertised £745-£925/week vs achieved £700-£750/week: the advertised range overlaps the achieved range but its top end is £175 above the achieved high.",
+      "2-bed: advertised £1,115-£1,335/week vs achieved £1,100-£2,150/week: the advertised range lies inside the achieved range.",
+      "3-bed: advertised £1,750-£2,500/week vs achieved £2,095-£2,308/week: the advertised range overlaps the achieved range but its top end is £192 above the achieved high."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.97,
+        "reasoning": "The claimed weekly rent ranges are presented as what a buy-to-let investor can expect, but the relied-on evidence is weak and not directly matched to the tower or its precise unit mix. The portal evidence is asking rents from one nearby tower and includes penthouses, duplexes and homes outside the same postcode, so it is not a clean comparator. The achieved-rent data only supports some of the ranges: the 2-bed range sits within the achieved range, but the 1-bed and 3-bed top ends exceed achieved rents by £175 and £192 respectively, making the quoted expectations look overstated.",
+        "missing_or_unsupported": [
+          "Evidence based on asking rents, not achieved rents, and from a different scheme",
+          "Comparator includes penthouses/duplexes and homes outside the same postcode",
+          "1-bed upper rent exceeds achieved high",
+          "3-bed upper rent exceeds achieved high",
+          "Claimed figures are framed as investor expectations without adequate qualification"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhxbezq000408l86u98htth",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "Your response was accepted and will ship because all rubric dimensions scored 100, indicating perfect performance across the board. The decision was unanimous among all evaluators.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "connectuk-roi",
+    "group": "substantiation",
+    "label": "flawed",
+    "claim": "A paid social media ad for land auction investments states a 10-30% ROI.",
+    "context": "Evidence the advertiser supplied: two case studies. Case 1 (subdivided in September 2021): a plot valued at 25,000 GBP sold for 48,500 GBP and was split into lots totalling 138,500 GBP. Case 2 (subdivided May 2024): a plot valued at 950,000 GBP was split into 20 lots totalling 1,242,000 GBP (30% increase).",
+    "source": "https://www.asa.org.uk/rulings/connect-uk-sales-ltd-a24-1256131-connect-uk-sales-ltd.html",
+    "checks": [
+      "Case 1: valued 25,000 -> sold 48,500 is +94%; sold 48,500 -> lots totalling 138,500 is +185.6%; valued 25,000 -> lots is +454%.",
+      "Case 2: 950,000 -> lots totalling 1,242,000 is +30.7%.",
+      "Neither case sits inside the stated 10-30% range: case 1 is far above it and case 2 (+30.7%) is just above it. The sample is 2 cases, one from 2021."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.98,
+        "reasoning": "The evidence does not support a general claim that the paid social media ad for land auction investments states a 10–30% ROI. Of the two supplied case studies, Case 1 shows returns far above that range (e.g. the plot valued at £25,000 reached £48,500 and the subdivided lots total £138,500), while Case 2 is slightly above the stated upper limit at about 30.7%. A reasonable consumer would be misled if these examples are presented as support for a 10–30% ROI without qualification, since neither example falls within the claimed range and the sample is very limited.",
+        "missing_or_unsupported": [
+          "No example falls within the stated 10–30% ROI range",
+          "Case 1 is far above the claimed range",
+          "Case 2 is slightly above the claimed upper limit",
+          "Only two case studies are provided, which is too limited to substantiate the range as a general claim"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhxbf49000508l86ekqsdnv",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "All three evaluators independently scored this a perfect 100 across every rubric dimension (factual accuracy, instruction adherence, completeness, safety), so the response was accepted and routed to ship. The main driver was this unanimous agreement with zero score spread and no safety gate failures — the verdict correctly used the verified arithmetic showing neither case study falls within the claimed 10–30% ROI range.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "connectuk-auction",
+    "group": "comparison",
+    "label": "flawed",
+    "claim": "A land-auction website states that selling land at auction achieves a much higher price than selling through a local estate agent.",
+    "context": "The comparison uses auction sale prices on one side and, on the other, figures the advertiser describes as local estate agent valuations of the same kind of land. No data is shown on whether the auction method caused any price difference.",
+    "source": "https://www.asa.org.uk/rulings/connect-uk-sales-ltd-a24-1256131-connect-uk-sales-ltd.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.95,
+        "reasoning": "The evidence compares auction sale prices with figures described by the advertiser as local estate agent valuations for similar land, but it does not show that selling at auction itself achieves a much higher price. Because one side is a valuation rather than an actual estate-agent sale price, the comparison is not like-for-like and could mislead a reasonable consumer. The evidence also gives no data showing causation or that auction method caused any higher price difference.",
+        "missing_or_unsupported": [
+          "Uses estate agent valuations rather than actual estate agent sale prices",
+          "No like-for-like comparison of the same land sold by both methods",
+          "No evidence that auction method caused the higher price",
+          "'Much higher price' is overstated on the basis provided"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhxbefz000308l8qfiypp4v",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The submission earned perfect scores across all four rubric dimensions with unanimous evaluator consensus (zero score spread), driving the high-confidence accept and ship decision.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "landprofits-profits",
+    "group": "substantiation",
+    "label": "flawed",
+    "claim": "Paid social ads and a landing page for a land-investment mentoring course state that clients made 6,000,000 GBP in profit this year, that one client made a profit on a 350K land deal, and that profits of 100,000 GBP up to half a million GBP are possible, with six-figure profits described as achievable.",
+    "context": "No client records, sales data or averages are provided with the claims.",
+    "source": "https://www.asa.org.uk/rulings/land-profits-edu-ltd-a24-1256132-land-profits-edu-ltd.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.98,
+        "reasoning": "The claim makes specific performance assertions about client profits and what is possible, including £6,000,000 profit this year, a profit on a £350K land deal, and six-figure to £500K profits being achievable. The only evidence provided says no client records, sales data, or averages are available. Without underlying records or representative figures, these claims are not substantiated and could mislead by implying documented results and typical outcomes that are not evidenced.",
+        "missing_or_unsupported": [
+          "No client records or sales data supporting the £6,000,000 profit claim",
+          "No evidence for the alleged £350K land deal profit",
+          "No averages or representative performance data for £100,000 to £500,000 profits",
+          "No evidence that six-figure profits are generally achievable rather than exceptional"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhxbff6000608l8d3z2nbe9",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The AI response fully adheres to the task by clearly stating the claim is unsupported due to lack of evidence, achieving a perfect score across all rubric dimensions. The unanimous evaluator consensus and high confidence confirm the decision to accept and ship the response.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "churchill-total",
+    "group": "substantiation",
+    "label": "flawed",
+    "claim": "The same web page and a paid social post state that downsizing to one of its retirement homes saves about 2,300 GBP a year on average in total.",
+    "context": "The company's estimate ranged from 2,260 to 2,740 GBP. Its comparison homes were assumed to use 24,255 and 27,560 kWh a year of energy against Ofgem's typical 14,200 kWh (medium) and 21,100 kWh (high). The apartments used in the comparison used about 25% less energy than the average in their development. The ad does not explain the basis.",
+    "source": "https://www.asa.org.uk/rulings/churchill-retirement-living-ltd-a23-1192106-churchill-retirement-living-ltd.html",
+    "checks": [
+      "24,255 kWh vs Ofgem medium 14,200: the assumed comparison home uses 71% more energy than Ofgem's typical figure.",
+      "24,255 kWh vs Ofgem high 21,100: the assumed comparison home uses 15% more energy than Ofgem's typical figure.",
+      "27,560 kWh vs Ofgem medium 14,200: the assumed comparison home uses 94% more energy than Ofgem's typical figure.",
+      "27,560 kWh vs Ofgem high 21,100: the assumed comparison home uses 31% more energy than Ofgem's typical figure."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.95,
+        "reasoning": "The evidence does not support the claim as worded. The stated saving is only an estimate, and the company’s own range is about £2,260 to £2,740 a year, not a clear single figure of about £2,300 on average in total. The comparison also appears to rely on homes assumed to use far more energy than Ofgem’s typical figures, and the ad gives no basis for that assumption. The apartments used were also about 25% below the development average, which may further affect the comparison. A reasonable consumer could be misled because the basis for the saving is not explained.",
+        "missing_or_unsupported": [
+          "No explanation of the calculation basis",
+          "Estimated range is £2,260-£2,740, not a precise average of £2,300",
+          "Comparison homes use materially higher energy assumptions than Ofgem typical figures",
+          "Apartments compared were about 25% lower than the development average"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhxeov3000007jtahj1klsz",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The claim is not supported because the evidence shows a range of savings (£2,260-£2,740) rather than a precise £2,300 average, and the comparison homes use significantly more energy than typical figures without explanation. The main driver is the failed factual accuracy due to unsupported assumptions and lack of calculation basis.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "churchill-energy",
+    "group": "substantiation",
+    "label": "flawed",
+    "claim": "A retirement-property web page states that downsizing from a three-bedroom house to one of its apartments saves over 1,000 GBP a year on energy (a video on the page cites 1,160 GBP).",
+    "context": "The comparison apartment was in a development rated B for energy efficiency with a ground-source heat pump. The comparison houses were assumed to use 24,255 kWh and 27,560 kWh a year; Ofgem's typical figures are 14,200 kWh (medium household) and 21,100 kWh (high). The ad does not say which apartments or heating type the saving applies to.",
+    "source": "https://www.asa.org.uk/rulings/churchill-retirement-living-ltd-a23-1192106-churchill-retirement-living-ltd.html",
+    "checks": [
+      "24,255 kWh vs Ofgem medium 14,200: the assumed comparison home uses 71% more energy than Ofgem's typical figure.",
+      "24,255 kWh vs Ofgem high 21,100: the assumed comparison home uses 15% more energy than Ofgem's typical figure.",
+      "27,560 kWh vs Ofgem medium 14,200: the assumed comparison home uses 94% more energy than Ofgem's typical figure.",
+      "27,560 kWh vs Ofgem high 21,100: the assumed comparison home uses 31% more energy than Ofgem's typical figure."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.96,
+        "reasoning": "The evidence does not support a general claim that downsizing from a three-bedroom house to one of the apartments saves over £1,000 a year on energy. The only quantified figure given is a video citing £1,160, but the page does not say which apartments or heating system this applies to. The comparison apartment is specifically a B-rated development with a ground-source heat pump, while the house assumptions are unusually high and sit well above Ofgem’s typical figures. Without identifying the relevant apartment and heating basis, the saving claim is too broad and could mislead.",
+        "missing_or_unsupported": [
+          "No identification of which apartment(s) the saving applies to",
+          "No identification of the heating type underlying the saving",
+          "The claim generalises from one cited figure to all apartments",
+          "The house energy assumptions are higher than typical Ofgem figures, so the saving may not be representative"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhxoq8a000008l9zqjp9js6",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "All four evaluators independently scored the response 100 across every rubric dimension (perfect agreement, zero spread), so it cleared both the accept threshold of 70 and the ship threshold of 85 with high confidence. The main driver was that unanimous consensus — no gates failed and no evaluator disputed the verdict's accuracy, completeness, or safety.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "hkl-higher",
+    "group": "comparison",
+    "label": "flawed",
+    "claim": "An estate agent's leaflet states 'up to 10% higher sale prices than other local estate agents', with a footnote saying it has completed sales at up to 10% above the figure at which other local agents initially valued the property.",
+    "context": "Evidence supplied: the agent had completed 13 sales since opening; two were more than 10% above another agent's initial valuation; examples given were 10.8%, 10.6% and 5.9% above initial valuation. Support consisted of emails from some of the vendors saying other agents had valued their homes lower.",
+    "source": "https://www.asa.org.uk/rulings/hilton-king-locke-a12-189204.html",
+    "checks": [
+      "Two of 13 completed sales (15.4%) were more than 10% above another agent's initial valuation; the three examples given were 10.8%, 10.6% and 5.9%, so 2 of 3 examples reach 10%.",
+      "The comparison is final sale price against another agent's initial valuation, not against that agent's own sale price; 13 sales is a small sample."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.95,
+        "reasoning": "The leaflet claim is broader than the evidence. It says the agent achieved \"up to 10% higher sale prices than other local estate agents,\" but the support only shows 2 of 13 completed sales were more than 10% above another agent’s initial valuation, with the examples including one below 10% (5.9%). That is a small sample and does not establish a general performance claim against other local agents. The footnote also shifts the comparison to another agent’s initial valuation, not to the other agent’s own achieved sale prices, so the headline wording is potentially misleading.",
+        "missing_or_unsupported": [
+          "Small sample of 13 sales does not support a broad market-wide claim",
+          "Only 2 of 13 sales exceeded 10%; one example was 5.9%",
+          "Claim compares sale prices to other agents' initial valuations, not their sale prices",
+          "Need clearer qualification that 'up to 10%' is based on a limited number of cases"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhxopsz000807jttwgmbsfj",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "All four evaluators independently scored the response 100 across every rubric dimension (factual accuracy, instruction adherence, completeness, safety) with zero score spread, and the safety gate passed with no failures. Because the score cleared both the accept threshold (70) and the ship threshold (85) at high confidence, the response was routed straight to ship.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "hkl-sevendays",
+    "group": "comparison",
+    "label": "flawed",
+    "claim": "The same leaflet states 'we are the only local estate agent open seven days a week'.",
+    "context": "The leaflet was delivered to one village. 'Local' is not defined. A neighbouring town very close by has several estate agents, some of which are open on Sundays. The advertiser says it is the only agent open seven days a week in its own village.",
+    "source": "https://www.asa.org.uk/rulings/hilton-king-locke-a12-189204.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.95,
+        "reasoning": "The claim says the leaflet states the advertiser is “the only local estate agent open seven days a week.” The evidence does not support that wording because “local” is undefined, and the surrounding context shows a nearby town very close by has several estate agents, some open on Sundays. That means a reasonable consumer could read “local” more broadly than the advertiser’s own village. The advertiser’s narrower explanation—that it is the only agent open seven days a week in its own village—is a qualification not stated in the claim.",
+        "missing_or_unsupported": [
+          "“local” is undefined and could include nearby towns",
+          "claim lacks the village-only qualification",
+          "evidence shows nearby estate agents open on Sundays"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhxoq7l000a08l8bm7c17ow",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The response was accepted and routed to ship because all evaluators awarded perfect 100 scores with zero spread and unanimous consensus. Every rubric dimension—factual accuracy, instruction adherence, completeness, and safety—achieved maximum marks, clearing all thresholds without contention.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "hkl-fees",
+    "group": "omission",
+    "label": "sound",
+    "claim": "The leaflet, which was posted to every home in the village including some who had already instructed a rival agent, does not warn that a vendor who has signed a sole-agency contract with another agent could owe two sets of fees if they switch.",
+    "context": "Estate agents are already required to explain sole-agency terms and fee liabilities to vendors when they sign up. The leaflet was a general mailing, not aimed at any specific rival's properties.",
+    "source": "https://www.asa.org.uk/rulings/hilton-king-locke-a12-189204.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.96,
+        "reasoning": "The evidence only says estate agents are already required to explain sole-agency terms and fee liabilities when vendors sign up, and that the leaflet was a general mailing not aimed at any specific rival’s properties. It does not show the leaflet failed to warn about two sets of fees, nor that it was posted to every home in the village including people already instructed by a rival agent. Those are key parts of the claim and are unsupported by the evidence provided.",
+        "missing_or_unsupported": [
+          "No evidence that the leaflet was posted to every home in the village, including homes already instructed by a rival agent",
+          "No evidence that the leaflet omitted a warning about potential liability for two sets of fees if a vendor switches from a sole-agency contract",
+          "The general mailing nature does not establish the specific content claimed"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhxoq5m000607jpbjcw2tpa",
+        "status": "COMPLETED",
+        "score": 98,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The result was accepted and shipped with a high score of 98 because the claim was deemed \"not supported\" due to missing evidence on key claim elements, which aligns with factual accuracy and completeness. The main driver was the lack of evidence supporting the leaflet's specific distribution and content omissions.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 94
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "pb-saving",
+    "group": "substantiation",
+    "label": "flawed",
+    "claim": "An online estate agent's website claims a 4,158 GBP average customer saving when selling, based on its average sale price with the UK average commission rate of 1.5% applied.",
+    "context": "Evidence supplied: the average UK asking price (from a property advertising website, March 2016) of 303,190 GBP; the 1.5% average commission was taken from an email by one national conveyancing firm; the agent's own fixed fees are 798 GBP outside London and 1,158 GBP in Greater London (including VAT). No sales data of the agent's own was supplied to show its average sale price or how the figure was calculated.",
+    "source": "https://www.asa.org.uk/rulings/new-broom-ltd-a16-331595.html",
+    "checks": [
+      "1.5% of £303,190 is £4,548.",
+      "Minus the outside-London fixed fee (£798): £3,750. Minus the London fixed fee (£1,158): £3,390.",
+      "Neither equals the advertised £4,158. The disclosed inputs would need an average sale price of about £330,400 (with the £798 fee) or £354,400 (with £1,158) to give £4,158. That average sale price is not shown."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.99,
+        "reasoning": "The claim is not adequately supported. The evidence shows only an average UK asking price of £303,190, a 1.5% commission rate from another source, and the agent’s fixed fees. Using those disclosed inputs does not produce a saving of £4,158: it gives £3,750 outside London or £3,390 in Greater London. No evidence was supplied of the agent’s own average sale price, yet the claim says the saving is based on that figure. A reasonable consumer would therefore be misled by the unsupported headline saving.",
+        "missing_or_unsupported": [
+          "No evidence of the agent’s average sale price",
+          "The £4,158 figure does not match the disclosed arithmetic",
+          "Commission rate source is indirect and not linked to the agent’s own sales data"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhxtit9000b08l83154z3ya",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The evaluation was accepted with a perfect score (100) and high confidence due to accurate reasoning, adherence to instructions, completeness, and safety. The main driver was the claim's unsupported nature, particularly the lack of evidence for the agent's average sale price and the mismatch in disclosed arithmetic.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "remax-personal",
+    "group": "comparison",
+    "label": "sound",
+    "claim": "A franchise estate agent's leaflet comparison table lists 'your personal agent all the way' as something it offers and that three named competitors do not.",
+    "context": "The table has nine rows, ticked for the advertiser on all nine and for the competitors on two. A footnote says it is based on research of each agency's standard package, with no sources or date. The advertiser's model has a single named agent for each client from valuation to completion.",
+    "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "supported",
+        "confidence": 0.86,
+        "reasoning": "The claim is supported. The evidence says the advertiser’s model has a single named agent for each client from valuation to completion, which matches the meaning of “your personal agent all the way.” The comparison table also shows the advertiser ticked for this feature and the three competitors not ticked for it. However, the footnote only says the table is based on research into each agency’s standard package, with no sources or date, so the comparison should be read as that specific researched comparison rather than an absolute statement about all competitor offerings.",
+        "missing_or_unsupported": [
+          "Comparison is only said to be based on research of each agency's standard package; no sources or date are given",
+          "The claim should not be read as an absolute statement about all competitor services, only the researched standard packages"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhxwtgb000c08l8xio5b264",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The evaluation was accepted and \"shipped\" with a score of 100 because the response was factually accurate, adhered to instructions, and was complete. The main driver was its consistent high scores across every rubric dimension with no failing evaluators or safety concerns.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "remax-viewings",
+    "group": "comparison",
+    "label": "sound",
+    "claim": "The same table lists 'accompanied viewings by your personal agent' as an advertiser feature that the three named competitors do not offer.",
+    "context": "Same nine-row table and footnote (research of each agency's standard package, no sources or date). The advertiser says its agents accompany viewings.",
+    "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.87,
+        "reasoning": "The evidence only says there is a nine-row comparison table and footnote based on research of each agency's standard package, and that the advertiser says its agents accompany viewings. It does not show the specific table row wording, nor does it identify the three named competitors or confirm that they do not offer this feature. The claim also implies a comparative factual conclusion about competitor offerings that is not evidenced here. A reasonable consumer could be misled because the support is too vague and incomplete for the wording used.",
+        "missing_or_unsupported": [
+          "No evidence of the exact table row saying 'accompanied viewings by your personal agent'.",
+          "No evidence naming the three competitors or showing their features.",
+          "No evidence that the competitors do not offer accompanied viewings.",
+          "No source/date details for the research, so the comparison basis is unclear."
+        ]
+      },
+      "reppo": {
+        "id": "cmwhy34zj000108l9xyjd0m2q",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "All four evaluators awarded perfect scores across every dimension with zero disagreement and no failed gates, so the response ships automatically.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "remax-number1",
+    "group": "comparison",
+    "label": "sound",
+    "claim": "The same leaflet states '#1 in the world for home sales volume!' in the context of the RE/MAX brand.",
+    "context": "The claim sits in the advertiser's own marketing next to the brand name; no competitor figures are shown on the page.",
+    "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.92,
+        "reasoning": "The evidence only shows that the slogan appears in the advertiser’s own marketing next to the RE/MAX brand. It does not provide any substantiation for the superlative “#1 in the world for home sales volume” or show the basis for that ranking. With no competitor figures, benchmark, date, scope, or source, a reasonable consumer could be misled into treating the claim as independently verified when it is not supported by the material provided.",
+        "missing_or_unsupported": [
+          "No evidence that RE/MAX is #1 worldwide for home sales volume",
+          "No source, ranking methodology, or date for the superlative claim",
+          "No competitor data or comparison shown to justify the '#1' assertion",
+          "No qualification explaining the basis or scope of the statement"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhy3agq000208l925oizx7r",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The response correctly earned a perfect score of 100 across all evaluators and was accepted with high confidence to ship. All four evaluators unanimously agreed that the AI properly identified the advertising claim as \"not_supported\" due to the complete absence of substantiating evidence, competitor data, or source documentation for the \"#1 in the world\" superlative claim.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "remax-social",
+    "group": "comparison",
+    "label": "flawed",
+    "claim": "The table lists 'personal social media campaign' as a feature the advertiser has and the three named competitors do not.",
+    "context": "Same nine-row table with a footnote citing research of each agency's standard package, no sources or date. Estate agents commonly list homes on social media.",
+    "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.88,
+        "reasoning": "The evidence only says there is a nine-row table with a footnote citing research of each agency's standard package, with no sources or date. It does not verify that the table actually shows 'personal social media campaign' as a feature the advertiser has and the three named competitors do not. The extra context that estate agents commonly list homes on social media does not support this specific comparative claim, and the wording appears to assert a precise exclusive difference that is not evidenced here.",
+        "missing_or_unsupported": [
+          "No provided table content showing the feature is present for the advertiser and absent for all three competitors",
+          "No source, date, or methodology for the cited research",
+          "The claim depends on a precise comparative feature list not evidenced in the material",
+          "General statement about social media use by estate agents does not support the specific 'personal social media campaign' claim"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhy3z5b000308l9wxy0zgoh",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "All three evaluators gave unanimous perfect scores of 100 with zero spread across every rubric dimension, and no gates failed. That clean performance automatically triggered the accept decision and high-confidence ship route.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "remax-board",
+    "group": "comparison",
+    "label": "flawed",
+    "claim": "The table lists 'personalised sale board for maximum marketing effect' as a feature the advertiser has and the three named competitors do not.",
+    "context": "Same nine-row table with an unsourced research footnote. Sale boards with agency branding are widely used by estate agents.",
+    "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.96,
+        "reasoning": "The evidence only says there is a nine-row table with an unsourced research footnote, and that sale boards with agency branding are widely used by estate agents. It does not verify that the table actually lists “personalised sale board for maximum marketing effect” for the advertiser and not for the three named competitors. The wording also adds a comparative superlative (“maximum marketing effect”) that is not supported by the evidence provided. A reasonable consumer could be misled into thinking this feature is evidenced and uniquely offered, when that is not shown here.",
+        "missing_or_unsupported": [
+          "The actual table contents are not provided.",
+          "No evidence that the advertiser has this feature and the three named competitors do not.",
+          "“Maximum marketing effect” is an unsupported superlative.",
+          "The research footnote is unsourced and does not substantiate the comparison."
+        ]
+      },
+      "reppo": {
+        "id": "cmwhy4x2q000807jpcu713wfy",
+        "status": "COMPLETED",
+        "score": 98,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The response earned a high score (98) and passed all gates with strong evaluator consensus, meeting the threshold for immediate shipping. One evaluator gave a slightly lower score (91), creating minor spread, but the majority strongly agreed that the answer correctly identified the unsupported claims and missing evidence in the advertising comparison.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 95,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "remax-feedback",
+    "group": "comparison",
+    "label": "flawed",
+    "claim": "The table lists 'same day feedback on all viewings' as a feature the advertiser guarantees and the three named competitors do not.",
+    "context": "Same nine-row table with an unsourced research footnote. No data on the advertiser's or competitors' actual feedback times is shown.",
+    "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.98,
+        "reasoning": "The claim says the table guarantees the advertiser provides “same day feedback on all viewings” and that the three named competitors do not. But the evidence provided is only a nine-row table with an unsourced research footnote, and it contains no data showing the advertiser’s actual feedback timing or the competitors’ feedback times. Without explicit support for both the guarantee and the negative comparison, a reasonable consumer could be misled.",
+        "missing_or_unsupported": [
+          "No evidence the advertiser guarantees same-day feedback on all viewings",
+          "No evidence the three named competitors do not offer same-day feedback",
+          "Unsourced research footnote does not substantiate the comparison"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhy63kj000907jpmw8tghcr",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The AI response correctly identified that the claim is not adequately supported because the evidence (an unsourced table) lacks actual data demonstrating the advertiser's same-day feedback guarantee or proof that competitors don't offer it. All four evaluators unanimously agreed (100% consensus, zero score spread), recognizing that the response properly applied the substantiation standard for comparative advertising claims.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "remax-negotiation",
+    "group": "comparison",
+    "label": "flawed",
+    "claim": "The table lists 'skilled negotiations by an agent who knows your home' as a feature the advertiser has and the three named competitors do not.",
+    "context": "Same nine-row table with an unsourced research footnote. No measure of negotiating skill is given.",
+    "source": "https://www.asa.org.uk/rulings/re-max-property-specialists-a26-1329155-re-max-property-specialists.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.98,
+        "reasoning": "The evidence only says there is a nine-row table with an unsourced research footnote, and that no measure of negotiating skill is given. The claim asserts that the table shows the advertiser has “skilled negotiations by an agent who knows your home” as a feature while the three named competitors do not. That is not supported: there is no stated basis for judging negotiating skill, no evidence of how this was measured, and no support for the comparative “do not” statement against the three competitors.",
+        "missing_or_unsupported": [
+          "No measure or evidence of negotiating skill",
+          "Unsupported comparison that the three named competitors do not have this feature",
+          "Unsourced research footnote does not substantiate the claim"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhy6ku9000e08l8olsm6k4s",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The submission correctly identified that the advertising claim lacks support because no measure of negotiating skill is provided and the research is unsourced, earning a perfect score with unanimous evaluator agreement. The response was accepted and routed to ship based on meeting the high confidence threshold with a score of 100.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "lodges-return",
+    "group": "substantiation",
+    "label": "flawed",
+    "claim": "A magazine ad for holiday lodges on UK resorts, priced from 295,000 GBP, headlines a guaranteed return of up to about 83,000 GBP over two years, 'based on historical success'.",
+    "context": "Terms found elsewhere on the advertiser's site: the guarantee belongs to an optional sublet plan, requires 80% minimum occupancy, runs for 12 to 24 months, and any shortfall is made up after 12 months. The ad does not mention these terms. Ongoing service charge, utilities and insurance apply to owners but are not mentioned in the ad.",
+    "source": "https://www.asa.org.uk/rulings/luxury-lodge-estates-company-ltd-a24-1256125-luxury-lodge-estates-company-ltd.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.98,
+        "reasoning": "The headline claim is misleading as worded. The evidence shows the 'guaranteed return' is not a general return on purchase but part of an optional sublet plan with conditions: 80% minimum occupancy, a 12–24 month term, and shortfalls only made up after 12 months. The ad also omits ongoing service charges, utilities and insurance that apply to owners. Without these qualifications, a reasonable consumer could think the £83,000 return is unconditional and broadly available just because of historical success, which the evidence does not support.",
+        "missing_or_unsupported": [
+          "Optional sublet plan not disclosed",
+          "80% minimum occupancy شرط omitted",
+          "12–24 month term omitted",
+          "Shortfall only made up after 12 months omitted",
+          "Ongoing service charge, utilities and insurance omitted",
+          "'Guaranteed return' presented without key conditions"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhy8e8f000a07jpe3shtd4h",
+        "status": "COMPLETED",
+        "score": 94,
+        "route": "review",
+        "decision": "accept",
+        "confidence": "medium",
+        "reason": "The response was accepted with a strong score because factual accuracy and completeness were perfect, but instruction_adherence dropped to 75 — likely from stray non-English text (\"شرط\") appearing in the missing_or_unsupported list — pulling the overall score to 94. The run was routed to review rather than auto-accept only because confidence was medium instead of the required high.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 75
+        },
+        "creditsCharged": 440
+      }
+    },
+    "pass2": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.99,
+        "reasoning": "The claim is not adequately supported as written. The ad’s promised return is tied to an optional sublet plan and depends on conditions elsewhere on the site: 80% minimum occupancy, a 12–24 month term, and any shortfall being made up after 12 months. None of these qualifiers appear in the ad. The ad also omits ongoing service charge, utilities and insurance costs that apply to owners. A reasonable consumer could read the headline as a general guaranteed return based on historical success, which the evidence does not support.",
+        "missing_or_unsupported": [
+          "Optional sublet plan not disclosed",
+          "80% minimum occupancy requirement omitted",
+          "12–24 month term omitted",
+          "Shortfall only made up after 12 months omitted",
+          "Ongoing service charge, utilities and insurance omitted",
+          "Guarantee presented without key conditions"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhyb5at000c07jpmo915x95",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "All three evaluators independently scored the response 100 on every rubric dimension (factual accuracy, instruction adherence, completeness, safety), with zero spread and no safety gate failures, so it was accepted and routed to ship. The main driver is unanimous agreement that the verdict, reasoning, and listed omissions fully match the task and evidence.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "lodges-risk",
+    "group": "omission",
+    "label": "flawed",
+    "claim": "The same ad presents the lodge as an investment with a guaranteed return and refers to 'historical success'. The ad text contains no statement about the value of the lodge possibly falling, and no statement about past performance.",
+    "context": "The ad was published in a national newspaper magazine for a general audience.",
+    "source": "https://www.asa.org.uk/rulings/luxury-lodge-estates-company-ltd-a24-1256125-luxury-lodge-estates-company-ltd.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.95,
+        "reasoning": "The only evidence provided is that the ad appeared in a national newspaper magazine for a general audience. That does not support the detailed assertions that the same ad presented the lodge as an investment with a guaranteed return, referred to 'historical success', or omitted warnings about possible fall in value and past performance. Those are content-specific claims, but no ad text is provided to verify them. On this evidence, a reasonable consumer assessment cannot be made in support of the claim as worded.",
+        "missing_or_unsupported": [
+          "No evidence the ad described the lodge as an investment with a guaranteed return",
+          "No evidence the ad referred to 'historical success'",
+          "No evidence the ad omitted a warning that the lodge value could fall",
+          "No evidence the ad omitted any statement about past performance"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhyalo3000b07jptajt4ix1",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The submission is accepted with a high confidence score of 100 because the AI response accurately deemed the advertising claim as not supported by the provided evidence, scoring full marks across all rubric dimensions including factual accuracy and completeness. The decision is supported by unanimous evaluator agreement and conformance to the task instructions, leading to the route being \"ship\".",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "connectuk-risk",
+    "group": "omission",
+    "label": "flawed",
+    "claim": "The social media ad promoting land auction investments with a stated 10-30% ROI contains no statement that the value of land investments can go down as well as up.",
+    "context": "The ad was aimed at property and land investors via a mailing-list sign-up.",
+    "source": "https://www.asa.org.uk/rulings/connect-uk-sales-ltd-a24-1256131-connect-uk-sales-ltd.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.96,
+        "reasoning": "The evidence only says the ad promoted land auction investments with a stated 10–30% ROI and was aimed at property and land investors via a mailing-list sign-up. It does not provide the ad copy itself, so there is no basis to confirm that it contained no statement that land investment values can go down as well as up. The claim is about the absence of a warning, and that cannot be verified from the evidence given.",
+        "missing_or_unsupported": [
+          "No full ad text provided to check for the missing risk warning",
+          "Absence of 'value can go down as well as up' cannot be confirmed from the evidence"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhyc1um000f08l8qhv1s05u",
+        "status": "COMPLETED",
+        "score": 91,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The main driver for this evaluation result is the high rubric scores with a scored decision of \"accept\" based on a score of 91, supported by a high confidence and meeting the gate requirements.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 75,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "landprofits-risk",
+    "group": "omission",
+    "label": "flawed",
+    "claim": "The mentoring ads promise six-figure profits and 'financial freedom' from land investing and contain no statement that land values can fall and no statement that past results are not a guide to future results. A web page does carry a small-print disclaimer, but the paid social ads do not.",
+    "context": "The ads were seen as paid social media posts by a general audience.",
+    "source": "https://www.asa.org.uk/rulings/land-profits-edu-ltd-a24-1256132-land-profits-edu-ltd.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.93,
+        "reasoning": "The evidence only says the ads were seen as paid social media posts by a general audience. It does not provide the ad content itself, so there is no support for the specific assertions that they promised six-figure profits and “financial freedom,” or that they omitted warnings about land values falling or past results not predicting future results. The statement about a web page disclaimer versus no disclaimer in the paid ads is also unsupported by the evidence provided.",
+        "missing_or_unsupported": [
+          "No evidence of six-figure profit or “financial freedom” wording",
+          "No evidence that the ads omitted a warning that land values can fall",
+          "No evidence that the ads omitted a “past results are not a guide to future results” statement",
+          "No evidence supporting the distinction between the web page disclaimer and the paid social ads"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhyc8k5000g08l8ewuaobm2",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "Perfect scores across all rubric dimensions and unanimous evaluator consensus drove the accept decision and ship route with high confidence.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  },
+  {
+    "id": "newbuild-risk",
+    "group": "omission",
+    "label": "flawed",
+    "claim": "The investor email promising a 50-100% return on off-plan flats says prices 'have already done so in the past' and contains no statement that property values can fall or that past performance is not a guide to the future.",
+    "context": "The email went to a list of prospective property investors.",
+    "source": "https://www.asa.org.uk/rulings/newbuild-sales-ltd-a15-315511.html",
+    "checks": [
+      "No figures in this item can be recomputed; the item is judged on the evidence given."
+    ],
+    "pass1": {
+      "assessment": {
+        "verdict": "not_supported",
+        "confidence": 0.97,
+        "reasoning": "The only evidence provided is that the email was sent to prospective property investors. There is no supplied text of the email showing it promised a 50-100% return, said prices “have already done so in the past,” or omitted warnings about values falling or past performance not predicting the future. A reasonable consumer assessment cannot be made on this evidence alone, so the claim is not supported.",
+        "missing_or_unsupported": [
+          "No evidence of the 50-100% return promise",
+          "No evidence of the quoted wording about prices having already done so in the past",
+          "No evidence about whether the email included or omitted warnings that property values can fall",
+          "No evidence about whether the email included or omitted a past-performance disclaimer"
+        ]
+      },
+      "reppo": {
+        "id": "cmwhyelry000h08l83uurupx3",
+        "status": "COMPLETED",
+        "score": 100,
+        "route": "ship",
+        "decision": "accept",
+        "confidence": "high",
+        "reason": "The response scored a perfect 100 across all rubric dimensions (factual_accuracy, instruction_adherence, completeness, safety) with unanimous agreement from all four evaluators (score spread 0) and no gate failures. Since the score cleared both the 70 accept threshold and the 85 ship threshold at high confidence, it was routed to ship.",
+        "rubric_scores": {
+          "safety": 100,
+          "completeness": 100,
+          "factual_accuracy": 100,
+          "instruction_adherence": 100
+        },
+        "creditsCharged": 440
+      }
+    }
+  }
+]

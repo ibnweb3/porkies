@@ -1,0 +1,11 @@
+{
+  "name": "claim-audit",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-11-01",
+  // The static site, with /api/* handled by the Worker (keys stay server-side as secrets).
+  "assets": { "directory": "./site", "binding": "ASSETS", "run_worker_first": ["/api/*"] },
+  // Live-check limits: per visitor per day, and for everyone per day.
+  "vars": { "LIMIT_IP": "2", "LIMIT_DAY": "40" },
+  // Stores the daily usage counters so limits survive restarts.
+  "kv_namespaces": [{ "binding": "LIMITS", "id": "f68c2002dd90419aa4be7272d3c12cc2" }]
+}

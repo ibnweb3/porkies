@@ -1,0 +1,76 @@
+{
+  "items": 24,
+  "asa_flawed": 19,
+  "asa_sound": 5,
+  "errors": 0,
+  "serv_alone": {
+    "correct": 21,
+    "accuracy_pct": 87.5,
+    "flawed_caught": 19,
+    "flawed_missed": 0,
+    "sound_wrongly_flagged": 3,
+    "sound_passed": 2,
+    "flawed_recall_pct": 100,
+    "flawed_precision_pct": 86.4
+  },
+  "reppo_gate_on_serv_answer": {
+    "serv_wrong_n": 3,
+    "reppo_flagged_wrong_answers": 0,
+    "catch_rate_pct": 0,
+    "serv_right_n": 21,
+    "reppo_false_flags": 1,
+    "false_flag_rate_pct": 4.8,
+    "mean_score_when_serv_right": 98.8,
+    "mean_score_when_serv_wrong": 99.3
+  },
+  "feedback_loop": {
+    "revised_n": 1,
+    "verdict_changed": 0,
+    "changed_to_correct": 0,
+    "changed_to_wrong": 0,
+    "reppo_score_rose": 1,
+    "final_correct": 21,
+    "final_accuracy_pct": 87.5
+  },
+  "by_group": {
+    "substantiation": {
+      "n": 9,
+      "servCorrect": 9,
+      "reppoFlagged": 1
+    },
+    "comparison": {
+      "n": 10,
+      "servCorrect": 8,
+      "reppoFlagged": 0
+    },
+    "omission": {
+      "n": 5,
+      "servCorrect": 4,
+      "reppoFlagged": 0
+    }
+  },
+  "reppo_credits_charged": 11000,
+  "wrong_items": [
+    {
+      "id": "hkl-fees",
+      "asa": "sound",
+      "serv": "not_supported",
+      "reppo_route": "ship",
+      "reppo_score": 98
+    },
+    {
+      "id": "remax-viewings",
+      "asa": "sound",
+      "serv": "not_supported",
+      "reppo_route": "ship",
+      "reppo_score": 100
+    },
+    {
+      "id": "remax-number1",
+      "asa": "sound",
+      "serv": "not_supported",
+      "reppo_route": "ship",
+      "reppo_score": 100
+    }
+  ]
+}
