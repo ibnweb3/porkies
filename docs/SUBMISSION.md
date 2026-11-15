@@ -35,13 +35,13 @@ Track: Reppo. The panel's route and score drive the feedback loop and are shown 
 
 The hash-chain code in `src/lib/` is reused from the author's earlier project, Backstop (MIT). Everything else was built during the hackathon.
 
-## X post (draft, 262 characters with the link counted as 23)
+## X post (draft; the link counts as 23 characters)
 
 Can an AI spot a misleading property ad?
 
-We gave 24 real UK ad claims, already ruled on by the ASA, to @openservai SERV Reasoning, then asked a @reppo panel to check it.
+We gave 24 real UK ad claims, ruled on by the ASA, to @openservai SERV Reasoning and had a @reppo panel check it.
 
-The AI agreed with the regulator on 21 of 24. Honest results, and you can try it live:
+The AI agreed with the regulator on 21 of 24. Honest results, try it live:
 https://claim-audit.ibnweb3lab.workers.dev
 
 #SERVHackathon
