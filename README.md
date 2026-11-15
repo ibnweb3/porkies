@@ -1,6 +1,8 @@
-# Claim Audit: can an AI spot a misleading UK property ad?
+# Porkies: can an AI spot a misleading UK property ad?
 
-**Live demo (no sign-up): https://claim-audit.ibnweb3lab.workers.dev** · SERV Hackathon, Edition 02 · **Reppo track**
+*Porkies is UK slang for lies, from the rhyming slang "porky pies".*
+
+**Live demo (no sign-up): https://porkies.ibnweb3lab.workers.dev** · SERV Hackathon, Edition 02 · **Reppo track**
 
 Property ads promise big returns ("a 50-100% return on your deposit") and big savings ("save £4,158"). The UK advertising watchdog (the ASA) has already ruled on many of them. This project gives real, ruled-on claims to an AI and checks one thing: **does the AI agree with the watchdog?** Then it adds an independent second opinion, and records every step in a log anyone can re-check in their browser.
 
@@ -16,7 +18,7 @@ For every claim:
 4. **A second look.** If the panel does not approve, its comments go back to SERV to reconsider, and the panel scores again.
 5. **Everything is logged** in a tamper-evident hash chain. The results page recomputes the whole chain in your browser, and a button shows what happens when one entry is changed.
 
-## What we measured (24 real claims, 11 ASA rulings)
+## What we measured (24 real claims from 9 ASA rulings)
 
 The "answer key" is the regulator's own ruling on each claim: 19 were ruled misleading, 5 were ruled fair. Neither SERV nor Reppo ever sees the ruling.
 
@@ -88,7 +90,7 @@ Deploying to Cloudflare, usage limits and secrets: see [DEPLOY.md](DEPLOY.md).
 ```bash
 npm run test:unit      # 22 backend and data checks (no network, no credits)
 npm run test:e2e       # 60 browser checks on a local copy (needs playwright-core and a Chromium; set CHROME_PATH)
-E2E_BASE=https://claim-audit.ibnweb3lab.workers.dev/ npm run test:e2e   # the same 60 checks against the deployed site
+E2E_BASE=https://porkies.ibnweb3lab.workers.dev/ npm run test:e2e   # the same 60 checks against the deployed site
 ```
 
 The unit tests cover the safe calculator (including injection attempts), the usage limits, the privacy filter, the SERV prompt guard path, failure paths for SERV and Reppo, that the regulator's verdict never leaks into the wording shown to the AI, that the stats match the raw results, and that the sealed log verifies and breaks when edited. The browser tests drive every button and state at four screen sizes, check keyboard use, light and dark contrast (4.5:1), XSS safety, the badge's drag and hover physics, and that all 24 claim cards render. The API is always replaced by canned replies in the browser tests, so they cost nothing.

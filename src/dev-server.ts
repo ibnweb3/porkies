@@ -41,4 +41,4 @@ createServer(async (req, res) => {
   } catch (e) {
     res.writeHead(500).end("Server error: " + (e as Error).message);
   }
-}).listen(port, "127.0.0.1", () => console.log(`Claim Audit running at http://localhost:${port}  (live checks ${env.SERV_API_KEY && env.REPPO_EVAL_KEY ? "ON" : "OFF: keys missing in .env"})`));
+}).listen(port, "127.0.0.1", () => console.log(`Porkies running at http://localhost:${port}  (live checks ${env.SERV_API_KEY && env.REPPO_EVAL_KEY ? "ON" : "OFF: keys missing in .env"})`));

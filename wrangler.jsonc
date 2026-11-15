@@ -1,5 +1,5 @@
 {
-  "name": "claim-audit",
+  "name": "porkies",
   "main": "src/worker.ts",
   "compatibility_date": "2026-11-01",
   // The static site, with /api/* handled by the Worker (keys stay server-side as secrets).

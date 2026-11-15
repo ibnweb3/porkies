@@ -162,6 +162,8 @@ test("data: 24 items, every one has a label, a regulator source and neutral word
     // the AI and the panel must never be told the regulator's answer
     assert.ok(!/\b(upheld|not upheld|breach(ed)?|ruled|ruling|ASA|adjudicat|banned|misleading)\b/i.test(i.claim + " " + i.context), `verdict words leaked into ${i.id}: ${(i.claim + " " + i.context).match(/\b(upheld|not upheld|breach(ed)?|ruled|ruling|ASA|adjudicat|banned|misleading)\b/i)?.[0]}`);
   }
+  assert.equal(new Set(items.map((i) => i.source)).size, 9, "the 24 claims come from 9 rulings: the page and README must say 9");
+  assert.match(readFileSync(new URL("../README.md", import.meta.url), "utf8"), /24 real claims from 9 ASA rulings/);
   assert.equal(items.filter((i) => i.label === "flawed").length, 19); assert.equal(items.filter((i) => i.label === "sound").length, 5);
 });
 

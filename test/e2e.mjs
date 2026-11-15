@@ -53,7 +53,7 @@ section("1. page loads cleanly");
 {
   const { ctx, page, errors } = await open();
   await ok("title, language, headline, meta tags", async () => {
-    truthy((await page.title()).includes("Claim Audit"), "title"); eq(await page.getAttribute("html", "lang"), "en");
+    truthy((await page.title()).includes("Porkies"), "title"); eq(await page.getAttribute("html", "lang"), "en");
     eq(await page.textContent("h1"), "Can an AI spot a misleading property ad?");
     truthy(await page.getAttribute('meta[name="description"]', "content"), "meta description"); truthy(await page.getAttribute('meta[name="viewport"]', "content"), "viewport"); truthy(await page.getAttribute('link[rel="icon"]', "href"), "favicon");
   });
@@ -84,7 +84,7 @@ for (const [w, h] of [[375, 812], [768, 1024], [1366, 768], [1920, 1080]]) {
     for (const [s, top, bottom, left, right] of b) truthy(top >= -2 && bottom <= h + 2 && left >= -2 && right <= w + 2, `${s} is outside the first screen: top ${top} bottom ${bottom} of ${h}`);
   });
   await ok(`${w}x${h}: every button and link is at least 40px tall`, async () => {
-    const small = await page.evaluate(() => [...document.querySelectorAll("button, a.pill, a.cta, .ex, summary")].filter((e) => { const r = e.getBoundingClientRect(); return r.height > 0 && r.height < 40; }).map((e) => e.textContent.trim().slice(0, 20) + ":" + Math.round(e.getBoundingClientRect().height)));
+    const small = await page.evaluate(() => [...document.querySelectorAll("button, a.pill, a.cta, .ex, summary")].filter((e) => e.offsetHeight > 0 && e.offsetHeight < 40).map((e) => (e.textContent.trim().slice(0, 20) || e.className) + ":" + e.offsetHeight));
     eq(small.length, 0, small.join(", "));
   });
   await ok(`${w}x${h}: text inputs are 16px or larger (no iOS zoom)`, async () => eq(await page.evaluate(() => Math.min(...[...document.querySelectorAll("textarea")].map((t) => parseFloat(getComputedStyle(t).fontSize)))) >= 16, true));
@@ -143,7 +143,7 @@ section("4. results and claim cards");
   await ok("opening a card shows evidence, sums, the AI's verdict and the panel's review; closing works", async () => {
     const d = page.locator("#list details").first(); await d.locator("summary").click(); truthy(await d.evaluate((e) => e.open), "open");
     const t = await d.textContent(); for (const s of ["The evidence we gave the AI", "Checked by a calculator", "The AI’s verdict", "The second-opinion panel"]) truthy(t.includes(s), "missing section: " + s);
-    await d.locator("summary").click(); truthy(!(await d.evaluate((e) => e.open)), "close");
+    await d.locator("summary").click(); await page.waitForTimeout(450); truthy(!(await d.evaluate((e) => e.open)), "close");
   });
   await ok("all 24 cards open without errors and no field shows 'undefined' or 'null'", async () => {
     await page.evaluate(() => document.querySelectorAll("#list details").forEach((d) => (d.open = true)));
@@ -152,6 +152,126 @@ section("4. results and claim cards");
     truthy(!/\bundefined\b|\bnull\b|\bNaN\b|\[object/.test(fields), "bad field text: " + (fields.match(/.{20}(undefined|null|NaN|\[object).{20}/) || [""])[0]);
   });
   await ctx.close();
+}
+
+/* ================================================================ 4b. glance tiles and filters */
+section("4b. the 24 at a glance, and the filters");
+{
+  const { ctx, page } = await open();
+  const visibleCards = () => page.locator("#list details:visible").count();
+  const fv = (label) => page.locator("#fv button", { hasText: label }).first();
+  const fk = (label) => page.locator("#fk button", { hasText: label }).first();
+  const reset = async () => { await fv(/^All/).click(); await fk(/^All/).click(); };
+  await ok("24 tiles, coloured by whether the AI agreed, each with a clear label", async () => {
+    eq(await page.locator("button.tile").count(), stats.items); eq(await page.locator("button.tile.t-ok").count(), stats.serv_alone.correct); eq(await page.locator("button.tile.t-bad").count(), stats.items - stats.serv_alone.correct);
+    const labels = await page.$$eval("button.tile", (b) => b.map((x) => x.getAttribute("aria-label"))); truthy(labels.every((l) => /Open this claim/.test(l) && /watchdog (misleading|fair)/.test(l)), "tile labels"); eq(new Set(labels).size, stats.items, "unique labels");
+  });
+  await ok("filter chips show the real counts and filter the cards", async () => {
+    const want = { Misleading: stats.asa_flawed, Fair: stats.asa_sound, "AI disagreed": stats.items - stats.serv_alone.correct };
+    for (const [label, n] of Object.entries(want)) { const chip = fv(label); truthy((await chip.textContent()).includes(String(n)), `${label} chip count`); await chip.click(); eq(await visibleCards(), n, label); eq(await page.locator("button.tile.dim").count(), stats.items - n, label + " dimmed tiles"); truthy((await page.textContent("#count")).includes(`Showing ${n} of ${stats.items}`), "count text"); await reset(); }
+    for (const [label, n] of Object.entries({ Numbers: 9, Comparisons: 10, Omissions: 5 })) { const chip = fk(label); truthy((await chip.textContent()).includes(String(n)), `${label} chip count`); await chip.click(); eq(await visibleCards(), n, label); await reset(); }
+    eq(await visibleCards(), stats.items); truthy((await page.textContent("#count")).includes("Showing all 24"));
+  });
+  await ok("filters combine, and an impossible combination shows a friendly empty message", async () => {
+    await fv("Fair").click(); await fk("Omissions").click(); eq(await visibleCards(), 1, "fair + omissions"); await reset();
+    await fv("Misleading").click(); await fk("Omissions").click(); eq(await visibleCards(), 4, "misleading + omissions"); await reset();
+    await fv("Fair").click(); await fk("Numbers").click(); eq(await visibleCards(), 1, "fair + numbers"); await reset();
+    await fv("AI disagreed").click(); await fk("Comparisons").click(); eq(await visibleCards(), 2, "AI disagreed + comparisons"); await reset();
+    await fv("AI disagreed").click(); await fk("Omissions").click(); eq(await visibleCards(), 1, "AI disagreed + omissions"); await reset();
+    await fv("AI disagreed").click(); await fk("Numbers").click();
+    eq(await visibleCards(), 0, "the AI never got a numbers claim wrong, so this combination is empty"); eq(await page.locator("#empty").isVisible(), true, "empty message"); truthy(/No claims match/.test(await page.textContent("#empty")));
+    await reset(); eq(await page.locator("#empty").isVisible(), false); eq(await visibleCards(), 24);
+  });
+  await ok("chips report their state to screen readers (aria-pressed)", async () => {
+    eq(await page.locator("#fv button[aria-pressed=true]").count(), 1); eq(await page.locator("#fk button[aria-pressed=true]").count(), 1);
+    await fv("Fair").click(); eq(await fv("Fair").getAttribute("aria-pressed"), "true"); eq(await fv(/^All/).getAttribute("aria-pressed"), "false"); await reset();
+  });
+  await ok("hiding the watchdog's verdict hides it on the tiles too, and picking a verdict filter reveals it again", async () => {
+    await page.uncheck("#reveal");
+    truthy(await page.$$eval("button.tile", (b) => b.every((x) => !/watchdog (misleading|fair)/.test(x.getAttribute("aria-label") + x.title))), "labels must not leak the verdict"); eq(await page.locator("button.tile svg:visible").count(), 0, "glyphs hidden");
+    await fv("Misleading").click(); eq(await page.isChecked("#reveal"), true, "revealed again"); eq(await page.evaluate(() => document.body.classList.contains("veiled")), false); await reset();
+  });
+  await ok("pressing a tile scrolls to its card, opens it and highlights it", async () => {
+    const tile = page.locator("button.tile").nth(7); const id = await tile.getAttribute("data-id"); await tile.click(); await page.waitForTimeout(1300);
+    const info = await page.evaluate((i) => { const d = document.getElementById("c-" + i); const r = d.getBoundingClientRect(); return { open: d.open, top: r.top, bottom: r.bottom, vh: innerHeight, ping: d.classList.contains("ping") }; }, id);
+    truthy(info.open, "card should be open"); truthy(info.ping, "card should be highlighted"); truthy(info.top < info.vh && info.bottom > 0, `card should be on screen ${JSON.stringify(info)}`);
+  });
+  await ok("a tile for a filtered-out card clears the filters first", async () => {
+    await fv("Fair").click(); const dimmed = page.locator("button.tile.dim").first(); const id = await dimmed.getAttribute("data-id"); await dimmed.click(); await page.waitForTimeout(1300);
+    eq(await page.evaluate((i) => !document.getElementById("c-" + i).hidden, id), true, "card visible"); eq(await visibleCards(), 24, "filters cleared");
+  });
+  await ok("hovering a card lights up its tile", async () => {
+    const card = page.locator("#list details").nth(2); await card.scrollIntoViewIfNeeded(); await card.hover(); const id = await card.getAttribute("data-id");
+    truthy(await page.evaluate((i) => document.querySelector(`button.tile[data-id="${i}"]`).classList.contains("hot"), id), "tile should be hot");
+  });
+  await ok("keyboard: a tile opens its card with Enter", async () => {
+    await page.focus("button.tile >> nth=2"); await page.keyboard.press("Enter"); await page.waitForTimeout(1200);
+    const id = await page.getAttribute("button.tile >> nth=2", "data-id"); truthy(await page.evaluate((i) => document.getElementById("c-" + i).open, id), "opened by keyboard");
+  });
+  await ok("every case file shows the log entry it was sealed in, and it matches the real chain", async () => {
+    await page.evaluate(() => document.querySelectorAll("#list details").forEach((d) => (d.open = true)));
+    const seals = await page.$$eval(".seal span", (s) => s.map((x) => x.textContent)); eq(seals.length, 24); truthy(seals.every((s) => /^Sealed in log entry \d+ · [0-9a-f]{10}…[0-9a-f]{6}$/.test(s)), seals[0]);
+    const n = Number(seals[0].match(/entry (\d+)/)[1]); truthy(chain.entries.some((e) => e.n === n && e.type === "item" && seals[0].includes(e.hash.slice(0, 10))), "seal line matches the real chain");
+  });
+  await ctx.close();
+}
+
+/* ================================================================ 4c. motion */
+section("4c. animation (and its off switch)");
+{
+  const m = await open({ h: 700 });
+  await ok("with motion on: cards below the fold start hidden and fade in as they scroll into view", async () => {
+    eq(await m.page.evaluate(() => document.documentElement.classList.contains("js-anim")), true);
+    const lastOpacity = () => m.page.evaluate(() => getComputedStyle([...document.querySelectorAll("#list details")].at(-1)).opacity);
+    eq(Number(await lastOpacity()), 0, "last card before scrolling");
+    await m.page.evaluate(() => { document.documentElement.style.scrollBehavior = "auto"; [...document.querySelectorAll("#list details")].at(-1).scrollIntoView({ block: "center" }); }); await m.page.waitForTimeout(1800);
+    eq(Number(await lastOpacity()), 1, "last card after scrolling");
+  });
+  await ok("the pipeline line and dots animate in with the card", async () => {
+    const d = m.page.locator("#list details").last(); const w = await d.evaluate((e) => getComputedStyle(e.querySelector(".pipe"), "::after").transform); truthy(w === "matrix(1, 0, 0, 1, 0, 0)" || w === "none", "line drawn: " + w);
+    eq(await d.evaluate((e) => getComputedStyle(e.querySelector(".dot")).opacity), "1");
+  });
+  await ok("a case file opens and closes with a short slide and ends in the right state", async () => {
+    const d = m.page.locator("#list details").nth(5); await d.scrollIntoViewIfNeeded(); await d.locator("summary").click(); truthy(await d.evaluate((e) => e.open), "open at once"); await m.page.waitForTimeout(400);
+    truthy((await d.locator(".body").boundingBox()).height > 100, "body has height"); await d.locator("summary").click(); await m.page.waitForTimeout(40); truthy(await d.evaluate((e) => e.open), "still open while sliding shut"); await m.page.waitForTimeout(450); truthy(!(await d.evaluate((e) => e.open)), "closed at the end");
+    await d.locator("summary").dblclick(); await m.page.waitForTimeout(700); eq(typeof (await d.evaluate((e) => e.open)), "boolean", "a double-click never leaves it half-open"); eq(await d.evaluate((e) => e.dataset.busy), undefined, "not stuck busy");
+  });
+  await ok("limit numbers count up to exactly the right value, and screen readers get the final number", async () => {
+    await m.page.evaluate(async () => { document.documentElement.style.scrollBehavior = "auto"; for (const c of document.querySelectorAll(".limit")) { c.scrollIntoView({ block: "center" }); await new Promise((r) => setTimeout(r, 450)); } }); await m.page.waitForTimeout(1800);
+    const vals = await m.page.$$eval(".limit .stat .cnt", (n) => n.map((x) => [x.textContent, x.dataset.to, x.previousElementSibling.textContent])); truthy(vals.length >= 5, "count-up numbers"); for (const [shown, to, sr] of vals) { eq(shown, to, "count-up end value"); eq(sr, to, "screen reader value"); }
+  });
+  await ok("the impact meters fill", async () => { const widths = await m.page.$$eval(".limit .meter i.on", (i) => i.map((x) => getComputedStyle(x, "::after").transform)); truthy(widths.length >= 10 && widths.every((w) => w === "matrix(1, 0, 0, 1, 0, 0)" || w === "none"), "filled meters: " + widths.slice(0, 3)); });
+  await m.ctx.close();
+  const r = await open({ reduced: true, h: 700 });
+  await ok("reduced motion: no entrance animation, everything visible straight away, numbers final", async () => {
+    eq(await r.page.evaluate(() => document.documentElement.classList.contains("js-anim")), false);
+    eq(Number(await r.page.evaluate(() => getComputedStyle([...document.querySelectorAll("#list details")].at(-1)).opacity)), 1, "card opacity"); eq(Number(await r.page.evaluate(() => getComputedStyle(document.querySelector(".limit")).opacity)), 1);
+    const vals = await r.page.$$eval(".limit .stat .cnt", (n) => n.map((x) => [x.textContent, x.dataset.to])); for (const [a, b] of vals) eq(a, b, "final number straight away");
+    const d = r.page.locator("#list details").first(); await d.locator("summary").click(); truthy(await d.evaluate((e) => e.open), "opens at once"); await d.locator("summary").click(); truthy(!(await d.evaluate((e) => e.open)), "closes at once");
+  });
+  await r.ctx.close();
+}
+
+/* ================================================================ 4d. what this does not prove */
+section("4d. what this does not prove");
+{
+  const { ctx, page } = await open();
+  await ok("seven limit cards, each says what we did about it, and the section says the ratings are our judgement", async () => {
+    eq(await page.locator(".limit").count(), 7); eq(await page.locator(".limit .did").count(), 7); truthy(/our own judgement/.test(await page.textContent("#limits .sec-lede")), "judgement note");
+    const t = await page.textContent("#limitsGrid"); for (const s of ["Small test", "The panel did not help here", "Our wording", "A possible head start", "Knowing the rules", "One regulator, one country", "Reused code"]) truthy(t.includes(s), "missing: " + s);
+  });
+  await ok("the numbers on the cards are the real ones (9 rulings, 23 of 24 approved, 0 of 3 caught)", async () => {
+    const t = await page.textContent("#limitsGrid"); truthy(t.includes("Only 24 claims from 9 rulings"), "9 rulings"); truthy(t.includes("approved 23 of 24"), "23 of 24"); truthy(t.includes(`${stats.reppo_gate_on_serv_answer.reppo_flagged_wrong_answers} of ${stats.reppo_gate_on_serv_answer.serv_wrong_n}`), "caught"); truthy(!/\b11 rulings\b/.test(await page.textContent("body")), "the old 11 rulings must be gone");
+  });
+  await ok("impact chips filter the cards (all 7, high 2, medium 4, low 1) and report their state", async () => {
+    for (const [l, n] of [["High", 2], ["Medium", 4], ["Low", 1]]) { await page.locator("#fi button", { hasText: l }).click(); eq(await page.locator(".limit:visible").count(), n, l); eq(await page.locator("#fi button", { hasText: l }).getAttribute("aria-pressed"), "true"); truthy((await page.textContent("#icount")).includes(`${n} of 7`), "count text"); }
+    await page.locator("#fi button", { hasText: /^All/ }).click(); eq(await page.locator(".limit:visible").count(), 7);
+  });
+  await ok("each card has an accessible impact rating", async () => { const labels = await page.$$eval(".limit .meter", (m) => m.map((x) => x.getAttribute("aria-label"))); eq(labels.length, 7); truthy(labels.every((l) => /^Could change the result: (High|Medium|Low)$/.test(l)), labels.join("|")); });
+  await ctx.close();
+  const ph = await open({ w: 375, h: 812 });
+  await ok("375px: both sections fit without sideways scrolling and the tiles stay inside the screen", async () => { const [sw, cw] = await ph.page.evaluate(() => [document.documentElement.scrollWidth, document.documentElement.clientWidth]); truthy(sw <= cw, `${sw} > ${cw}`); truthy(await ph.page.evaluate(() => [...document.querySelectorAll("button.tile")].every((b) => b.getBoundingClientRect().right <= innerWidth + 1)), "tiles inside the screen"); });
+  await ph.ctx.close();
 }
 
 /* ================================================================ 5. the log */
@@ -269,7 +389,7 @@ for (const scheme of ["light", "dark"]) {
   await ok(`${scheme}: body text, card text, bands and result numbers are readable (4.5:1 or better)`, async () => {
     const pairs = await page.evaluate(() => {
       const parse = (c) => c.match(/[\d.]+/g).slice(0, 4).map(Number); const solid = (el) => { while (el) { const c = getComputedStyle(el).backgroundColor, p = parse(c); if (p.length < 4 || p[3] > 0.95) return p.slice(0, 3); el = el.parentElement; } return [255, 255, 255]; };
-      const sel = [[".panel h2", "section heading"], ["#cards .card .k", "card label"], ["#cards .card .s", "card detail"], [".steps li span", "step text"], ["details.claim .cbody p", "claim text"], ["details.claim .cbody h3", "claim title"], ["details.claim .band.bad", "misleading band"], ["details.claim .band.ok", "fair band"], ["details.claim .agree.yes", "agree strip"], ["details.claim .agree.no", "disagree strip"], ["details.claim .node b", "pipeline label"], ["details.claim .body p", "opened text"], [".tryform label", "form label"], [".note li", "limits note"], ["#vout", "log result"], [".try .privacy", "privacy note"], ["#try .examples .ex", "example button"]];
+      const sel = [[".panel h2", "section heading"], ["#cards .card .k", "card label"], ["#cards .card .s", "card detail"], [".steps li span", "step text"], ["details.claim .cbody p", "claim text"], ["details.claim .cbody h3", "claim title"], ["details.claim .band.bad", "misleading band"], ["details.claim .band.ok", "fair band"], ["details.claim .agree.yes", "agree strip"], ["details.claim .agree.no", "disagree strip"], ["details.claim .node b", "pipeline label"], ["details.claim .body p", "opened text"], [".tryform label", "form label"], [".limit p", "limit text"], [".limit h3", "limit title"], [".limit .did", "what we did"], [".limit .stat", "limit number"], [".limit .meter", "limit meter label"], [".fchip", "filter chip"], [".glance .gk", "tile row label"], [".legend span", "legend"], [".sec-lede", "section intro"], [".seal", "log seal line"], ["#vout", "log result"], [".try .privacy", "privacy note"], ["#try .examples .ex", "example button"]];
       return sel.map(([s, n]) => { const e = document.querySelector(s); if (!e) return [n, null]; return [n, parse(getComputedStyle(e).color).slice(0, 3), solid(e), getComputedStyle(e).fontSize]; });
     });
     const bad = []; for (const [n, fg, bg] of pairs) { if (!fg) { bad.push(n + ": not found"); continue; } const r = ratio(fg, bg); if (r < 4.5) bad.push(`${n} ${r.toFixed(2)}`); }

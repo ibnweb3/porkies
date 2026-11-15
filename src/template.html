@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Claim Audit: property ads vs the evidence</title>
-<meta name="description" content="Tests whether property advertising claims follow from their evidence, using real UK ASA rulings as the answer key. Built for the SERV Hackathon, Reppo track.">
+<title>Porkies: can an AI spot a misleading property ad?</title>
+<meta name="description" content="Porkies (UK slang for lies) tests whether an AI can spot misleading UK property ads, using real ASA rulings as the answer key. Try it live. Built for the SERV Hackathon, Reppo track.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cstyle%3Erect%7Bfill:%23355c70%7D@media(prefers-color-scheme:dark)%7Brect%7Bfill:%23a9c4d2%7D%7D%3C/style%3E%3Crect x='7' y='4' width='18' height='25' rx='4'/%3E%3Crect x='13' y='7' width='6' height='2' rx='1' fill='%23fff'/%3E%3C/svg%3E">
 <style>
 :root{--stage:#4f6f82;--stage2:#2b3f4c;--paper:#e9e9e6;--card:#f7f7f5;--ink:#15191c;--mute:#566067;--line:#d3d4cf;--accent:#355c70;--accent-ink:#fff;--strap:#2f6a85;--ok:#14532d;--okbg:#d6f0dd;--bad:#7f1d1d;--badbg:#f9d9d6;--warn:#78350f;--warnbg:#fbe9b8;--chip:#efefec;--focus:rgba(53,92,112,.55)}
@@ -75,31 +75,16 @@ p{margin:0 0 12px}
 .steps li{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px 18px;counter-increment:s}
 .steps li::before{content:"0" counter(s);display:block;font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--accent);margin-bottom:8px}
 .steps b{display:block;font-size:18px;letter-spacing:-.01em}.steps span{color:var(--mute);font-size:14.5px}
-/* claim badges */
 .bar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:0 0 16px}
 .toggle{display:inline-flex;gap:10px;align-items:center;cursor:pointer;min-height:44px;font-weight:600}
 .toggle input{width:20px;height:20px;accent-color:var(--accent)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;align-items:start}
-details{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;padding-top:14px}
-details::before{content:"";position:absolute;top:10px;left:50%;width:44px;height:7px;margin-left:-22px;border-radius:6px;background:var(--paper);box-shadow:inset 0 1px 2px rgba(0,0,0,.3)}
-summary{list-style:none;cursor:pointer;padding:14px 16px 16px;border-radius:22px;display:block}
-summary::-webkit-details-marker{display:none}
-summary .t{font-weight:600;font-size:16px;line-height:1.35;margin:8px 0 12px}
-summary .id{font-size:11px;letter-spacing:.12em;color:var(--mute);font-weight:700;text-transform:uppercase}
-summary .b{display:flex;gap:6px;flex-wrap:wrap}
-@media (hover:hover){summary:hover{background:var(--chip)}}
-.badge-chip{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:600;background:var(--chip);border:1px solid var(--line);white-space:nowrap}
 .ok{background:var(--okbg);color:var(--ok);border-color:transparent}.bad{background:var(--badbg);color:var(--bad);border-color:transparent}.warn{background:var(--warnbg);color:var(--warn);border-color:transparent}
-.body{padding:2px 16px 16px;border-top:1px solid var(--line)}
-.body h3{font-size:12px;color:var(--mute);margin:14px 0 4px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
-.body ul{margin:0;padding-left:20px}.body p{font-size:15px}
 .mono{font:13px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;word-break:break-all}
 button{font:inherit;font-weight:600;min-height:46px;padding:8px 20px;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;-webkit-user-select:none;user-select:none}
 button.primary{background:var(--ink);color:var(--paper)}
 @media (hover:hover){button:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}}
 .out{margin-top:12px;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:var(--card);min-height:52px}
 .note{background:var(--warnbg);border-radius:20px;padding:16px 20px;color:var(--ink)}
-.note ul{margin:0;padding-left:20px}.note li{margin:6px 0}
 .photo{position:fixed;inset:0;z-index:-1;pointer-events:none;background:url(img/london-sunset.jpg) 60% 78%/cover no-repeat}
 .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,20,29,.9) 0,rgba(10,20,29,.78) 38%,rgba(10,20,29,.3) 100%),linear-gradient(to top,rgba(10,20,29,.5) 0,transparent 35%)}
 footer{position:relative;color:#d8e2e8;font-size:14px;padding:22px 8px 0;max-width:1120px;margin:0 auto}
@@ -124,37 +109,121 @@ h2 i{color:var(--teal)}
 .cards .card::before{content:"";position:absolute;left:0;top:0;right:0;height:5px;background:var(--tone,var(--teal))}
 .cards .card .k{font-weight:600;color:var(--ink);font-size:14.5px}
 .cards .card .v{color:var(--tone,var(--teal))}
-/* claim badges */
-.grid{grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
-details.claim{background:var(--card);border:0;border-radius:22px;padding-top:0;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.04),0 16px 30px -20px rgba(20,32,44,.45)}
-details.claim::before{display:none}
-details.claim summary{padding:0;border-radius:22px}
-.band{display:flex;align-items:center;gap:8px;padding:14px 16px 12px;font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:var(--chip);color:var(--mute);position:relative}
-.band::after{content:"";position:absolute;top:6px;left:50%;width:40px;height:5px;margin-left:-20px;border-radius:4px;background:rgba(0,0,0,.14)}
+
+/* ---- Every claim: case files, glance tiles, filters ---- */
+:root{--lift:0 1px 0 rgba(0,0,0,.04),0 16px 30px -20px rgba(20,32,44,.45)}
+.sec-lede{color:var(--mute);max-width:64ch;margin:0 0 18px}
+.glance{background:var(--card);border-radius:22px;padding:18px 18px 14px;box-shadow:var(--lift);margin:0 0 16px}
+.glance-head{display:flex;justify-content:space-between;align-items:center;gap:6px 16px;flex-wrap:wrap;margin:0 0 10px}
+.glance-head b{font-size:16px;letter-spacing:-.01em}
+.glance-rows{display:grid;gap:12px}
+.glance-row{display:grid;grid-template-columns:170px 1fr;gap:8px 16px;align-items:center}
+.glance-row .gk{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mute)}
+@media (max-width:700px){.glance-row{grid-template-columns:1fr}}
+.tiles{display:flex;flex-wrap:wrap;gap:8px}
+button.tile{width:44px;height:44px;min-height:44px;padding:0;border-radius:13px;border:0;display:grid;place-items:center;color:#fff;background:var(--tone,#8b98a1);cursor:pointer;transition:transform .15s,opacity .15s,box-shadow .15s,background .15s}
+button.tile svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+button.tile.t-ok{--tone:var(--teal)}button.tile.t-bad{--tone:var(--coral)}
+button.tile.dim{opacity:.22;transform:scale(.9)}
+button.tile.hot{transform:scale(1.14);box-shadow:0 0 0 3px var(--card),0 0 0 5px var(--ink)}
+button.tile:focus-visible{outline:none;box-shadow:0 0 0 3px var(--card),0 0 0 6px var(--focus)}
+@media (hover:hover){button.tile:hover{transform:translateY(-3px) scale(1.06);background:var(--tone);box-shadow:0 8px 16px -8px var(--tone)}button.tile.dim:hover{opacity:.6}}
+body.veiled button.tile{background:#8b98a1}body.veiled button.tile svg{display:none}
+.legend{display:flex;gap:6px 18px;flex-wrap:wrap;margin:14px 0 0;font-size:13px;color:var(--mute)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend .sw{width:14px;height:14px;border-radius:5px;display:inline-block}
+.legend .sw.ok{background:var(--teal)}.legend .sw.bad{background:var(--coral)}
+.legend svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+.toolbar{display:flex;gap:10px 22px;flex-wrap:wrap;align-items:center;margin:0 0 16px}
+.fgroup{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.fgroup .fl{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mute);margin-right:2px}
+button.fchip{min-height:42px;padding:6px 14px;font-size:14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-weight:600;transition:background .15s,color .15s,border-color .15s,transform .15s}
+button.fchip .n{opacity:.7;font-variant-numeric:tabular-nums;margin-left:7px;font-weight:700}
+button.fchip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+button.fchip:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus)}
+@media (hover:hover){button.fchip:hover{border-color:var(--ink);background:var(--card);color:var(--ink)}button.fchip[aria-pressed="true"]:hover{background:var(--ink);color:var(--paper)}}
+button.fchip:active{transform:scale(.97)}
+.empty{text-align:center;color:var(--mute);padding:28px 12px;background:var(--card);border-radius:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;align-items:start}
+details.claim{position:relative;background:var(--card);border-radius:22px;overflow:hidden;box-shadow:var(--lift);transition:transform .2s ease,box-shadow .2s ease}
+details.claim summary{list-style:none;cursor:pointer;display:block;border-radius:22px}
+details.claim summary::-webkit-details-marker{display:none}
+details.claim summary:focus-visible{outline:none;box-shadow:inset 0 0 0 3px var(--focus)}
+@media (hover:hover){details.claim.done:hover{transform:translateY(-4px);box-shadow:0 1px 0 rgba(0,0,0,.04),0 24px 40px -22px rgba(20,32,44,.6)}details.claim:hover .dot{transform:scale(1.08)}details.claim:hover .more{color:var(--ink)}}
+.js-anim details.claim:not(.in),.js-anim .limit:not(.in){opacity:0;transform:translateY(16px)}
+.js-anim details.claim.in:not(.done),.js-anim .limit.in:not(.done){transition:opacity .5s ease var(--d,0ms),transform .55s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
+.js-anim .glance:not(.in) button.tile{opacity:0;transform:scale(.5)}
+.js-anim .glance.in button.tile{transition:opacity .3s ease calc(var(--i,0)*22ms),transform .4s cubic-bezier(.3,1.5,.5,1) calc(var(--i,0)*22ms),box-shadow .15s}
+@keyframes pop{from{opacity:0;transform:scale(.96) translateY(8px)}to{opacity:1;transform:none}}
+details.claim.pop,.limit.pop{animation:pop .26s ease-out}
+@keyframes ping{0%{box-shadow:0 0 0 0 var(--focus)}70%{box-shadow:0 0 0 16px rgba(0,0,0,0)}100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}}
+details.claim.ping{animation:ping .9s ease-out 2}
+.band{display:flex;align-items:center;gap:9px;padding:14px 16px 12px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--chip);color:var(--mute);position:relative;overflow:hidden}
+.band>*{position:relative}
+.band::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.08}
+.band.bad::before{background:repeating-linear-gradient(135deg,currentColor 0 2px,transparent 2px 12px)}
+.band.ok::before{background:radial-gradient(currentColor 1.3px,transparent 1.7px) 0 0/11px 11px;opacity:.14}
+.band::after{content:"";position:absolute;top:5px;left:50%;width:38px;height:5px;margin-left:-19px;border-radius:4px;background:rgba(0,0,0,.16)}
 .band svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.band .no{margin-left:auto;font-variant-numeric:tabular-nums;opacity:.8}
 .band.bad{background:var(--coralbg);color:var(--coral)}.band.ok{background:var(--tealbg);color:var(--teal)}
 .band .lab-hide{display:none}
-body.veiled .band{background:var(--chip);color:var(--mute)}body.veiled .band .lab-show,body.veiled .band .ico-show{display:none}body.veiled .band .lab-hide{display:inline}
-.cbody{padding:12px 16px 14px}
-.cbody .kind{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:700}
-.cbody h3{font-size:19px;line-height:1.2;margin:4px 0 8px;font-weight:700;letter-spacing:-.01em;color:var(--ink);text-transform:none}
-.cbody p{font-size:14.5px;line-height:1.5;color:var(--mute);margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.pipe{display:flex;position:relative;margin:16px 0 4px}
-.pipe::before{content:"";position:absolute;left:16.6%;right:16.6%;top:16px;height:2px;background:var(--line)}
-.node{flex:1;text-align:center;position:relative;font-size:12px;line-height:1.25;color:var(--mute)}
-.node .dot{width:34px;height:34px;border-radius:50%;margin:0 auto 6px;display:grid;place-items:center;color:#fff;background:var(--tone);box-shadow:0 0 0 4px var(--card)}
+body.veiled .band{background:var(--chip);color:var(--mute)}body.veiled .band::before{opacity:0}body.veiled .band .lab-show,body.veiled .band .ico-show{display:none}body.veiled .band .lab-hide{display:inline}
+.cbody{padding:16px 18px 8px}
+.cbody .kind{display:flex;gap:8px;align-items:center;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:700}
+.cbody .kind svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.cbody h3{font-size:20px;line-height:1.2;margin:8px 0 10px;font-weight:700;letter-spacing:-.015em;color:var(--ink);text-transform:none}
+.cbody .quote{position:relative;margin:0;padding:0 0 0 24px;font-size:14.5px;line-height:1.55;color:var(--mute);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.cbody .quote::before{content:"\201C";position:absolute;left:0;top:-4px;font:700 34px/1 Georgia,"Times New Roman",serif;color:var(--line)}
+.pipe{display:grid;grid-template-columns:repeat(3,1fr);position:relative;margin:20px 0 6px}
+.pipe::before,.pipe::after{content:"";position:absolute;left:16.6%;top:17px;height:3px;border-radius:3px}
+.pipe::before{right:16.6%;background:var(--line)}
+.pipe::after{width:66.8%;background:linear-gradient(90deg,var(--teal),var(--indigo));transform-origin:left}
+.js-anim details.claim:not(.in) .pipe::after{transform:scaleX(0)}
+.js-anim details.claim.in .pipe::after{transition:transform .75s cubic-bezier(.2,.7,.2,1) calc(var(--d,0ms) + 300ms)}
+.node{text-align:center;position:relative;font-size:12px;line-height:1.25;color:var(--mute)}
+.node .dot{width:36px;height:36px;border-radius:50%;margin:0 auto 7px;display:grid;place-items:center;color:#fff;background:var(--tone);box-shadow:0 0 0 4px var(--card);transition:transform .2s}
+.js-anim details.claim:not(.in) .node .dot{transform:scale(.3);opacity:0}
+.js-anim details.claim.in:not(.done) .node .dot{transition:transform .45s cubic-bezier(.3,1.6,.5,1) calc(var(--d,0ms) + 200ms + var(--k,0)*130ms),opacity .3s ease calc(var(--d,0ms) + 200ms + var(--k,0)*130ms)}
 .node .dot svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .node b{display:block;color:var(--ink);font-size:12.5px}
-.t-ok{--tone:var(--teal)}.t-bad{--tone:var(--coral)}.t-blue{--tone:var(--indigo)}.t-warn{--tone:var(--amber)}.t-none{--tone:#8b98a1}
-.agree{margin:12px 0 0;padding:8px 12px;border-radius:12px;font-size:13px;font-weight:600;display:flex;gap:8px;align-items:center}
+.t-ok{--tone:var(--teal)}.t-bad{--tone:var(--coral)}.t-blue{--tone:var(--indigo)}.t-warn{--tone:var(--amber)}.t-none{--tone:#7a8790}
+.agree{margin:14px 0 4px;padding:9px 12px;border-radius:12px;font-size:13px;font-weight:600;display:flex;gap:8px;align-items:center}
 .agree.yes{background:var(--tealbg);color:var(--teal)}.agree.no{background:var(--coralbg);color:var(--coral)}
 .agree svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.more{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-top:1px solid var(--line);font-size:13px;font-weight:600;color:var(--mute)}
+.more{display:flex;align-items:center;justify-content:space-between;padding:11px 18px;border-top:1px solid var(--line);font-size:13px;font-weight:600;color:var(--mute);transition:color .15s}
 .more svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;transition:transform .2s}
 details.claim[open] .more svg{transform:rotate(180deg)}
-details.claim .body{border-top:0;padding:4px 16px 16px;background:var(--card)}
-details.claim .body h3{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
-@media (hover:hover){details.claim summary:hover{background:transparent}details.claim summary:hover .more{color:var(--ink)}}
+details.claim .body{padding:6px 18px 18px;border-top:1px dashed var(--line);overflow:hidden}
+details.claim .body h3{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin:16px 0 5px;font-weight:700}
+details.claim .body ul{margin:0;padding-left:20px}details.claim .body p{font-size:15px}
+.seal{display:flex;gap:9px;align-items:center;margin-top:16px;padding:10px 12px;border-radius:12px;background:var(--chip);font:12.5px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute)}
+.seal svg{width:16px;height:16px;flex:none;fill:none;stroke:var(--teal);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---- What this does not prove ---- */
+.limits-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.limit{position:relative;background:var(--card);border-radius:20px;padding:18px 18px 16px 22px;box-shadow:var(--lift);overflow:hidden;transition:transform .2s ease,box-shadow .2s ease}
+.limit::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--tone)}
+@media (hover:hover){.limit.done:hover{transform:translateY(-4px);box-shadow:0 1px 0 rgba(0,0,0,.04),0 24px 40px -22px rgba(20,32,44,.6)}.limit:hover .ico{transform:rotate(-6deg) scale(1.06)}}
+.limit .head{display:flex;align-items:center;gap:14px}
+.limit .ico{width:46px;height:46px;border-radius:14px;background:var(--tonebg);color:var(--tone);display:grid;place-items:center;flex:none;transition:transform .2s}
+.limit .ico svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:80;stroke-dashoffset:0}
+.js-anim .limit:not(.in) .ico svg{stroke-dashoffset:80}
+.js-anim .limit.in .ico svg{transition:stroke-dashoffset .9s ease calc(var(--d,0ms) + 200ms)}
+.limit .stat{font-size:32px;font-weight:800;letter-spacing:-.03em;color:var(--tone);line-height:1;font-variant-numeric:tabular-nums}
+.limit .stat .u{display:block;margin-top:5px;font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mute)}
+.limit h3{font-size:18px;line-height:1.25;margin:14px 0 6px;letter-spacing:-.01em}
+.limit p{font-size:14.5px;color:var(--mute);margin:0 0 12px}
+.meter{display:flex;gap:5px;align-items:center;margin:0 0 12px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tone)}
+.meter span{margin-right:6px}
+.meter i{display:block;height:7px;width:34px;border-radius:5px;background:var(--line);overflow:hidden;position:relative}
+.meter i::after{content:"";position:absolute;inset:0;background:var(--tone);transform-origin:left}
+.meter i:not(.on)::after{transform:scaleX(0)}
+.js-anim .limit:not(.in) .meter i.on::after{transform:scaleX(0)}
+.js-anim .limit.in .meter i.on::after{transition:transform .5s ease calc(var(--d,0ms) + 350ms + var(--k,0)*140ms)}
+.limit .did{display:flex;gap:9px;align-items:flex-start;font-size:14px;line-height:1.45;padding:10px 12px;border-radius:12px;background:var(--tealbg);color:var(--teal);font-weight:600}
+.limit .did svg{width:17px;height:17px;flex:none;margin-top:2px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* ---- Try it ---- */
 .try .privacy{display:flex;gap:10px;align-items:flex-start;background:var(--amberbg);color:var(--ink);border-radius:14px;padding:12px 14px;font-size:14px;margin:0 0 16px}
@@ -185,6 +254,8 @@ details.claim .body h3{font-size:12px;letter-spacing:.08em;text-transform:upperc
 .cta2 svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .top .cta2:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(255,255,255,.7)}
 @media (hover:hover){.top .cta2:hover{background:rgba(255,255,255,.26)}}
+.eyebrow{display:flex;gap:10px;align-items:baseline;margin:0 0 10px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(241,244,245,.75)}
+.eyebrow b{color:#f1f4f5;font-size:15px;letter-spacing:.14em}
 </style>
 </head>
 <body>
@@ -192,7 +263,7 @@ details.claim .body h3{font-size:12px;letter-spacing:.08em;text-transform:upperc
 <div class="wrap">
 <div class="top">
 <nav aria-label="Sections">
-  <div class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="3" width="18" height="26" rx="4" fill="currentColor"/><rect x="13" y="6.5" width="6" height="2" rx="1" fill="#15191c"/><circle cx="16" cy="16" r="4.2" fill="none" stroke="#15191c" stroke-width="1.8"/><path d="M13 24h6" stroke="#15191c" stroke-width="1.8" stroke-linecap="round"/></svg><span>Claim Audit</span></div>
+  <div class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="3" width="18" height="26" rx="4" fill="currentColor"/><rect x="13" y="6.5" width="6" height="2" rx="1" fill="#15191c"/><circle cx="16" cy="16" r="4.2" fill="none" stroke="#15191c" stroke-width="1.8"/><path d="M13 24h6" stroke="#15191c" stroke-width="1.8" stroke-linecap="round"/></svg><span>Porkies</span></div>
   <div class="pills">
     <a class="pill" href="#try"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5l12 7.5-12 7.5z"/></svg>Try it</a>
     <a class="pill" href="#results"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V11M10 20V4M16 20v-6M22 20H2"/></svg>Results</a>
@@ -205,6 +276,7 @@ details.claim .body h3{font-size:12px;letter-spacing:.08em;text-transform:upperc
 
 <header class="hero">
   <div>
+    <p class="eyebrow"><b>Porkies</b><span>UK slang for lies</span></p>
     <h1>Can an AI spot a <em>misleading</em> property ad?</h1>
     <p class="lede">Property ads promise big returns and savings. The UK advertising watchdog has already ruled on many of them. We gave <span class="num" id="nItems">24</span> of those claims to an AI and checked: does it agree with the watchdog?</p>
     <div class="ctas"><a class="cta" href="#try">Try it yourself</a><a class="cta2" href="demo.mp4" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5l12 7.5-12 7.5z"/></svg>Watch the 2-minute demo</a></div>
@@ -215,7 +287,7 @@ details.claim .body h3{font-size:12px;letter-spacing:.08em;text-transform:upperc
       <div class="clip"></div>
       <div class="badge" id="badge">
         <div class="slot"></div>
-        <div class="org">CLAIM AUDIT · UK PROPERTY ADS</div>
+        <div class="org">PORKIES · UK PROPERTY ADS</div>
         <div class="big" id="bBig"></div>
         <div class="row">
           <svg class="ring" viewBox="0 0 64 64" width="64" height="64"><circle cx="32" cy="32" r="26" fill="none" stroke="var(--line)" stroke-width="8"/><circle id="ringArc" cx="32" cy="32" r="26" fill="none" stroke="var(--accent)" stroke-width="8" stroke-linecap="round" transform="rotate(-90 32 32)" stroke-dasharray="0 999"/><text id="ringTxt" x="32" y="37" text-anchor="middle" font-size="15" font-weight="800" fill="var(--ink)"></text></svg>
@@ -259,8 +331,22 @@ details.claim .body h3{font-size:12px;letter-spacing:.08em;text-transform:upperc
 </ol></section>
 
 <section id="claims" aria-labelledby="h-cl"><h2 id="h-cl"><i>03</i>Every claim</h2>
-<div class="bar"><label class="toggle"><input type="checkbox" id="reveal" checked> Show what the watchdog decided</label><span class="gl" id="count"></span></div>
-<div class="grid" id="list"></div></section>
+<p class="sec-lede" id="claimsLede"></p>
+<div class="glance" id="glance">
+  <div class="glance-head"><b id="glanceTitle"></b><label class="toggle"><input type="checkbox" id="reveal" checked> Show what the watchdog decided</label></div>
+  <div class="glance-rows" id="glanceRows"></div>
+  <div class="legend" id="legend" aria-hidden="true">
+    <span><i class="sw ok"></i>AI agreed with the watchdog</span><span><i class="sw bad"></i>AI disagreed</span>
+    <span><svg viewBox="0 0 24 24"><path d="M5 21V4M5 5h11l-2 4 2 4H5"/></svg>Watchdog: misleading</span><span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Watchdog: fair</span>
+  </div>
+</div>
+<div class="toolbar">
+  <div class="fgroup" role="group" aria-label="Filter by what the watchdog decided" id="fv"><span class="fl">Show</span></div>
+  <div class="fgroup" role="group" aria-label="Filter by kind of claim" id="fk"><span class="fl">Kind</span></div>
+  <span class="gl" id="count" role="status" aria-live="polite"></span>
+</div>
+<div class="grid" id="list"></div>
+<p class="empty" id="empty" hidden>No claims match that combination. Try another filter.</p></section>
 
 <section id="verify" aria-labelledby="h-ver"><h2 id="h-ver"><i>04</i>Check the log</h2>
 <p>Every step is saved in a log that shows tampering: each entry is locked to the one before it, so changing anything breaks the chain. Press the button and your own browser re-checks every entry. Nothing is sent anywhere.</p>
@@ -270,15 +356,14 @@ details.claim .body h3{font-size:12px;letter-spacing:.08em;text-transform:upperc
 <p class="gl" style="margin-top:10px">This shows tampering, it does not prevent it: someone controlling the whole file could rewrite all of it. That is why the log fingerprint is printed here and on the badge.</p></section>
 
 <section id="limits" aria-labelledby="h-lim"><h2 id="h-lim"><i>05</i>What this does not prove</h2>
-<div class="note"><ul>
-<li><b>Small test.</b> Only 24 claims from 11 rulings, and just 5 were judged fair by the watchdog. Treat every number as a first signal, not proof.</li>
-<li><b>Our wording.</b> An AI summarised each ruling, then we rewrote each claim neutrally. The link on each claim goes to the real ruling, which is the authority.</li>
-<li><b>Possible head start.</b> The AI may have read these public rulings while it was trained.</li>
-<li><b>Knowing the rules.</b> Some claims are flawed because a risk warning is missing, which tests whether the AI knows the advertising rules as much as whether it can reason.</li>
-<li><b>Reused code.</b> The tamper-evident log comes from an earlier project of the author, Backstop (MIT licence). Everything else was built during this hackathon.</li>
-</ul></div></section>
+<p class="sec-lede">Read this before you trust any number above. Each card says what the limit is and what we did about it. The bar is <b>our own judgement</b> of how much it could change the result.</p>
+<div class="toolbar">
+  <div class="fgroup" role="group" aria-label="Filter limits by how much they could change the result" id="fi"><span class="fl">Could change the result</span></div>
+  <span class="gl" id="icount" role="status" aria-live="polite"></span>
 </div>
-<footer><p>Rulings © Advertising Standards Authority, linked on each claim. Tests only; no personal data. Built for the SERV Hackathon, Edition 02. The hanging-badge idea is inspired by portfolio templates; the design and code here are original. Background photo: "Sunset over Bishopsgate" by <a href="https://unsplash.com/photos/onNuFFz3L_E" rel="noopener">Andrea De Santis</a> on Unsplash (Unsplash License).</p></footer>
+<div class="limits-grid" id="limitsGrid"></div></section>
+</div>
+<footer><p>Rulings © Advertising Standards Authority, linked on each claim. Tests only; no personal data. Porkies is UK slang for lies, from “porky pies”. Built for the SERV Hackathon, Edition 02. The hanging-badge idea is inspired by portfolio templates; the design and code here are original. Background photo: "Sunset over Bishopsgate" by <a href="https://unsplash.com/photos/onNuFFz3L_E" rel="noopener">Andrea De Santis</a> on Unsplash (Unsplash License).</p></footer>
 </div>
 
 <script type="application/json" id="data">__DATA__</script>
@@ -297,7 +382,7 @@ $('#bLines').innerHTML='';
 for(const [a,b] of [['AI = watchdog',`${sa.correct} of ${S.items}`],['Approved first time',`${R.filter(r=>r.pass1.reppo.route==='ship').length}`],['Reconsidered',`${f.revised_n}`]]){const d=el('div');const bb=el('b','num',b);d.append(a+': ',bb);$('#bLines').append(d)}
 $('#bHead').textContent='LOG '+D.chain.head.slice(0,8)+'…'+D.chain.head.slice(-6);
 (function bars(){const svg=$('#bars');let x=0;const NS='http://www.w3.org/2000/svg';for(const ch of D.chain.head){const d=parseInt(ch,16);const w=1+(d%4)*.55,gap=1+((d>>2)%3)*.35;const r=document.createElementNS(NS,'rect');r.setAttribute('x',x.toFixed(2));r.setAttribute('y',0);r.setAttribute('width',w.toFixed(2));r.setAttribute('height',34);r.setAttribute('fill','currentColor');svg.append(r);x+=w+gap}svg.setAttribute('viewBox',`0 0 ${x.toFixed(1)} 34`)})();
-$('#strapText').textContent=('CLAIM AUDIT · SERV × REPPO · ').repeat(8);
+$('#strapText').textContent=('PORKIES · SERV × REPPO · ').repeat(8);
 
 /* ---- results cards ---- */
 const cards=[
@@ -313,7 +398,6 @@ $('#resnote').textContent=`We show counts, not percentages, on purpose: with onl
 const ROUTE={ship:'approved',review:'look again',block:'rejected'};
 const VERD={supported:'backed up',not_supported:'not backed up'};
 const ruling=(r)=>r.label==='flawed'?'not_supported':'supported';
-function chip(t,c){const b=el('span','badge-chip '+(c||''),t);return b}
 const TITLES={'cbre-yields':'Rental yields for a London tower','newbuild-forecast':'“50–100% return” on new flats','connectuk-roi':'“10–30% ROI” on land auctions','connectuk-auction':'Auction beats estate agents','landprofits-profits':'Millions in profit for course students','churchill-energy':'Save £1,000+ on energy bills','churchill-total':'Save £2,300 a year by downsizing','hkl-higher':'“Up to 10% higher sale prices”','hkl-sevendays':'“Only agent open seven days”','hkl-fees':'Leaflet with no double-fee warning','pb-saving':'“£4,158 average saving”','pb-thousands':'“You could save thousands”','remax-personal':'“Your personal agent all the way”','remax-viewings':'Accompanied viewings','remax-number1':'“#1 in the world for sales”','remax-social':'Personal social media campaign','remax-board':'Personalised sale board','remax-feedback':'Same-day viewing feedback','remax-negotiation':'Skilled negotiation','lodges-return':'Guaranteed holiday-lodge returns','lodges-risk':'Lodge ad with no risk warning','connectuk-risk':'Land ad with no risk warning','landprofits-risk':'Course ad with no risk warning','newbuild-risk':'Investor email with no risk warning'};
 const KIND={substantiation:'Is the number backed up?',comparison:'Is the comparison fair?',omission:'Is something left out?'};
 const IC={calc:'<rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 7.5h7M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h.01M15 16h.01"/>',ai:'<path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4zM18 15l.9 2.1 2.1.9-2.1.9L18 21l-.9-2.1-2.1-.9 2.1-.9z"/>',panel:'<circle cx="9" cy="9" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3.5 19c.6-3 3-4.5 5.5-4.5s4.9 1.5 5.5 4.5M15.5 14.6c2.2-.3 4.2.9 5 3.4"/>',ok:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>',flag:'<path d="M5 21V4M5 5h11l-2 4 2 4H5"/>',look:'<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.2-4.2"/>',chev:'<path d="M6 9l6 6 6-6"/>',shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>'};
@@ -321,22 +405,48 @@ const svg=(k)=>'<svg viewBox="0 0 24 24" aria-hidden="true">'+IC[k]+'</svg>';
 const html=(tag,cls,inner)=>{const e=el(tag,cls);e.innerHTML=inner;return e};
 function node(tone,ico,title,sub){return html('div','node t-'+tone,'<div class="dot">'+svg(ico)+'</div><b></b><span></span>')}
 function mk(tone,ico,title,sub){const n=node(tone,ico);n.querySelector('b').textContent=title;n.querySelector('span').textContent=sub;return n}
-function row(r){
-  const d=el('details','claim');const s=el('summary');
-  const bad=r.label==='flawed';
+IC.scale='<path d="M12 4v16M6 20h12M5 7h14M5 7l-3 7a3 3 0 006 0zM19 7l-3 7a3 3 0 006 0z"/>';IC.gap='<circle cx="12" cy="12" r="9" stroke-dasharray="3.2 3.2"/><path d="M12 8v4.5M12 16v.01"/>';
+IC.doc='<path d="M6 3h8l4 4v14H6zM14 3v4h4M9 12h6M9 16h6"/>';IC.eye='<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>';IC.code='<path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/>';
+const REDUCE=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const ANIM=!REDUCE&&'IntersectionObserver' in window;
+if(ANIM)document.documentElement.classList.add('js-anim');
+const ORDER=['substantiation','comparison','omission'];
+const KNAME={substantiation:'Numbers',comparison:'Comparisons',omission:'Omissions'};
+const KICON={substantiation:'calc',comparison:'scale',omission:'gap'};
+const ENTRY={};for(const e of D.chain.entries){if(e.type==='item')ENTRY[e.data.id]=e}
+const SORTED=[...R].sort((a,b)=>ORDER.indexOf(a.group)-ORDER.indexOf(b.group)||(TITLES[a.id]||a.id).localeCompare(TITLES[b.id]||b.id));
+const RUL=new Set(R.map(r=>r.source)).size,OM=R.filter(r=>r.group==='omission').length,SHIP=R.filter(r=>r.pass1.reppo.route==='ship').length;
+
+/* one observer for every animated element: plays the entrance once, then runs any count-ups */
+function countUp(n){const to=+n.dataset.to;if(!ANIM){n.textContent=to;return}const t0=performance.now(),Dm=800;const step=(t)=>{const p=Math.min(1,(t-t0)/Dm);n.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+const io=ANIM?new IntersectionObserver((es)=>{let k=0;for(const e of es){if(!e.isIntersecting)continue;const x=e.target;x.style.setProperty('--d',Math.min(k++,6)*70+'ms');x.classList.add('in');setTimeout(()=>x.classList.add('done'),1300);io.unobserve(x);x.querySelectorAll('.cnt').forEach(countUp)}},{threshold:.12,rootMargin:'0px 0px -6% 0px'}):null;
+function watch(x){if(io)io.observe(x);else{x.classList.add('in','done');x.querySelectorAll('.cnt').forEach(countUp)}}
+function showNow(x){x.classList.add('in','done');if(io)io.unobserve(x)}
+
+/* smooth open and close for a case file (skipped when the visitor prefers reduced motion) */
+function toggleCard(d,want){
+  const body=d.querySelector('.body');if(d.dataset.busy)return;const opening=want===undefined?!d.open:want;
+  if(REDUCE||!body.animate){d.open=opening;return}
+  d.dataset.busy='1';
+  if(opening){d.open=true;const h=body.offsetHeight;body.animate([{height:'0px',opacity:0},{height:h+'px',opacity:1}],{duration:220,easing:'ease-out'}).onfinish=()=>{delete d.dataset.busy}}
+  else{const h=body.offsetHeight;body.animate([{height:h+'px',opacity:1},{height:'0px',opacity:0}],{duration:170,easing:'ease-in'}).onfinish=()=>{d.open=false;delete d.dataset.busy}}
+}
+
+function row(r,i){
+  const d=el('details','claim');d.id='c-'+r.id;d.dataset.id=r.id;d.dataset.kind=r.group;
+  const bad=r.label==='flawed',agree=r.pass1.assessment.verdict===ruling(r),rv=r.pass1.reppo;
+  d.dataset.bad=bad?'1':'0';d.dataset.agree=agree?'1':'0';d.dataset.route=rv.route;
+  const s=el('summary');
   const band=el('div','band '+(bad?'bad':'ok'));band.dataset.asa='1';
-  band.append(html('span','ico-show',svg(bad?'flag':'ok')),el('span','lab-show',bad?'Watchdog: misleading':'Watchdog: fair claim'),el('span','lab-hide','Watchdog verdict hidden'));
+  band.append(html('span','ico-show',svg(bad?'flag':'ok')),el('span','lab-show',bad?'Watchdog: misleading':'Watchdog: fair claim'),el('span','lab-hide','Watchdog verdict hidden'),el('span','no','No. '+String(i+1).padStart(2,'0')));
   const cb=el('div','cbody');
-  cb.append(el('div','kind',KIND[r.group]||r.group),el('h3','',TITLES[r.id]||r.id),el('p','',r.claim));
+  cb.append(html('div','kind',svg(KICON[r.group])+'<span></span>'),el('h3','',TITLES[r.id]||r.id),el('p','quote',r.claim));
+  cb.querySelector('.kind span').textContent=KIND[r.group]||r.group;
   const pipe=el('div','pipe');
   const figs=!(r.checks.length===1&&r.checks[0].startsWith('No figures'));
-  pipe.append(mk(figs?'ok':'none','calc','Calculator',figs?'sums checked':'no figures'));
   const sup=r.pass1.assessment.verdict==='supported';
-  pipe.append(mk(sup?'ok':'bad','ai',sup?'Backed up':'Not backed up','AI verdict'));
-  const rv=r.pass1.reppo;
-  pipe.append(mk(rv.route==='ship'?'blue':rv.route==='block'?'bad':'warn','panel',rv.route==='ship'?'Approved':rv.route==='block'?'Rejected':'Look again','Panel '+rv.score+'/100'));
+  [mk(figs?'ok':'none','calc','Calculator',figs?'sums checked':'no figures'),mk(sup?'ok':'bad','ai',sup?'Backed up':'Not backed up','AI verdict'),mk(rv.route==='ship'?'blue':rv.route==='block'?'bad':'warn','panel',rv.route==='ship'?'Approved':rv.route==='block'?'Rejected':'Look again','Panel '+rv.score+'/100')].forEach((n,k)=>{n.style.setProperty('--k',k);pipe.append(n)});
   cb.append(pipe);
-  const agree=r.pass1.assessment.verdict===ruling(r);
   const ag=html('div','agree '+(agree?'yes':'no'),svg(agree?'ok':'x')+'<span></span>');ag.dataset.asa='1';
   ag.querySelector('span').textContent=agree?'The AI agrees with the watchdog':'The AI disagrees with the watchdog';
   cb.append(ag);
@@ -352,11 +462,89 @@ function row(r){
   if(r.pass2){sec(`The AI after the panel’s comments: ${VERD[r.pass2.assessment.verdict]} (confidence ${r.pass2.assessment.confidence})`,sv(r.pass2.assessment));sec('The panel’s view of the new answer',rp(r.pass2.reppo))}
   if(r.error)sec('Error',el('p','',r.error));
   const a=el('a','link','Read the watchdog’s ruling');a.href=r.source;a.rel='noopener';a.target='_blank';const p=el('p');p.append(a);body.append(p);
-  d.append(body);return d;
+  const en=ENTRY[r.id];if(en){const sl=html('div','seal',svg('shield')+'<span></span>');sl.querySelector('span').textContent=`Sealed in log entry ${en.n} · ${en.hash.slice(0,10)}…${en.hash.slice(-6)}`;body.append(sl)}
+  d.append(body);
+  s.addEventListener('click',e=>{if(REDUCE)return;e.preventDefault();toggleCard(d)});
+  return d;
 }
-for(const r of R)$('#list').append(row(r));
-$('#count').textContent=`${R.length} claims`;
-$('#reveal').addEventListener('change',e=>{document.body.classList.toggle('veiled',!e.target.checked);document.querySelectorAll('.agree').forEach(n=>n.style.display=e.target.checked?'':'none')});
+const claimCards=SORTED.map(row);const byId=Object.fromEntries(claimCards.map(c=>[c.dataset.id,c]));
+claimCards.forEach(c=>{$('#list').append(c);watch(c)});
+
+/* the 24 at a glance: one tile per claim, grouped by kind */
+const TIP=(r,veiled)=>{const bad=r.label==='flawed',agree=r.pass1.assessment.verdict===ruling(r);return veiled?`${TITLES[r.id]||r.id}. Open this claim.`:`${TITLES[r.id]||r.id}: watchdog ${bad?'misleading':'fair'}, the AI ${agree?'agreed':'disagreed'}. Open this claim.`};
+const tiles=new Map();let ti=0;
+$('#claimsLede').textContent=`All ${R.length} real claims at a glance. Press a tile to open its case file, or filter the cards below.`;
+$('#glanceTitle').textContent=`The ${R.length} at a glance`;
+for(const k of ORDER){
+  const rs=SORTED.filter(r=>r.group===k);const g=el('div','glance-row');g.append(el('div','gk',KIND[k]));const tl=el('div','tiles');
+  for(const r of rs){const bad=r.label==='flawed',agree=r.pass1.assessment.verdict===ruling(r);
+    const b=el('button','tile t-'+(agree?'ok':'bad'));b.type='button';b.dataset.id=r.id;b.innerHTML=svg(bad?'flag':'ok');b.style.setProperty('--i',ti++);
+    b.setAttribute('aria-label',TIP(r,false));b.title=TIP(r,false);
+    b.addEventListener('click',()=>jump(r.id));tiles.set(r.id,b);tl.append(b)}
+  g.append(tl);$('#glanceRows').append(g)}
+watch($('#glance'));
+claimCards.forEach(c=>{const tl=tiles.get(c.dataset.id);c.addEventListener('mouseenter',()=>tl.classList.add('hot'));c.addEventListener('mouseleave',()=>tl.classList.remove('hot'));c.addEventListener('focusin',()=>tl.classList.add('hot'));c.addEventListener('focusout',()=>tl.classList.remove('hot'))});
+function jump(id){
+  const d=byId[id];if(d.hidden){F.v='all';F.k='all';syncChips();apply(false)}
+  showNow(d);d.scrollIntoView({behavior:REDUCE?'auto':'smooth',block:'center'});
+  setTimeout(()=>{if(!d.open)toggleCard(d,true);d.classList.remove('ping');void d.offsetWidth;d.classList.add('ping');setTimeout(()=>d.classList.remove('ping'),1900)},REDUCE?0:450);
+}
+
+/* filters */
+const F={v:'all',k:'all'};
+const VCH=[['all','All'],['bad','Misleading'],['ok','Fair'],['dis','AI disagreed']];
+const KCH=[['all','All kinds'],...ORDER.map(k=>[k,KNAME[k]])];
+const cnt={all:claimCards.length,bad:claimCards.filter(c=>c.dataset.bad==='1').length,ok:claimCards.filter(c=>c.dataset.bad==='0').length,dis:claimCards.filter(c=>c.dataset.agree==='0').length};for(const k of ORDER)cnt[k]=claimCards.filter(c=>c.dataset.kind===k).length;
+const chips=[];
+function mkChip(host,group,val,label,n){const b=el('button','fchip');b.type='button';b.dataset.g=group;b.dataset.v=val;b.append(document.createTextNode(label));b.append(el('span','n',String(n)));
+  b.addEventListener('click',()=>{F[group]=val;if(group==='v'&&val!=='all'&&!$('#reveal').checked){$('#reveal').checked=true;$('#reveal').dispatchEvent(new Event('change'))}syncChips();apply(true)});host.append(b);chips.push(b)}
+VCH.forEach(([v,l])=>mkChip($('#fv'),'v',v,l,cnt[v]));KCH.forEach(([v,l])=>mkChip($('#fk'),'k',v,l,cnt[v]));
+function syncChips(){chips.forEach(b=>b.setAttribute('aria-pressed',String(F[b.dataset.g]===b.dataset.v)))}
+function apply(animate){
+  let shown=0;
+  for(const d of claimCards){
+    const bad=d.dataset.bad==='1',ag=d.dataset.agree==='1';
+    const mv=F.v==='all'||(F.v==='bad'&&bad)||(F.v==='ok'&&!bad)||(F.v==='dis'&&!ag),mk=F.k==='all'||d.dataset.kind===F.k,show=mv&&mk;
+    const was=!d.hidden;d.hidden=!show;if(show)shown++;
+    if(show&&!was&&animate&&!REDUCE&&d.classList.contains('in')){d.classList.remove('pop');void d.offsetWidth;d.classList.add('pop');setTimeout(()=>d.classList.remove('pop'),320)}
+    tiles.get(d.dataset.id).classList.toggle('dim',!show);
+  }
+  $('#count').textContent=shown===claimCards.length?`Showing all ${shown}`:`Showing ${shown} of ${claimCards.length}`;$('#empty').hidden=shown>0;
+}
+syncChips();apply(false);
+
+/* the watchdog's verdicts can be hidden, so a visitor can guess first */
+function setVeil(on){document.body.classList.toggle('veiled',on);document.querySelectorAll('.agree').forEach(n=>n.style.display=on?'none':'');for(const r of R){const b=tiles.get(r.id);b.setAttribute('aria-label',TIP(r,on));b.title=TIP(r,on)}}
+$('#reveal').addEventListener('change',e=>setVeil(!e.target.checked));
+
+/* ---- What this does not prove ---- */
+const IMP={3:['High','var(--coral)','var(--coralbg)'],2:['Medium','var(--amber)','var(--amberbg)'],1:['Low','var(--teal)','var(--tealbg)']};
+const LIMITS=[
+ {t:'Small test',imp:3,to:R.length,u:'claims tested',ic:'calc',p:`Only ${R.length} claims from ${RUL} rulings, and just ${S.asa_sound} were judged fair by the watchdog. One answer changes any percentage a lot.`,did:'We show counts, not percentages.'},
+ {t:'The panel did not help here',imp:3,txt:`${g.reppo_flagged_wrong_answers} of ${g.serv_wrong_n}`,u:'AI mistakes caught',ic:'panel',p:`The Reppo panel approved ${SHIP} of ${R.length} answers, including all ${g.serv_wrong_n} wrong ones. In this test it did not catch the AI’s mistakes.`,did:'We report it plainly and show every panel score.'},
+ {t:'Our wording',imp:2,to:RUL,u:'rulings paraphrased',ic:'doc',p:'An AI summarised each ruling, then we rewrote each claim neutrally.',did:'Every claim links to the real ruling, and a test checks that no verdict words leak into the wording.'},
+ {t:'A possible head start',imp:2,txt:'Public',u:'all the rulings',ic:'eye',p:'These rulings are public, so the AI may have read them while it was trained.',did:'We cannot rule it out, so we say so.'},
+ {t:'Knowing the rules',imp:2,to:OM,u:'claims about missing warnings',ic:'gap',p:`${OM} claims are flawed because a risk warning or a cost is left out. That tests whether the AI knows the advertising rules, as much as whether it can reason.`,did:'Claims are tagged by kind, so you can filter them above.'},
+ {t:'One regulator, one country',imp:2,to:1,u:'regulator: the UK ASA',ic:'flag',p:'Other countries and regulators judge ads differently. This is not legal or financial advice.',did:'The page says so up front.'},
+ {t:'Reused code',imp:1,to:3,u:'files from Backstop',ic:'code',p:'The tamper-evident log code comes from the author’s earlier project, Backstop (MIT licence).',did:'Everything else was built during this hackathon.'},
+];
+const lcards=LIMITS.map(L=>{
+  const [lab,tone,bg]=IMP[L.imp];const c=el('article','limit');c.dataset.imp=String(L.imp);c.style.setProperty('--tone',tone);c.style.setProperty('--tonebg',bg);
+  const head=el('div','head');head.append(html('div','ico',svg(L.ic)));
+  const st=el('div','stat num');
+  if(L.to!==undefined){st.append(el('span','sr',String(L.to)));const n=el('span','cnt',ANIM?'0':String(L.to));n.dataset.to=String(L.to);n.setAttribute('aria-hidden','true');st.append(n)}else st.append(document.createTextNode(L.txt));
+  st.append(el('span','u',L.u));head.append(st);
+  const meter=el('div','meter');meter.setAttribute('role','img');meter.setAttribute('aria-label','Could change the result: '+lab);meter.append(el('span','',lab));[1,2,3].forEach((k,j)=>{const i=el('i',k<=L.imp?'on':'');i.style.setProperty('--k',j);meter.append(i)});
+  const did=html('div','did',svg('ok')+'<span></span>');did.querySelector('span').textContent=L.did;
+  c.append(head,el('h3','',L.t),meter,el('p','',L.p),did);return c});
+lcards.forEach(c=>{$('#limitsGrid').append(c);watch(c)});
+const FI={v:'all'};const ichips=[];
+[['all','All',lcards.length],['3','High',lcards.filter(c=>c.dataset.imp==='3').length],['2','Medium',lcards.filter(c=>c.dataset.imp==='2').length],['1','Low',lcards.filter(c=>c.dataset.imp==='1').length]].forEach(([v,l,n])=>{
+  const b=el('button','fchip');b.type='button';b.dataset.v=v;b.append(document.createTextNode(l));b.append(el('span','n',String(n)));
+  b.addEventListener('click',()=>{FI.v=v;applyI(true)});$('#fi').append(b);ichips.push(b)});
+function applyI(animate){let shown=0;for(const c of lcards){const show=FI.v==='all'||c.dataset.imp===FI.v;const was=!c.hidden;c.hidden=!show;if(show)shown++;if(show&&!was&&animate&&!REDUCE&&c.classList.contains('in')){c.classList.remove('pop');void c.offsetWidth;c.classList.add('pop');setTimeout(()=>c.classList.remove('pop'),320)}}
+  ichips.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===FI.v)));$('#icount').textContent=shown===lcards.length?`All ${shown} limits`:`${shown} of ${lcards.length} limits`}
+applyI(false);
 (function(){const links=[...document.querySelectorAll('.pill')];const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));const io=new IntersectionObserver(es=>{for(const e of es){if(e.isIntersecting){links.forEach(a=>a.removeAttribute('aria-current'));const a=map.get(e.target.id);if(a)a.setAttribute('aria-current','true')}}},{rootMargin:'-35% 0px -55% 0px'});for(const id of map.keys()){const s=document.getElementById(id);if(s)io.observe(s)}})();
 
 /* ---- chain verifier ---- */
