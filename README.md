@@ -32,6 +32,8 @@ The "answer key" is the regulator's own ruling on each claim: 19 were ruled misl
 | Panel score when the AI was right / wrong | 98.8 / 99.3 (no separation) |
 | Answers sent back for a second look | 1 (the verdict did not change; the score rose because stray non-English text in the AI's output was fixed, which is formatting, not better reasoning) |
 
+**Live-path check:** on the live page the model proposes its own sums instead of using the hand-written checks. Running the same 24 claims that way (SERV only, no Reppo, one run; see `test/livepath.ts` and `out/livepath.json`): 19 of 19 misleading claims caught, 20 of 24 in agreement with the regulator (21 with hand-written sums), 4 of 5 fair claims flagged (3 before). The model found nothing to calculate for 13 of the 24 claims, so the judgement matters more than the checked arithmetic. One run: a one-claim change is within normal variation.
+
 **Honest reading:** SERV Reasoning is a good detector of unsupported property claims on this set but is too cautious on fair ones. In this design the Reppo panel approved 23 of 24 answers, including all three wrong ones, so it did not add measurable value as a gate here. The three wrong answers are judgement calls by the regulator (for example "#1 in the world for home sales"), which a panel can reasonably accept as the AI explained them. We report this rather than hide it. Counts, not percentages, are shown on purpose: with 24 claims one answer moves any rate a lot.
 
 ## How it uses SERV Reasoning

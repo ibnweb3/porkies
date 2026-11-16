@@ -416,7 +416,7 @@ details.claim .body p{font-size:14px}details.claim .body ul{font-size:13.5px}
 
 <section id="results" aria-labelledby="h-res"><h2 id="h-res"><i>01</i>Results</h2>
 <div class="cards" id="cards"></div>
-<p class="gl" id="resnote" style="margin-top:12px"></p></section>
+<p class="gl" id="resnote" style="margin-top:12px"></p><p class="gl" id="livenote" style="margin-top:8px"></p></section>
 
 <section id="how" aria-labelledby="h-how"><h2 id="h-how"><i>02</i>How it works</h2>
 <p class="sec-lede">Watch one real claim go through the four steps. Press a step to jump to it.</p>
@@ -499,6 +499,7 @@ const cards=[
 ];
 const TONES=['var(--teal)','var(--indigo)','var(--amber)','var(--violet)'];cards.forEach(([k,v,s],i)=>{const c=el('div','card');c.style.setProperty('--tone',TONES[i]);c.append(el('div','k',k),el('div','v num',v),el('div','s',s));$('#cards').append(c)});
 $('#resnote').textContent=`We show counts, not percentages, on purpose: with only ${S.items} claims, one answer changes any percentage a lot. (Second-opinion credits used: ${S.reppo_credits_charged.toLocaleString('en-GB')}.)`;
+if(D.livepath){const L=D.livepath;$('#livenote').textContent=`Does it hold on the live page? On the live page the AI picks its own sums instead of using ours. We ran the same ${L.items} claims that way (AI only, no second-opinion panel, one run): it caught ${L.flawed_caught} of ${L.flawed_n} misleading claims, as before, and agreed with the watchdog on ${L.correct} of ${L.items} instead of ${S.serv_alone.correct}, because it flagged ${L.sound_wrongly_flagged} of the ${L.sound_n} fair claims instead of ${S.serv_alone.sound_wrongly_flagged}. For ${L.no_calcs} claims it found nothing to calculate. One run, so a one-claim change is within normal variation.`}
 
 /* ---- claim badges ---- */
 const ROUTE={ship:'approved',review:'look again',block:'rejected'};
